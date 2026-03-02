@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { Languages, Globe } from 'lucide-react'
+import Image from 'next/image'
+import { Globe } from 'lucide-react'
 
 export function Footer() {
   return (
@@ -9,10 +10,13 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="p-2 bg-foreground rounded-lg">
-                <Languages className="w-5 h-5 text-background" />
-              </div>
-              <span className="font-bold text-xl">Nagri Translate</span>
+              <Image
+                src="/nagritranslate-logo.webp"
+                alt="Nagri Translate"
+                width={140}
+                height={40}
+                className="h-10 w-auto"
+              />
             </div>
             <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
               Free AI-powered online translation service supporting 248+ languages.

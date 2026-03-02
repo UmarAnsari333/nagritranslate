@@ -1,12 +1,14 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { 
-  Shield, 
-  Users, 
-  Globe, 
-  Zap, 
-  CheckCircle2, 
+import Link from 'next/link'
+import {
+  Shield,
+  Users,
+  Globe,
+  Zap,
+  CheckCircle2,
   Clock,
   Award,
   Lock,
@@ -16,6 +18,7 @@ import {
   HeartHandshake
 } from 'lucide-react'
 import { siteConfig } from '@/lib/seo'
+import { slugifyLanguage } from '@/lib/languages'
 
 // =====================================================
 // DIRECT ANSWER BLOCK - Optimized for AI Citation
@@ -485,6 +488,8 @@ const regionsData = [
 ]
 
 export function LanguagesByRegion() {
+  const [expanded, setExpanded] = useState<Record<string, boolean>>({})
+
   return (
     <section className="py-8" aria-label="Languages by Region">
       <div className="flex items-center gap-3 mb-6">
@@ -496,36 +501,46 @@ export function LanguagesByRegion() {
           <p className="text-sm text-muted-foreground">Explore our comprehensive language coverage</p>
         </div>
       </div>
-      
+
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {regionsData.map((region, index) => (
-          <motion.div
-            key={region.region}
-            initial={{ y: 20, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.3, delay: index * 0.05 }}
-            className="bg-gradient-to-br from-muted/30 to-muted/10 rounded-xl p-5 border"
-          >
-            <h3 className="font-semibold mb-1">{region.region}</h3>
-            <p className="text-xs text-muted-foreground mb-3">{region.speakers}</p>
-            <div className="flex flex-wrap gap-1">
-              {region.languages.slice(0, 5).map((lang) => (
-                <span 
-                  key={lang} 
-                  className="text-xs px-2 py-0.5 bg-teal-500/10 text-teal-600 dark:text-teal-400 rounded"
-                >
-                  {lang}
-                </span>
-              ))}
-              {region.languages.length > 5 && (
-                <span className="text-xs px-2 py-0.5 text-muted-foreground">
-                  +{region.languages.length - 5} more
-                </span>
-              )}
-            </div>
-          </motion.div>
-        ))}
+        {regionsData.map((region, index) => {
+          const isExpanded = !!expanded[region.region]
+          const visibleLangs = isExpanded ? region.languages : region.languages.slice(0, 5)
+          const hiddenCount = region.languages.length - 5
+
+          return (
+            <motion.div
+              key={region.region}
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
+              className="bg-gradient-to-br from-muted/30 to-muted/10 rounded-xl p-5 border"
+            >
+              <h3 className="font-semibold mb-1">{region.region}</h3>
+              <p className="text-xs text-muted-foreground mb-3">{region.speakers}</p>
+              <div className="flex flex-wrap gap-1">
+                {visibleLangs.map((lang) => (
+                  <Link
+                    key={lang}
+                    href={`/translation/${slugifyLanguage(lang)}-to-english`}
+                    className="text-xs px-2 py-0.5 bg-teal-500/10 text-teal-600 dark:text-teal-400 rounded hover:bg-teal-500/20 transition-colors"
+                  >
+                    {lang}
+                  </Link>
+                ))}
+                {!isExpanded && hiddenCount > 0 && (
+                  <button
+                    onClick={() => setExpanded((prev) => ({ ...prev, [region.region]: true }))}
+                    className="text-xs px-2 py-0.5 text-teal-600 dark:text-teal-400 hover:bg-teal-500/10 rounded transition-colors cursor-pointer"
+                  >
+                    +{hiddenCount} more
+                  </button>
+                )}
+              </div>
+            </motion.div>
+          )
+        })}
       </div>
     </section>
   )

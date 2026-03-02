@@ -553,7 +553,7 @@ export default function Home() {
         className="max-w-4xl mx-auto px-4 py-16"
       >
         <PeopleAlsoAskSection />
-        <Attribution lastUpdated="2025-11-20" />
+        <Attribution />
       </motion.section>
 
       {/* CTA Section */}
