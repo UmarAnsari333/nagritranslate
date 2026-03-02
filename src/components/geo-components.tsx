@@ -523,7 +523,7 @@ export function LanguagesByRegion() {
                 {visibleLangs.map((lang) => (
                   <Link
                     key={lang}
-                    href={`/translation/${slugifyLanguage(lang)}-to-english`}
+                    href={`/ai-translate/${slugifyLanguage(lang)}-to-english`}
                     className="text-xs px-2 py-0.5 bg-teal-500/10 text-teal-600 dark:text-teal-400 rounded hover:bg-teal-500/20 transition-colors"
                   >
                     {lang}
