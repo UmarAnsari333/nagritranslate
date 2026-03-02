@@ -34,6 +34,7 @@ const languageCategories = [
 export default function LanguagesPage() {
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('all')
+  const [expandedFamilies, setExpandedFamilies] = useState<Record<string, boolean>>({})
 
   // Filter languages based on search and category
   const filteredLanguages = useMemo(() => {
@@ -220,36 +221,44 @@ export default function LanguagesPage() {
             <h2 className="text-xl font-semibold">Language Families</h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {languageFamilies.slice(0, 6).map((family) => (
-              <div
-                key={family.name}
-                className="p-5 bg-gradient-to-br from-purple-500/5 via-pink-500/5 to-indigo-500/5 rounded-2xl border"
-              >
-                <div className="flex items-center gap-2 mb-2">
-                  <h3 className="font-semibold">{family.name}</h3>
-                  <span className="text-xs px-2 py-0.5 bg-purple-500/10 text-purple-600 dark:text-purple-400 rounded-full">
-                    {family.languages.length} languages
-                  </span>
-                </div>
-                <p className="text-sm text-muted-foreground mb-3">{family.description}</p>
-                <div className="flex flex-wrap gap-1">
-                  {family.languages.slice(0, 4).map((lang) => (
-                    <Link
-                      key={lang}
-                      href={`/translation/${slugifyLanguage(lang)}-to-english`}
-                      className="px-2 py-1 bg-purple-500/5 rounded-md border border-purple-500/20 text-xs hover:border-purple-500/40 hover:bg-purple-500/10 transition-all"
-                    >
-                      {lang}
-                    </Link>
-                  ))}
-                  {family.languages.length > 4 && (
-                    <span className="px-2 py-1 text-xs text-muted-foreground">
-                      +{family.languages.length - 4} more
+            {languageFamilies.slice(0, 6).map((family) => {
+              const isExpanded = !!expandedFamilies[family.name]
+              const visibleLangs = isExpanded ? family.languages : family.languages.slice(0, 4)
+              const hiddenCount = family.languages.length - 4
+              return (
+                <div
+                  key={family.name}
+                  className="p-5 bg-gradient-to-br from-purple-500/5 via-pink-500/5 to-indigo-500/5 rounded-2xl border"
+                >
+                  <div className="flex items-center gap-2 mb-2">
+                    <h3 className="font-semibold">{family.name}</h3>
+                    <span className="text-xs px-2 py-0.5 bg-purple-500/10 text-purple-600 dark:text-purple-400 rounded-full">
+                      {family.languages.length} languages
                     </span>
-                  )}
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-3">{family.description}</p>
+                  <div className="flex flex-wrap gap-1">
+                    {visibleLangs.map((lang) => (
+                      <Link
+                        key={lang}
+                        href={`/ai-translate/${slugifyLanguage(lang)}-to-english`}
+                        className="px-2 py-1 bg-purple-500/5 rounded-md border border-purple-500/20 text-xs hover:border-purple-500/40 hover:bg-purple-500/10 transition-all"
+                      >
+                        {lang}
+                      </Link>
+                    ))}
+                    {!isExpanded && hiddenCount > 0 && (
+                      <button
+                        onClick={() => setExpandedFamilies((prev) => ({ ...prev, [family.name]: true }))}
+                        className="px-2 py-1 text-xs text-purple-600 dark:text-purple-400 hover:bg-purple-500/10 rounded-md border border-purple-500/20 transition-all cursor-pointer"
+                      >
+                        +{hiddenCount} more
+                      </button>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </motion.div>
 
