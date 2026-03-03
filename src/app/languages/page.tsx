@@ -162,7 +162,7 @@ export default function LanguagesPage() {
           {filteredLanguages.map((lang) => (
             <Link
               key={lang.id}
-              href={`/translation/${slugifyLanguage(lang.label)}-to-english`}
+              href={`/ai-translate/${slugifyLanguage(lang.label)}-to-english`}
               className="p-3 bg-gradient-to-r from-muted/30 to-muted/10 rounded-lg border hover:border-primary/30 hover:shadow-sm transition-all text-sm text-center group"
             >
               <span className="group-hover:text-primary transition-colors">{lang.label}</span>
@@ -193,7 +193,7 @@ export default function LanguagesPage() {
             {popularPairs.map((item) => (
               <Link
                 key={`${item.from}-${item.to}`}
-                href={`/translation/${slugifyLanguage(item.from)}-to-${slugifyLanguage(item.to)}`}
+                href={`/ai-translate/${slugifyLanguage(item.from)}-to-${slugifyLanguage(item.to)}`}
                 className="p-4 bg-gradient-to-br from-muted/50 to-muted/30 rounded-xl border hover:border-primary/30 hover:shadow-md transition-all text-sm group"
               >
                 <div className="flex items-center justify-between mb-2">
@@ -277,7 +277,7 @@ export default function LanguagesPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-4">
             <Link
-              href="/translation/english-to-spanish"
+              href="/ai-translate/english-to-spanish"
               className="p-5 bg-gradient-to-br from-red-500/5 to-orange-500/10 rounded-2xl border hover:border-red-500/30 transition-all group"
             >
               <div className="flex items-center gap-3 mb-3">
@@ -293,7 +293,7 @@ export default function LanguagesPage() {
               </div>
             </Link>
             <Link
-              href="/translation/english-to-chinese"
+              href="/ai-translate/english-to-chinese"
               className="p-5 bg-gradient-to-br from-red-500/5 to-yellow-500/10 rounded-2xl border hover:border-red-500/30 transition-all group"
             >
               <div className="flex items-center gap-3 mb-3">
@@ -309,7 +309,7 @@ export default function LanguagesPage() {
               </div>
             </Link>
             <Link
-              href="/translation/english-to-hindi"
+              href="/ai-translate/english-to-hindi"
               className="p-5 bg-gradient-to-br from-orange-500/5 to-green-500/10 rounded-2xl border hover:border-orange-500/30 transition-all group"
             >
               <div className="flex items-center gap-3 mb-3">
@@ -417,7 +417,7 @@ export default function LanguagesPage() {
                 {['English', 'Spanish', 'French', 'German', 'Italian', 'Portuguese', 'Dutch', 'Russian'].map((lang) => (
                   <Link
                     key={lang}
-                    href={`/translation/${slugifyLanguage(lang)}-to-english`}
+                    href={`/ai-translate/${slugifyLanguage(lang)}-to-english`}
                     className="px-2 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-md text-xs hover:bg-blue-500/20 transition-all"
                   >
                     {lang}
@@ -435,7 +435,7 @@ export default function LanguagesPage() {
                 {['Chinese', 'Japanese', 'Korean', 'Hindi', 'Vietnamese', 'Thai', 'Indonesian', 'Malay'].map((lang) => (
                   <Link
                     key={lang}
-                    href={`/translation/${slugifyLanguage(lang)}-to-english`}
+                    href={`/ai-translate/${slugifyLanguage(lang)}-to-english`}
                     className="px-2 py-1 bg-red-500/10 text-red-600 dark:text-red-400 rounded-md text-xs hover:bg-red-500/20 transition-all"
                   >
                     {lang}
@@ -453,7 +453,7 @@ export default function LanguagesPage() {
                 {['Swahili', 'Zulu', 'Yoruba', 'Hausa', 'Amharic', 'Somali', 'Igbo', 'Xhosa'].map((lang) => (
                   <Link
                     key={lang}
-                    href={`/translation/${slugifyLanguage(lang)}-to-english`}
+                    href={`/ai-translate/${slugifyLanguage(lang)}-to-english`}
                     className="px-2 py-1 bg-green-500/10 text-green-600 dark:text-green-400 rounded-md text-xs hover:bg-green-500/20 transition-all"
                   >
                     {lang}
@@ -471,7 +471,7 @@ export default function LanguagesPage() {
                 {['Arabic', 'Persian', 'Turkish', 'Hebrew', 'Kurdish Kurmanji', 'Pashto', 'Urdu'].map((lang) => (
                   <Link
                     key={lang}
-                    href={`/translation/${slugifyLanguage(lang)}-to-english`}
+                    href={`/ai-translate/${slugifyLanguage(lang)}-to-english`}
                     className="px-2 py-1 bg-amber-500/10 text-amber-600 dark:text-amber-400 rounded-md text-xs hover:bg-amber-500/20 transition-all"
                   >
                     {lang}
