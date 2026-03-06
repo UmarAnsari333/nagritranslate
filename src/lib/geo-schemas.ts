@@ -14,9 +14,7 @@ export const organizationSchema = {
   url: siteConfig.url,
   description: 'Free online translation service supporting 248+ languages. Trusted by millions of users worldwide for accurate, instant translations.',
   foundingDate: '2024',
-  sameAs: [
-    siteConfig.links.twitter,
-  ],
+  sameAs: [],
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'customer service',
@@ -40,13 +38,6 @@ export const organizationSchema = {
   ],
   // Authority signals
   award: 'Trusted by 10,000+ users monthly',
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.8',
-    ratingCount: '10000',
-    bestRating: '5',
-    worstRating: '1',
-  },
 }
 
 // =====================================================
@@ -182,12 +173,6 @@ export function createServiceSchema(sourceLang: string, targetLang: string) {
         },
       ],
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.8',
-      ratingCount: '10000',
-      bestRating: '5',
-    },
   }
 }
 
@@ -304,11 +289,6 @@ export const howToSchema = {
       position: 4,
     },
   ],
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.8',
-    ratingCount: '10000',
-  },
 }
 
 // =====================================================
@@ -363,11 +343,6 @@ export const softwareAppSchema = {
     '@type': 'Offer',
     price: '0',
     priceCurrency: 'USD',
-  },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.8',
-    ratingCount: '10000',
   },
   description: siteConfig.description,
   downloadUrl: siteConfig.url,
@@ -568,10 +543,20 @@ export const qaSchema = {
   mainEntity: qaSchemaItems.map((item) => ({
     '@type': 'Question',
     name: item.question,
+    text: item.question,
+    answerCount: 1,
+    datePublished: '2024-01-01',
+    upvoteCount: 0,
     acceptedAnswer: {
       '@type': 'Answer',
       text: item.answer,
-      author: item.author,
+      datePublished: '2024-01-01',
+      upvoteCount: 0,
+      author: {
+        '@type': item.author['@type'],
+        name: item.author.name,
+        url: siteConfig.url,
+      },
     },
   })),
 }
@@ -643,7 +628,7 @@ export function getAllSchemas() {
 }
 
 export function getPageSchemas(pageType: 'home' | 'translation' | 'about' | 'contact' | 'languages', sourceLang?: string, targetLang?: string) {
-  const schemas = [organizationSchema, webApplicationSchema]
+  const schemas: object[] = [organizationSchema, webApplicationSchema]
   
   switch (pageType) {
     case 'home':
