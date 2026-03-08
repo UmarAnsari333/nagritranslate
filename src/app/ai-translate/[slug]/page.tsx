@@ -317,7 +317,7 @@ export default function GeneralTranslatePage() {
       if (inputText.trim()) {
         translateText()
       }
-    }, 500)
+    }, 800)
 
     return () => clearTimeout(timer)
   }, [inputText, sourceLang, targetLang])
