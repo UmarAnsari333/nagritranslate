@@ -10,7 +10,9 @@ import {
   Bookmark,
   BookOpen,
   Menu,
-  X
+  X,
+  MessageSquare,
+  GraduationCap
 } from 'lucide-react'
 import { ThemeToggle } from '@/components/theme-toggle'
 
@@ -30,6 +32,12 @@ export function Navbar({ showHistoryButton = false, historyCount = 0, onHistoryC
   const isActive = (path: string) => {
     if (path === '/ai-translate') {
       return pathname === '/ai-translate' || pathname.startsWith('/ai-translate/')
+    }
+    if (path === '/phrases') {
+      return pathname === '/phrases' || pathname.startsWith('/phrases/')
+    }
+    if (path === '/learn') {
+      return pathname === '/learn' || pathname.startsWith('/learn/')
     }
     return pathname === path
   }
@@ -84,21 +92,43 @@ export function Navbar({ showHistoryButton = false, historyCount = 0, onHistoryC
               <BookOpen className="w-4 h-4" />
               Languages
             </Link>
-            <Link 
-              href="/about" 
+            <Link
+              href="/phrases"
+              className={`text-sm font-medium flex items-center gap-1 transition-colors ${
+                isActive('/phrases')
+                  ? 'text-primary'
+                  : 'text-muted-foreground hover:text-primary'
+              }`}
+            >
+              <MessageSquare className="w-4 h-4" />
+              Phrases
+            </Link>
+            <Link
+              href="/learn"
+              className={`text-sm font-medium flex items-center gap-1 transition-colors ${
+                isActive('/learn')
+                  ? 'text-primary'
+                  : 'text-muted-foreground hover:text-primary'
+              }`}
+            >
+              <GraduationCap className="w-4 h-4" />
+              Learn
+            </Link>
+            <Link
+              href="/about"
               className={`text-sm font-medium transition-colors ${
-                isActive('/about') 
-                  ? 'text-primary' 
+                isActive('/about')
+                  ? 'text-primary'
                   : 'text-muted-foreground hover:text-primary'
               }`}
             >
               About
             </Link>
-            <Link 
-              href="/contact" 
+            <Link
+              href="/contact"
               className={`text-sm font-medium transition-colors ${
-                isActive('/contact') 
-                  ? 'text-primary' 
+                isActive('/contact')
+                  ? 'text-primary'
                   : 'text-muted-foreground hover:text-primary'
               }`}
             >
@@ -180,22 +210,46 @@ export function Navbar({ showHistoryButton = false, historyCount = 0, onHistoryC
                   <BookOpen className="w-4 h-4" />
                   Languages
                 </Link>
-                <Link 
-                  href="/about" 
+                <Link
+                  href="/phrases"
+                  className={`text-sm font-medium flex items-center gap-2 transition-colors ${
+                    isActive('/phrases')
+                      ? 'text-primary'
+                      : 'text-muted-foreground hover:text-primary'
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <MessageSquare className="w-4 h-4" />
+                  Phrases
+                </Link>
+                <Link
+                  href="/learn"
+                  className={`text-sm font-medium flex items-center gap-2 transition-colors ${
+                    isActive('/learn')
+                      ? 'text-primary'
+                      : 'text-muted-foreground hover:text-primary'
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <GraduationCap className="w-4 h-4" />
+                  Learn
+                </Link>
+                <Link
+                  href="/about"
                   className={`text-sm font-medium transition-colors ${
-                    isActive('/about') 
-                      ? 'text-primary' 
+                    isActive('/about')
+                      ? 'text-primary'
                       : 'text-muted-foreground hover:text-primary'
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   About
                 </Link>
-                <Link 
-                  href="/contact" 
+                <Link
+                  href="/contact"
                   className={`text-sm font-medium transition-colors ${
-                    isActive('/contact') 
-                      ? 'text-primary' 
+                    isActive('/contact')
+                      ? 'text-primary'
                       : 'text-muted-foreground hover:text-primary'
                   }`}
                   onClick={() => setMobileMenuOpen(false)}

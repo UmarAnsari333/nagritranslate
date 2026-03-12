@@ -252,22 +252,23 @@ export const languages = [
 
 // Helper functions
 export function getLanguageByValue(value: string) {
-  return languages.find(lang => lang.value === value);
+  return languages.find((lang) => lang.value === value);
 }
 
 export function getLanguageBySlug(slug: string) {
   // Convert slug like "english" to find the language
-  const normalizedSlug = slug.toLowerCase().replace(/-/g, ' ');
-  return languages.find(lang => 
-    lang.label.toLowerCase() === normalizedSlug ||
-    lang.label.toLowerCase().replace(/\s+/g, '-') === slug.toLowerCase()
+  const normalizedSlug = slug.toLowerCase().replace(/-/g, " ");
+  return languages.find(
+    (lang) =>
+      lang.label.toLowerCase() === normalizedSlug ||
+      lang.label.toLowerCase().replace(/\s+/g, "-") === slug.toLowerCase()
   );
 }
 
 export function slugifyLanguage(label: string) {
-  return label.toLowerCase().replace(/\s+/g, '-');
+  return label.toLowerCase().replace(/\s+/g, "-");
 }
 
 export function unslugifyLanguage(slug: string) {
-  return slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+  return slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }

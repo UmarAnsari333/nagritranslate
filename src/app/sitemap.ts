@@ -1,5 +1,7 @@
 import { MetadataRoute } from 'next'
 import { languages, slugifyLanguage } from '@/lib/languages'
+import { phrasesIndex } from '@/lib/phrases-data'
+import { learnIndex } from '@/lib/learn-data'
 
 // Site build date - update this when you deploy
 const BUILD_DATE = new Date('2025-11-20')
@@ -70,6 +72,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date('2025-11-01'),
       changeFrequency: 'yearly',
       priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/phrases`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.88,
+    },
+    {
+      url: `${baseUrl}/learn`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.88,
     },
   ]
 
@@ -349,11 +363,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   })
 
+  // Phrases pages — high priority educational content
+  const phrasesPages: MetadataRoute.Sitemap = phrasesIndex.map((lang) => ({
+    url: `${baseUrl}/phrases/${lang.slug}`,
+    lastModified: BUILD_DATE,
+    changeFrequency: 'weekly' as const,
+    priority: 0.85,
+  }))
+
+  // Learn pages — high priority educational content
+  const learnPages: MetadataRoute.Sitemap = learnIndex.map((lang) => ({
+    url: `${baseUrl}/learn/${lang.slug}`,
+    lastModified: BUILD_DATE,
+    changeFrequency: 'weekly' as const,
+    priority: 0.85,
+  }))
+
   // Combine all URLs and remove duplicates
   const allUrls = new Map<string, MetadataRoute.Sitemap[number]>()
-  
+
   const allEntries = [
     ...staticPages,
+    ...phrasesPages,
+    ...learnPages,
     ...translationUrls,
     ...languageToEnglishUrls,
     ...englishToLanguageUrls,
