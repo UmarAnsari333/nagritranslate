@@ -2,9 +2,10 @@ import { MetadataRoute } from 'next'
 import { languages, slugifyLanguage } from '@/lib/languages'
 import { phrasesIndex } from '@/lib/phrases-data'
 import { learnIndex } from '@/lib/learn-data'
+import { vocabularyIndex } from '@/lib/vocabulary-data'
 
 // Site build date - update this when you deploy
-const BUILD_DATE = new Date('2025-11-20')
+const BUILD_DATE = new Date('2026-03-22')
 
 // Simple hash function to generate consistent but varied dates (all after Oct 2025)
 function getHashDate(str: string, baseDate: Date, maxDaysBack: number = 30): Date {
@@ -39,37 +40,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/languages`,
-      lastModified: new Date('2025-11-15'),
+      lastModified: new Date('2026-03-20'),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: new Date('2025-11-10'),
+      lastModified: new Date('2026-03-15'),
       changeFrequency: 'monthly',
       priority: 0.6,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: new Date('2025-11-10'),
+      lastModified: new Date('2026-03-15'),
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
       url: `${baseUrl}/privacy`,
-      lastModified: new Date('2025-11-01'),
+      lastModified: new Date('2026-03-01'),
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     {
       url: `${baseUrl}/terms`,
-      lastModified: new Date('2025-11-01'),
+      lastModified: new Date('2026-03-01'),
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     {
       url: `${baseUrl}/disclaimer`,
-      lastModified: new Date('2025-11-01'),
+      lastModified: new Date('2026-03-01'),
       changeFrequency: 'yearly',
       priority: 0.3,
     },
@@ -81,6 +82,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/learn`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.88,
+    },
+    {
+      url: `${baseUrl}/vocabulary`,
       lastModified: BUILD_DATE,
       changeFrequency: 'weekly',
       priority: 0.88,
@@ -379,6 +386,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }))
 
+  // Vocabulary pages — high priority educational content
+  const vocabularyPages: MetadataRoute.Sitemap = vocabularyIndex.map((lang) => ({
+    url: `${baseUrl}/vocabulary/${lang.slug}`,
+    lastModified: BUILD_DATE,
+    changeFrequency: 'weekly' as const,
+    priority: 0.85,
+  }))
+
   // Combine all URLs and remove duplicates
   const allUrls = new Map<string, MetadataRoute.Sitemap[number]>()
 
@@ -386,6 +401,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...staticPages,
     ...phrasesPages,
     ...learnPages,
+    ...vocabularyPages,
     ...translationUrls,
     ...languageToEnglishUrls,
     ...englishToLanguageUrls,

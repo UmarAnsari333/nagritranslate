@@ -12,7 +12,8 @@ import {
   Menu,
   X,
   MessageSquare,
-  GraduationCap
+  GraduationCap,
+  BookMarked
 } from 'lucide-react'
 import { ThemeToggle } from '@/components/theme-toggle'
 
@@ -38,6 +39,9 @@ export function Navbar({ showHistoryButton = false, historyCount = 0, onHistoryC
     }
     if (path === '/learn') {
       return pathname === '/learn' || pathname.startsWith('/learn/')
+    }
+    if (path === '/vocabulary') {
+      return pathname === '/vocabulary' || pathname.startsWith('/vocabulary/')
     }
     return pathname === path
   }
@@ -113,6 +117,17 @@ export function Navbar({ showHistoryButton = false, historyCount = 0, onHistoryC
             >
               <GraduationCap className="w-4 h-4" />
               Learn
+            </Link>
+            <Link
+              href="/vocabulary"
+              className={`text-sm font-medium flex items-center gap-1 transition-colors ${
+                isActive('/vocabulary')
+                  ? 'text-primary'
+                  : 'text-muted-foreground hover:text-primary'
+              }`}
+            >
+              <BookMarked className="w-4 h-4" />
+              Vocabulary
             </Link>
             <Link
               href="/about"
@@ -233,6 +248,18 @@ export function Navbar({ showHistoryButton = false, historyCount = 0, onHistoryC
                 >
                   <GraduationCap className="w-4 h-4" />
                   Learn
+                </Link>
+                <Link
+                  href="/vocabulary"
+                  className={`text-sm font-medium flex items-center gap-2 transition-colors ${
+                    isActive('/vocabulary')
+                      ? 'text-primary'
+                      : 'text-muted-foreground hover:text-primary'
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <BookMarked className="w-4 h-4" />
+                  Vocabulary
                 </Link>
                 <Link
                   href="/about"
