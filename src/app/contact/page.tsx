@@ -1,37 +1,50 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import Link from 'next/link'
-import { Mail, Clock, Globe, Zap, Languages, Shield, ArrowRight, Send, CheckCircle, MessageSquare } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Navbar } from '@/components/navbar'
-import { Footer } from '@/components/footer'
+import { useState } from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import {
+  Mail,
+  Clock,
+  Globe,
+  Zap,
+  Languages,
+  Shield,
+  ArrowRight,
+  Send,
+  CheckCircle,
+  MessageSquare,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
 
 export default function ContactPage() {
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    setStatus('loading')
-    const form = e.currentTarget
-    const data = new FormData(form)
+    e.preventDefault();
+    setStatus("loading");
+    const form = e.currentTarget;
+    const data = new FormData(form);
     try {
       // Replace YOUR_FORM_ID with your actual Formspree form ID
-      const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
-        method: 'POST',
+      const res = await fetch("https://formspree.io/f/xwvweqlj", {
+        method: "POST",
         body: data,
-        headers: { Accept: 'application/json' },
-      })
+        headers: { Accept: "application/json" },
+      });
       if (res.ok) {
-        setStatus('success')
-        form.reset()
+        setStatus("success");
+        form.reset();
       } else {
-        setStatus('error')
+        setStatus("error");
       }
     } catch {
-      setStatus('error')
+      setStatus("error");
     }
   }
 
@@ -64,7 +77,8 @@ export default function ContactPage() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg text-muted-foreground max-w-2xl mx-auto"
           >
-            Have questions or feedback? We would love to hear from you. Fill out the form below or reach out directly.
+            Have questions or feedback? We would love to hear from you. Fill out
+            the form below or reach out directly.
           </motion.p>
         </div>
       </section>
@@ -75,27 +89,27 @@ export default function ContactPage() {
           {[
             {
               icon: Mail,
-              title: 'Email',
-              value: 'contact@nagritranslate.com',
-              color: 'text-blue-500',
-              bgColor: 'bg-blue-500/10',
-              gradient: 'from-blue-500/5 to-blue-500/10',
+              title: "Email",
+              value: "contact@nagritranslate.com",
+              color: "text-blue-500",
+              bgColor: "bg-blue-500/10",
+              gradient: "from-blue-500/5 to-blue-500/10",
             },
             {
               icon: Globe,
-              title: 'Location',
-              value: 'Available Worldwide',
-              color: 'text-emerald-500',
-              bgColor: 'bg-emerald-500/10',
-              gradient: 'from-emerald-500/5 to-emerald-500/10',
+              title: "Location",
+              value: "Available Worldwide",
+              color: "text-emerald-500",
+              bgColor: "bg-emerald-500/10",
+              gradient: "from-emerald-500/5 to-emerald-500/10",
             },
             {
               icon: Clock,
-              title: 'Support Hours',
-              value: '24/7 Available',
-              color: 'text-purple-500',
-              bgColor: 'bg-purple-500/10',
-              gradient: 'from-purple-500/5 to-purple-500/10',
+              title: "Support Hours",
+              value: "24/7 Available",
+              color: "text-purple-500",
+              bgColor: "bg-purple-500/10",
+              gradient: "from-purple-500/5 to-purple-500/10",
             },
           ].map((item, i) => (
             <motion.div
@@ -107,7 +121,9 @@ export default function ContactPage() {
               className={`p-6 bg-gradient-to-br ${item.gradient} rounded-2xl border`}
             >
               <div className="flex items-center gap-4">
-                <div className={`w-12 h-12 ${item.bgColor} rounded-xl flex items-center justify-center flex-shrink-0`}>
+                <div
+                  className={`w-12 h-12 ${item.bgColor} rounded-xl flex items-center justify-center flex-shrink-0`}
+                >
                   <item.icon className={`w-6 h-6 ${item.color}`} />
                 </div>
                 <div>
@@ -123,7 +139,6 @@ export default function ContactPage() {
       {/* Contact Form + Side Info */}
       <section className="max-w-6xl mx-auto px-4 py-12">
         <div className="grid md:grid-cols-2 gap-12 items-start">
-
           {/* Form */}
           <motion.div
             initial={{ y: 20, opacity: 0 }}
@@ -139,17 +154,18 @@ export default function ContactPage() {
               <h2 className="text-2xl font-bold">Send a Message</h2>
             </div>
 
-            {status === 'success' ? (
+            {status === "success" ? (
               <div className="flex flex-col items-center justify-center py-12 text-center">
                 <CheckCircle className="w-16 h-16 text-green-500 mb-4" />
                 <h3 className="text-xl font-bold mb-2">Message Sent!</h3>
                 <p className="text-muted-foreground">
-                  Thanks for reaching out. We&apos;ll get back to you within 24–48 hours.
+                  Thanks for reaching out. We&apos;ll get back to you within
+                  24–48 hours.
                 </p>
                 <Button
                   variant="outline"
                   className="mt-6"
-                  onClick={() => setStatus('idle')}
+                  onClick={() => setStatus("idle")}
                 >
                   Send Another
                 </Button>
@@ -209,7 +225,7 @@ export default function ContactPage() {
                   />
                 </div>
 
-                {status === 'error' && (
+                {status === "error" && (
                   <p className="text-sm text-destructive">
                     Something went wrong. Please try again.
                   </p>
@@ -218,11 +234,11 @@ export default function ContactPage() {
                 <Button
                   type="submit"
                   size="lg"
-                  disabled={status === 'loading'}
+                  disabled={status === "loading"}
                   className="w-full gap-2"
                 >
                   <Send className="w-4 h-4" />
-                  {status === 'loading' ? 'Sending...' : 'Send Message'}
+                  {status === "loading" ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             )}
@@ -240,10 +256,16 @@ export default function ContactPage() {
               <h2 className="text-2xl font-bold mb-4">Why Contact Us?</h2>
               <ul className="space-y-3">
                 {[
-                  { icon: Zap, text: 'Report a translation issue or suggest improvements' },
-                  { icon: Shield, text: 'Privacy or data-related questions' },
-                  { icon: Globe, text: 'Language support or feature requests' },
-                  { icon: MessageSquare, text: 'General feedback or partnership inquiries' },
+                  {
+                    icon: Zap,
+                    text: "Report a translation issue or suggest improvements",
+                  },
+                  { icon: Shield, text: "Privacy or data-related questions" },
+                  { icon: Globe, text: "Language support or feature requests" },
+                  {
+                    icon: MessageSquare,
+                    text: "General feedback or partnership inquiries",
+                  },
                 ].map((item, i) => (
                   <motion.li
                     key={i}
@@ -256,7 +278,9 @@ export default function ContactPage() {
                     <div className="p-2 bg-primary/10 rounded-lg flex-shrink-0">
                       <item.icon className="w-4 h-4 text-primary" />
                     </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{item.text}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {item.text}
+                    </p>
                   </motion.li>
                 ))}
               </ul>
@@ -265,8 +289,9 @@ export default function ContactPage() {
             <div className="p-6 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
               <h3 className="font-semibold mb-2">Quick Response Guarantee</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                We typically respond to all inquiries within 24–48 hours. For urgent translation
-                issues, please include as much detail as possible in your message.
+                We typically respond to all inquiries within 24–48 hours. For
+                urgent translation issues, please include as much detail as
+                possible in your message.
               </p>
             </div>
           </motion.div>
@@ -286,10 +311,46 @@ export default function ContactPage() {
         </motion.h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
-            { href: '/ai-translate', icon: Zap, label: 'Start Translating', desc: 'Free instant translation', color: 'text-blue-500', bg: 'bg-blue-500/10', gradient: 'from-blue-500/5 to-blue-500/10', shadow: 'hover:shadow-blue-500/20' },
-            { href: '/languages', icon: Languages, label: 'Browse Languages', desc: '248+ languages available', color: 'text-emerald-500', bg: 'bg-emerald-500/10', gradient: 'from-emerald-500/5 to-emerald-500/10', shadow: 'hover:shadow-emerald-500/20' },
-            { href: '/about', icon: Shield, label: 'About Us', desc: 'Learn about our mission', color: 'text-purple-500', bg: 'bg-purple-500/10', gradient: 'from-purple-500/5 to-purple-500/10', shadow: 'hover:shadow-purple-500/20' },
-            { href: '/privacy', icon: ArrowRight, label: 'Privacy Policy', desc: 'Your data is secure', color: 'text-orange-500', bg: 'bg-orange-500/10', gradient: 'from-orange-500/5 to-orange-500/10', shadow: 'hover:shadow-orange-500/20' },
+            {
+              href: "/ai-translate",
+              icon: Zap,
+              label: "Start Translating",
+              desc: "Free instant translation",
+              color: "text-blue-500",
+              bg: "bg-blue-500/10",
+              gradient: "from-blue-500/5 to-blue-500/10",
+              shadow: "hover:shadow-blue-500/20",
+            },
+            {
+              href: "/languages",
+              icon: Languages,
+              label: "Browse Languages",
+              desc: "248+ languages available",
+              color: "text-emerald-500",
+              bg: "bg-emerald-500/10",
+              gradient: "from-emerald-500/5 to-emerald-500/10",
+              shadow: "hover:shadow-emerald-500/20",
+            },
+            {
+              href: "/about",
+              icon: Shield,
+              label: "About Us",
+              desc: "Learn about our mission",
+              color: "text-purple-500",
+              bg: "bg-purple-500/10",
+              gradient: "from-purple-500/5 to-purple-500/10",
+              shadow: "hover:shadow-purple-500/20",
+            },
+            {
+              href: "/privacy",
+              icon: ArrowRight,
+              label: "Privacy Policy",
+              desc: "Your data is secure",
+              color: "text-orange-500",
+              bg: "bg-orange-500/10",
+              gradient: "from-orange-500/5 to-orange-500/10",
+              shadow: "hover:shadow-orange-500/20",
+            },
           ].map((link, i) => (
             <motion.div
               key={link.href}
@@ -302,7 +363,9 @@ export default function ContactPage() {
                 href={link.href}
                 className={`group block p-6 bg-gradient-to-br ${link.gradient} rounded-xl border hover:shadow-lg ${link.shadow} transition-all`}
               >
-                <div className={`w-10 h-10 ${link.bg} rounded-lg flex items-center justify-center mb-3`}>
+                <div
+                  className={`w-10 h-10 ${link.bg} rounded-lg flex items-center justify-center mb-3`}
+                >
                   <link.icon className={`w-5 h-5 ${link.color}`} />
                 </div>
                 <h3 className="font-semibold mb-1">{link.label}</h3>
@@ -322,7 +385,9 @@ export default function ContactPage() {
           transition={{ duration: 0.5 }}
           className="p-8 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-3xl border"
         >
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Start Translating?</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">
+            Ready to Start Translating?
+          </h2>
           <p className="text-muted-foreground mb-6">
             Join millions of users breaking language barriers every day.
           </p>
@@ -337,5 +402,5 @@ export default function ContactPage() {
 
       <Footer />
     </div>
-  )
+  );
 }
