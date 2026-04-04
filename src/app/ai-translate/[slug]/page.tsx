@@ -464,7 +464,7 @@ export default function GeneralTranslatePage() {
         >
           <div className="flex items-center gap-2 sm:gap-3 mb-2">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-              Translate
+              {sourceLanguage?.label === 'Text' && targetLanguage?.label === 'Text' ? 'Translate' : `Translate ${sourceLanguage?.label || 'Text'} to ${targetLanguage?.label || 'Text'}`}
             </h1>
             <div className="px-2 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full flex items-center gap-1">
               <Sparkles className="w-3 h-3" />
@@ -472,7 +472,7 @@ export default function GeneralTranslatePage() {
             </div>
           </div>
           <p className="text-muted-foreground">
-            Free instant translation for 248+ languages
+            Free instant translation from {sourceLanguage?.label || 'Text'} to {targetLanguage?.label || 'Text'} with advanced AI technology
           </p>
         </motion.div>
 
@@ -491,7 +491,7 @@ export default function GeneralTranslatePage() {
               onOpenChange={setIsSourceDropdownOpen}
             >
               <SelectTrigger className="bg-background border-border h-12 rounded-lg w-full">
-                <SelectValue placeholder="Select language" />
+                <SelectValue placeholder={`Select ${sourceLanguage?.label === 'Text' ? 'source' : 'source'} language`} />
               </SelectTrigger>
               <SelectContent className="rounded-lg max-h-80 overflow-y-auto">
                 {languages.map((lang) => (
@@ -517,6 +517,7 @@ export default function GeneralTranslatePage() {
               onClick={handleSwapLanguages}
               className="h-12 w-12 rounded-full"
               disabled={sourceLang === 'auto'}
+              title={`Swap ${sourceLanguage?.label || 'source'} and ${targetLanguage?.label || 'target'} languages`}
             >
               <ArrowLeftRight className="h-5 w-5" />
             </Button>
@@ -530,7 +531,7 @@ export default function GeneralTranslatePage() {
               onOpenChange={setIsTargetDropdownOpen}
             >
               <SelectTrigger className="bg-background border-border h-12 rounded-lg w-full">
-                <SelectValue placeholder="Select language" />
+                <SelectValue placeholder={`Select ${targetLanguage?.label === 'Text' ? 'target' : 'target'} language`} />
               </SelectTrigger>
               <SelectContent className="rounded-lg max-h-80 overflow-y-auto">
                 {languages.filter(l => l.value !== 'auto').map((lang) => (
@@ -573,7 +574,7 @@ export default function GeneralTranslatePage() {
                         size="sm"
                         onClick={() => speakText(inputText, 'input', sourceLang === 'auto' ? 'en' : sourceLang)}
                         className="h-7 w-7 sm:h-8 sm:w-8 p-0 rounded-full"
-                        title={isSpeakingInput ? "Stop speaking" : "Listen to input"}
+                        title={isSpeakingInput ? `Stop speaking in ${sourceLanguage?.label || 'source'}` : `Listen to ${sourceLanguage?.label || 'source'} text`}
                       >
                         {isSpeakingInput ? (
                           <StopCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary animate-pulse" />
@@ -610,7 +611,7 @@ export default function GeneralTranslatePage() {
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder={isListening ? "Listening... Speak now" : "Enter text to translate..."}
+                placeholder={isListening ? "Listening... Speak now" : `Enter ${sourceLanguage?.label === 'Text' ? 'text' : sourceLanguage?.label?.split(' ')[0] || 'text'} to translate...`}
                 className={`w-full h-48 sm:h-64 p-3 sm:p-4 bg-transparent resize-none focus:outline-none placeholder:text-muted-foreground text-sm ${isListening ? 'border-2 border-primary/50 rounded-lg' : ''}`}
                 disabled={isLoading}
               />
@@ -697,7 +698,7 @@ export default function GeneralTranslatePage() {
                           size="sm"
                           onClick={() => speakText(translatedText, 'output', targetLang)}
                           className="h-7 w-7 sm:h-8 sm:w-8 p-0 rounded-full"
-                          title={isSpeakingOutput ? "Stop speaking" : "Listen to translation"}
+                          title={isSpeakingOutput ? `Stop speaking in ${targetLanguage?.label || 'target'}` : `Listen to ${targetLanguage?.label || 'target'} translation`}
                         >
                           {isSpeakingOutput ? (
                             <StopCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary animate-pulse" />
@@ -948,36 +949,54 @@ export default function GeneralTranslatePage() {
           className="mt-12"
         >
           <div className="flex items-center gap-2 sm:gap-3 mb-4">
-            <div className="p-2 bg-indigo-500/10 rounded-lg">
-              <Shield className="w-5 h-5 text-indigo-500" />
+            <div className="p-2 bg-primary/10 rounded-lg">
+              <Shield className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <h3 className="text-base sm:text-lg font-semibold">Frequently Asked Questions</h3>
+              <h3 className="text-base sm:text-lg font-semibold">
+                Frequently Asked Questions — {sourceLanguage?.label || 'Source'} to {targetLanguage?.label || 'Target'}
+              </h3>
               <p className="text-sm text-muted-foreground">
-                Common questions about our translation service
+                Common questions about {sourceLanguage?.label || 'source'} to {targetLanguage?.label || 'target'} translation
               </p>
             </div>
           </div>
           <div className="space-y-3">
             <div className="p-3 sm:p-4 bg-muted/30 rounded-xl border">
-              <h4 className="font-medium mb-1">Is the translation service free?</h4>
-              <p className="text-sm text-muted-foreground">Yes! Our translation service is completely free with no registration required. Translate unlimited text in 248+ languages without any cost.</p>
+              <h4 className="font-medium mb-1">
+                Is {sourceLanguage?.label || 'source'} to {targetLanguage?.label || 'target'} translation free?
+              </h4>
+              <p className="text-sm text-muted-foreground">
+                Yes! Our translation service is completely free with no registration required. Translate unlimited text from {sourceLanguage?.label || 'source'} to {targetLanguage?.label || 'target'} without any cost.
+              </p>
             </div>
             <div className="p-3 sm:p-4 bg-muted/30 rounded-xl border">
               <h4 className="font-medium mb-1">How accurate are the translations?</h4>
               <p className="text-sm text-muted-foreground">Our AI-powered translations provide high accuracy for general text. For specialized content like legal or medical documents, we recommend professional review.</p>
             </div>
             <div className="p-3 sm:p-4 bg-muted/30 rounded-xl border">
-              <h4 className="font-medium mb-1">What file formats are supported?</h4>
-              <p className="text-sm text-muted-foreground">You can upload DOCX and TXT files for document translation. We're working on adding support for PDF and other formats soon.</p>
+              <h4 className="font-medium mb-1">
+                What file formats are supported for {sourceLanguage?.label || 'source'} to {targetLanguage?.label || 'target'} translation?
+              </h4>
+              <p className="text-sm text-muted-foreground">
+                You can upload DOCX and TXT files for document translation. We're working on adding support for PDF and other formats soon.
+              </p>
             </div>
             <div className="p-3 sm:p-4 bg-muted/30 rounded-xl border">
-              <h4 className="font-medium mb-1">Is my data secure and private?</h4>
-              <p className="text-sm text-muted-foreground">Absolutely. Your translations are processed securely and not stored on our servers. Translation history is saved locally in your browser only.</p>
+              <h4 className="font-medium mb-1">
+                Is my {sourceLanguage?.label || 'source'} to {targetLanguage?.label || 'target'} translation data secure and private?
+              </h4>
+              <p className="text-sm text-muted-foreground">
+                Absolutely. Your translations are processed securely and not stored on our servers. Translation history is saved locally in your browser only.
+              </p>
             </div>
             <div className="p-3 sm:p-4 bg-muted/30 rounded-xl border">
-              <h4 className="font-medium mb-1">Can I use voice input for translation?</h4>
-              <p className="text-sm text-muted-foreground">Yes! Click the microphone button to speak instead of typing. Voice input supports all major languages and works best in Chrome and Edge browsers.</p>
+              <h4 className="font-medium mb-1">
+                Can I use voice input for {sourceLanguage?.label || 'source'} translation?
+              </h4>
+              <p className="text-sm text-muted-foreground">
+                Yes! Click the microphone button to speak instead of typing. Voice input supports all major languages and works best in Chrome and Edge browsers.
+              </p>
             </div>
           </div>
         </motion.div>
