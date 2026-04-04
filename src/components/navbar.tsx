@@ -13,7 +13,8 @@ import {
   X,
   MessageSquare,
   GraduationCap,
-  BookMarked
+  BookMarked,
+  Library
 } from 'lucide-react'
 import { ThemeToggle } from '@/components/theme-toggle'
 
@@ -42,6 +43,9 @@ export function Navbar({ showHistoryButton = false, historyCount = 0, onHistoryC
     }
     if (path === '/vocabulary') {
       return pathname === '/vocabulary' || pathname.startsWith('/vocabulary/')
+    }
+    if (path === '/language') {
+      return pathname === '/language' || pathname.startsWith('/language/')
     }
     return pathname === path
   }
@@ -128,6 +132,17 @@ export function Navbar({ showHistoryButton = false, historyCount = 0, onHistoryC
             >
               <BookMarked className="w-4 h-4" />
               Vocabulary
+            </Link>
+            <Link
+              href="/language"
+              className={`text-sm font-medium flex items-center gap-1 transition-colors ${
+                isActive('/language')
+                  ? 'text-primary'
+                  : 'text-muted-foreground hover:text-primary'
+              }`}
+            >
+              <Library className="w-4 h-4" />
+              Guides
             </Link>
             <Link
               href="/about"
@@ -260,6 +275,18 @@ export function Navbar({ showHistoryButton = false, historyCount = 0, onHistoryC
                 >
                   <BookMarked className="w-4 h-4" />
                   Vocabulary
+                </Link>
+                <Link
+                  href="/language"
+                  className={`text-sm font-medium flex items-center gap-2 transition-colors ${
+                    isActive('/language')
+                      ? 'text-primary'
+                      : 'text-muted-foreground hover:text-primary'
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <Library className="w-4 h-4" />
+                  Language Guides
                 </Link>
                 <Link
                   href="/about"

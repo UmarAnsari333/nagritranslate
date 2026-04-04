@@ -317,7 +317,7 @@ export default function AboutPage() {
               {
                 name: "Tailwind CSS",
                 icon: "Utility-first CSS framework for rapid UI development",
-                color: "from-purple-500/10 to-purple-500/5",
+                color: "from-primary/10 to-primary/5",
               },
               {
                 name: "Framer Motion",

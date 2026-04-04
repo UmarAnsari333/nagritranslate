@@ -201,8 +201,8 @@ export default function Home() {
               icon: Mic,
               title: 'Voice Input',
               description: 'Speak instead of typing! Use your microphone to dictate text in any supported language. Great for hands-free translation.',
-              color: 'text-purple-500',
-              bgColor: 'bg-purple-500/10',
+              color: 'text-primary',
+              bgColor: 'bg-primary/10',
             },
             {
               icon: Volume2,
@@ -356,8 +356,8 @@ export default function Home() {
         className="max-w-6xl mx-auto px-4 py-16 bg-muted/20"
       >
         <div className="flex items-center justify-center gap-3 mb-4">
-          <div className="p-2 bg-purple-500/10 rounded-lg">
-            <BookOpen className="w-5 h-5 text-purple-500" />
+          <div className="p-2 bg-primary/10 rounded-lg">
+            <BookOpen className="w-5 h-5 text-primary" />
           </div>
           <h2 className="text-3xl font-bold text-center">Language Families</h2>
         </div>
@@ -376,11 +376,11 @@ export default function Home() {
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
-                className="p-5 bg-gradient-to-br from-purple-500/5 via-pink-500/5 to-indigo-500/5 rounded-2xl border"
+                className="p-5 bg-gradient-to-br from-primary/5 via-muted/30 to-muted/5 rounded-2xl border"
               >
                 <div className="flex items-center gap-2 mb-2">
                   <h3 className="font-semibold">{family.name}</h3>
-                  <span className="text-xs px-2 py-0.5 bg-purple-500/10 text-purple-600 dark:text-purple-400 rounded-full">
+                  <span className="text-xs px-2 py-0.5 bg-primary/10 text-primary dark:text-primary/80 rounded-full">
                     {family.languages.length} languages
                   </span>
                 </div>
@@ -432,7 +432,7 @@ export default function Home() {
           {[
             { step: '1', title: 'Choose Languages', description: 'Select your source and target languages from our list of 248+ supported languages.', color: 'bg-blue-500' },
             { step: '2', title: 'Enter Text', description: 'Type, paste, upload a document, or use voice input to enter your text.', color: 'bg-green-500' },
-            { step: '3', title: 'Get Translation', description: 'Instantly receive an accurate translation with pronunciation support.', color: 'bg-purple-500' },
+            { step: '3', title: 'Get Translation', description: 'Instantly receive an accurate translation with pronunciation support.', color: 'bg-primary' },
             { step: '4', title: 'Copy or Listen', description: 'Copy the translation to clipboard or listen to the pronunciation.', color: 'bg-orange-500' },
           ].map((item, index) => (
             <motion.div

@@ -183,7 +183,7 @@ export function useStreak() {
    * Get streak color for UI
    */
   const getStreakColor = (): string => {
-    if (streak.currentStreak >= 21) return 'text-purple-600'
+    if (streak.currentStreak >= 21) return 'text-primary'
     if (streak.currentStreak >= 14) return 'text-blue-600'
     if (streak.currentStreak >= 7) return 'text-green-600'
     if (streak.currentStreak >= 3) return 'text-yellow-600'

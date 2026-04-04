@@ -4,6 +4,8 @@ import { Home, ChevronRight, BookMarked, ArrowRight, Globe } from 'lucide-react'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { vocabularyIndex } from '@/lib/vocabulary-data'
+import { BreadcrumbSchema } from '@/components/breadcrumb-schema'
+import { WebPageSchema } from '@/components/webpage-schema'
 
 export const metadata: Metadata = {
   title: 'Vocabulary Words in 10 Languages | Numbers, Colors, Animals & More',
@@ -48,6 +50,16 @@ const categoryIcons = [
 export default function VocabularyIndexPage() {
   return (
     <div className="min-h-screen bg-background">
+      <BreadcrumbSchema items={[
+        { name: 'Home', path: '/' },
+        { name: 'Vocabulary', path: '/vocabulary' },
+      ]} />
+      <WebPageSchema
+        path="/vocabulary"
+        name="Vocabulary Words in 10 Languages | Numbers, Colors, Animals & More"
+        description="Learn vocabulary words in Spanish, French, German, Japanese, Arabic, Hindi, Chinese, and more."
+        type="CollectionPage"
+      />
       <Navbar />
 
       <main className="max-w-6xl mx-auto px-4 py-8">

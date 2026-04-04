@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { Home, ChevronRight, BookOpen, Globe, ArrowRight, CheckCircle, Lightbulb, Users } from 'lucide-react'
+import { Home, ChevronRight, BookOpen, Globe, ArrowRight, CheckCircle, Lightbulb, Users, Calendar } from 'lucide-react'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { getLearnBySlug, learnIndex } from '@/lib/learn-data'
+import { BreadcrumbSchema } from '@/components/breadcrumb-schema'
+import { WebPageSchema } from '@/components/webpage-schema'
 
 interface PageProps {
   params: Promise<{ language: string }>
@@ -75,6 +77,17 @@ export default async function LearnPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-background">
+      <BreadcrumbSchema items={[
+        { name: 'Home', path: '/' },
+        { name: 'Learn', path: '/learn' },
+        { name: data.language, path: `/learn/${data.slug}` },
+      ]} />
+      <WebPageSchema
+        path={`/learn/${data.slug}`}
+        name={`Learn ${data.language} — Beginner's Complete Guide`}
+        description={`Complete guide to learning ${data.language}. Language facts, grammar basics, writing system, difficulty rating, common phrases, and learning tips.`}
+        type="ItemPage"
+      />
       <Navbar />
 
       <main className="max-w-4xl mx-auto px-4 py-8">
@@ -98,6 +111,10 @@ export default async function LearnPage({ params }: PageProps) {
               <h1 className="text-3xl md:text-4xl font-bold">Learn {data.language}</h1>
               <p className="text-muted-foreground mt-1">
                 {data.nativeName} · {data.branch} · {data.speakers} total speakers
+              </p>
+              <p className="flex items-center gap-1 text-xs text-muted-foreground mt-1.5">
+                <Calendar className="w-3 h-3" />
+                Last updated: <time dateTime="2026-04-02">April 2, 2026</time>
               </p>
             </div>
           </div>

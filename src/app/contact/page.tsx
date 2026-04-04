@@ -31,7 +31,6 @@ export default function ContactPage() {
     const form = e.currentTarget;
     const data = new FormData(form);
     try {
-      // Replace YOUR_FORM_ID with your actual Formspree form ID
       const res = await fetch("https://formspree.io/f/xwvweqlj", {
         method: "POST",
         body: data,
@@ -107,9 +106,9 @@ export default function ContactPage() {
               icon: Clock,
               title: "Support Hours",
               value: "24/7 Available",
-              color: "text-purple-500",
-              bgColor: "bg-purple-500/10",
-              gradient: "from-purple-500/5 to-purple-500/10",
+              color: "text-primary",
+              bgColor: "bg-primary/10",
+              gradient: "from-primary/5 to-primary/10",
             },
           ].map((item, i) => (
             <motion.div
@@ -336,10 +335,10 @@ export default function ContactPage() {
               icon: Shield,
               label: "About Us",
               desc: "Learn about our mission",
-              color: "text-purple-500",
-              bg: "bg-purple-500/10",
-              gradient: "from-purple-500/5 to-purple-500/10",
-              shadow: "hover:shadow-purple-500/20",
+              color: "text-primary",
+              bg: "bg-primary/10",
+              gradient: "from-primary/5 to-primary/10",
+              shadow: "hover:shadow-primary/20",
             },
             {
               href: "/privacy",

@@ -57,7 +57,7 @@ export default function PrivacyPage() {
 
           <div className="p-6 bg-muted/30 rounded-2xl border">
             <div className="flex items-center gap-3 mb-4">
-              <Eye className="w-6 h-6 text-purple-500" />
+              <Eye className="w-6 h-6 text-primary" />
               <h2 className="text-2xl font-bold">How We Use Information</h2>
             </div>
             <ul className="list-disc list-inside space-y-2 text-muted-foreground">

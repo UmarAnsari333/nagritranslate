@@ -41,6 +41,8 @@ import { HistorySidebar } from '@/components/history-sidebar'
 import { DocumentUploadModal } from '@/components/document-upload-modal'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
+import { BreadcrumbSchema } from '@/components/breadcrumb-schema'
+import { WebPageSchema } from '@/components/webpage-schema'
 
 const MAX_CHARS = 5000
 
@@ -420,6 +422,16 @@ export default function GeneralTranslatePage() {
 
   return (
     <div className="min-h-screen bg-background transition-colors duration-300">
+      <BreadcrumbSchema items={[
+        { name: 'Home', path: '/' },
+        { name: 'Translate', path: '/ai-translate' },
+      ]} />
+      <WebPageSchema
+        path={`/ai-translate/${slug}`}
+        name={`${sourceLanguage?.label ?? 'Text'} to ${targetLanguage?.label ?? 'Text'} Translator — Free AI Translation`}
+        description={`Free AI-powered ${sourceLanguage?.label ?? ''} to ${targetLanguage?.label ?? ''} translator. Translate text instantly with voice input, document upload, and 248+ languages supported.`}
+        type="WebPage"
+      />
       {/* Header */}
       <Navbar
         showHistoryButton={true}
@@ -869,8 +881,8 @@ export default function GeneralTranslatePage() {
               <h4 className="font-semibold mb-2">Document Upload</h4>
               <p className="text-sm text-muted-foreground">Upload DOCX and TXT files for instant translation. Perfect for articles, reports, and documents.</p>
             </div>
-            <div className="p-4 sm:p-6 bg-gradient-to-br from-purple-500/5 to-purple-500/10 rounded-xl border">
-              <Mic className="w-8 h-8 text-purple-500 mb-3" />
+            <div className="p-4 sm:p-6 bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl border">
+              <Mic className="w-8 h-8 text-primary mb-3" />
               <h4 className="font-semibold mb-2">Voice Input</h4>
               <p className="text-sm text-muted-foreground">Speak instead of typing! Use your microphone to dictate text in any supported language.</p>
             </div>
@@ -914,7 +926,7 @@ export default function GeneralTranslatePage() {
             {[
               { step: '1', title: 'Choose Languages', description: 'Select source and target languages from 248+ options', color: 'bg-blue-500' },
               { step: '2', title: 'Enter Text', description: 'Type, paste, upload document, or use voice input', color: 'bg-green-500' },
-              { step: '3', title: 'Get Translation', description: 'Receive instant AI-powered accurate translation', color: 'bg-purple-500' },
+              { step: '3', title: 'Get Translation', description: 'Receive instant AI-powered accurate translation', color: 'bg-primary' },
               { step: '4', title: 'Copy or Listen', description: 'Copy to clipboard or listen to pronunciation', color: 'bg-orange-500' },
             ].map((item) => (
               <div key={item.step} className="text-center p-3 sm:p-4">

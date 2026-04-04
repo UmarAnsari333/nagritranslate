@@ -163,7 +163,7 @@ export function StreakBadge({ compact = false }: StreakBadgeProps) {
             </p>
           </div>
           <div className="bg-muted/30 rounded-lg p-3">
-            <Award className="w-4 h-4 mx-auto text-purple-500 mb-1" />
+            <Award className="w-4 h-4 mx-auto text-primary mb-1" />
             <p className="text-xs text-muted-foreground">Best Streak</p>
             <p className="text-lg font-semibold text-foreground">
               {streak.longestStreak}

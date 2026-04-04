@@ -60,7 +60,7 @@ export default function DisclaimerPage() {
 
           <div className="p-6 bg-muted/30 rounded-2xl border">
             <div className="flex items-center gap-3 mb-4">
-              <Scale className="w-6 h-6 text-purple-500" />
+              <Scale className="w-6 h-6 text-primary" />
               <h2 className="text-2xl font-bold">Limitation of Liability</h2>
             </div>
             <p className="text-muted-foreground leading-relaxed">

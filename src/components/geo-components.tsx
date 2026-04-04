@@ -120,8 +120,8 @@ const trustSignals = [
     icon: <Award className="w-6 h-6" />,
     title: 'AI-Powered Accuracy',
     description: 'Powered by advanced machine learning and Google Translate technology for 90-95% accuracy.',
-    color: 'text-purple-500',
-    bgColor: 'bg-purple-500/10',
+    color: 'text-primary',
+    bgColor: 'bg-primary/10',
   },
   {
     icon: <Users className="w-6 h-6" />,
@@ -366,7 +366,7 @@ interface DefinitionBoxProps {
 
 export function DefinitionBox({ term, definition, additionalInfo }: DefinitionBoxProps) {
   return (
-    <div className="bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-xl p-6 border my-6">
+    <div className="bg-gradient-to-r from-blue-500/5 to-primary/5 rounded-xl p-6 border my-6">
       <dl>
         <dt className="font-bold text-lg mb-2">{term}</dt>
         <dd className="text-muted-foreground leading-relaxed">{definition}</dd>

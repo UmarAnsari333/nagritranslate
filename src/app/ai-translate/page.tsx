@@ -40,6 +40,8 @@ import { HistorySidebar } from '@/components/history-sidebar'
 import { DocumentUploadModal } from '@/components/document-upload-modal'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
+import { BreadcrumbSchema } from '@/components/breadcrumb-schema'
+import { WebPageSchema } from '@/components/webpage-schema'
 
 const MAX_CHARS = 5000
 
@@ -403,8 +405,56 @@ export default function GeneralTranslatePage() {
   const sourceLanguage = getLanguageByValue(sourceLang)
   const targetLanguage = getLanguageByValue(targetLang)
 
+  const softwareSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'Nagri Translate — Free AI Translator',
+    url: 'https://nagritranslate.com/ai-translate',
+    applicationCategory: 'UtilityApplication',
+    operatingSystem: 'Web',
+    browserRequirements: 'Requires JavaScript. Works in all modern browsers.',
+    description: 'Free AI-powered translator supporting 248+ languages. Features include voice input, document upload, translation history, favorites, and text-to-speech pronunciation. No sign-up required.',
+    featureList: [
+      '248+ languages supported',
+      'Voice input (speech-to-text)',
+      'Document upload and translation',
+      'Text-to-speech pronunciation',
+      'Translation history',
+      'Save favorites',
+      'No sign-up required',
+      'Free to use',
+    ],
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+    },
+    provider: {
+      '@type': 'Organization',
+      name: 'Nagri Translate',
+      url: 'https://nagritranslate.com',
+    },
+    inLanguage: 'en',
+    isAccessibleForFree: true,
+  }
+
   return (
     <div className="min-h-screen bg-background transition-colors duration-300">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+      />
+      <BreadcrumbSchema items={[
+        { name: 'Home', path: '/' },
+        { name: 'Translate', path: '/ai-translate' },
+      ]} />
+      <WebPageSchema
+        path="/ai-translate"
+        name="Free AI Translator — 248+ Languages | Nagri Translate"
+        description="Translate text instantly with AI. Supports 248+ languages with voice input, document upload, and translation history. Free and unlimited."
+        type="WebPage"
+      />
       {/* Header */}
       <Navbar
         showHistoryButton={true}
@@ -854,8 +904,8 @@ export default function GeneralTranslatePage() {
               <h4 className="font-semibold mb-2">Document Upload</h4>
               <p className="text-sm text-muted-foreground">Upload DOCX and TXT files for instant translation. Perfect for articles, reports, and documents.</p>
             </div>
-            <div className="p-4 sm:p-6 bg-gradient-to-br from-purple-500/5 to-purple-500/10 rounded-xl border">
-              <Mic className="w-8 h-8 text-purple-500 mb-3" />
+            <div className="p-4 sm:p-6 bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl border">
+              <Mic className="w-8 h-8 text-primary mb-3" />
               <h4 className="font-semibold mb-2">Voice Input</h4>
               <p className="text-sm text-muted-foreground">Speak instead of typing! Use your microphone to dictate text in any supported language.</p>
             </div>

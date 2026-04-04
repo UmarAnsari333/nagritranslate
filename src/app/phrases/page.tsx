@@ -4,6 +4,8 @@ import { Home, ChevronRight, BookOpen, ArrowRight, Globe } from 'lucide-react'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { phrasesIndex } from '@/lib/phrases-data'
+import { BreadcrumbSchema } from '@/components/breadcrumb-schema'
+import { WebPageSchema } from '@/components/webpage-schema'
 
 export const metadata: Metadata = {
   title: 'Common Phrases in 10 Languages | Free Language Phrase Guide',
@@ -42,6 +44,16 @@ const difficultyColors: Record<string, string> = {
 export default function PhrasesIndexPage() {
   return (
     <div className="min-h-screen bg-background">
+      <BreadcrumbSchema items={[
+        { name: 'Home', path: '/' },
+        { name: 'Phrases', path: '/phrases' },
+      ]} />
+      <WebPageSchema
+        path="/phrases"
+        name="Common Phrases in 10 Languages | Free Language Phrase Guide"
+        description="Learn essential common phrases in Spanish, French, German, Japanese, Arabic, Hindi, and more."
+        type="CollectionPage"
+      />
       <Navbar />
 
       <main className="max-w-6xl mx-auto px-4 py-8">

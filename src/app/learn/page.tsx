@@ -4,6 +4,8 @@ import { Home, ChevronRight, BookOpen, ArrowRight, Globe, Star } from 'lucide-re
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { learnIndex } from '@/lib/learn-data'
+import { BreadcrumbSchema } from '@/components/breadcrumb-schema'
+import { WebPageSchema } from '@/components/webpage-schema'
 
 export const metadata: Metadata = {
   title: 'Language Learning Guides — Learn Spanish, French, Japanese & More',
@@ -57,6 +59,16 @@ function DifficultyBar({ score }: { score: number }) {
 export default function LearnIndexPage() {
   return (
     <div className="min-h-screen bg-background">
+      <BreadcrumbSchema items={[
+        { name: 'Home', path: '/' },
+        { name: 'Learn', path: '/learn' },
+      ]} />
+      <WebPageSchema
+        path="/learn"
+        name="Language Learning Guides — Learn Spanish, French, Japanese & More"
+        description="Free language learning guides for Spanish, French, German, Japanese, Arabic, Hindi, and more."
+        type="CollectionPage"
+      />
       <Navbar />
 
       <main className="max-w-6xl mx-auto px-4 py-8">
@@ -73,8 +85,8 @@ export default function LearnIndexPage() {
         {/* Hero */}
         <div className="mb-12 text-center">
           <div className="flex items-center justify-center gap-2 mb-3">
-            <div className="p-2 bg-purple-500/10 rounded-lg">
-              <BookOpen className="w-6 h-6 text-purple-500" />
+            <div className="p-2 bg-primary/10 rounded-lg">
+              <BookOpen className="w-6 h-6 text-primary" />
             </div>
             <h1 className="text-3xl md:text-4xl font-bold">Language Learning Guides</h1>
           </div>

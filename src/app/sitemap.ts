@@ -3,9 +3,10 @@ import { languages, slugifyLanguage } from '@/lib/languages'
 import { phrasesIndex } from '@/lib/phrases-data'
 import { learnIndex } from '@/lib/learn-data'
 import { vocabularyIndex } from '@/lib/vocabulary-data'
+import { languagePillarIndex } from '@/lib/language-pillar-data'
 
 // Site build date - update this when you deploy
-const BUILD_DATE = new Date('2026-03-22')
+const BUILD_DATE = new Date('2026-04-02')
 
 // Simple hash function to generate consistent but varied dates (all after Oct 2025)
 function getHashDate(str: string, baseDate: Date, maxDaysBack: number = 30): Date {
@@ -75,6 +76,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.3,
     },
     {
+      url: `${baseUrl}/language`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/phrases`,
       lastModified: BUILD_DATE,
       changeFrequency: 'weekly',
@@ -93,6 +100,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.88,
     },
   ]
+
+  // Language pillar pages (/language/[lang]) — comprehensive per-language guide
+  const languagePillarPages: MetadataRoute.Sitemap = languagePillarIndex.map((lang) => ({
+    url: `${baseUrl}/language/${lang.slug}`,
+    lastModified: BUILD_DATE,
+    changeFrequency: 'weekly' as const,
+    priority: 0.87,
+  }))
 
   // Popular language pairs (high priority)
   const popularPairs = [
@@ -402,6 +417,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...phrasesPages,
     ...learnPages,
     ...vocabularyPages,
+    ...languagePillarPages,
     ...translationUrls,
     ...languageToEnglishUrls,
     ...englishToLanguageUrls,

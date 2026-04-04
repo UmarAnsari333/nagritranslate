@@ -19,6 +19,8 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { languages, slugifyLanguage } from '@/lib/languages'
 import { Navbar } from '@/components/navbar'
+import { BreadcrumbSchema } from '@/components/breadcrumb-schema'
+import { WebPageSchema } from '@/components/webpage-schema'
 import { languageFamilies } from '@/lib/popular-translations'
 
 // Language categories for filtering
@@ -76,6 +78,16 @@ export default function LanguagesPage() {
 
   return (
     <div className="min-h-screen bg-background transition-colors duration-300">
+      <BreadcrumbSchema items={[
+        { name: 'Home', path: '/' },
+        { name: 'Languages', path: '/languages' },
+      ]} />
+      <WebPageSchema
+        path="/languages"
+        name="All 248+ Languages — Nagri Translate"
+        description="Browse all 248+ languages supported by Nagri Translate. Find translators, phrases, vocabulary, and learning guides for any language."
+        type="CollectionPage"
+      />
       <Navbar />
 
       {/* Main Content */}
@@ -215,8 +227,8 @@ export default function LanguagesPage() {
           className="mt-12"
         >
           <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="p-2 bg-purple-500/10 rounded-lg">
-              <BookOpen className="w-5 h-5 text-purple-500" />
+            <div className="p-2 bg-primary/10 rounded-lg">
+              <BookOpen className="w-5 h-5 text-primary" />
             </div>
             <h2 className="text-xl font-semibold">Language Families</h2>
           </div>
@@ -228,11 +240,11 @@ export default function LanguagesPage() {
               return (
                 <div
                   key={family.name}
-                  className="p-5 bg-gradient-to-br from-purple-500/5 via-pink-500/5 to-indigo-500/5 rounded-2xl border"
+                  className="p-5 bg-gradient-to-br from-primary/5 via-muted/30 to-muted/5 rounded-2xl border"
                 >
                   <div className="flex items-center gap-2 mb-2">
                     <h3 className="font-semibold">{family.name}</h3>
-                    <span className="text-xs px-2 py-0.5 bg-purple-500/10 text-purple-600 dark:text-purple-400 rounded-full">
+                    <span className="text-xs px-2 py-0.5 bg-primary/10 text-primary dark:text-primary/80 rounded-full">
                       {family.languages.length} languages
                     </span>
                   </div>
@@ -242,7 +254,7 @@ export default function LanguagesPage() {
                       <Link
                         key={lang}
                         href={`/ai-translate/${slugifyLanguage(lang)}-to-english`}
-                        className="px-2 py-1 bg-purple-500/5 rounded-md border border-purple-500/20 text-xs hover:border-purple-500/40 hover:bg-purple-500/10 transition-all"
+                        className="px-2 py-1 bg-primary/5 rounded-md border border-primary/20 text-xs hover:border-primary/40 hover:bg-primary/10 transition-all"
                       >
                         {lang}
                       </Link>
@@ -250,7 +262,7 @@ export default function LanguagesPage() {
                     {!isExpanded && hiddenCount > 0 && (
                       <button
                         onClick={() => setExpandedFamilies((prev) => ({ ...prev, [family.name]: true }))}
-                        className="px-2 py-1 text-xs text-purple-600 dark:text-purple-400 hover:bg-purple-500/10 rounded-md border border-purple-500/20 transition-all cursor-pointer"
+                        className="px-2 py-1 text-xs text-primary dark:text-primary/80 hover:bg-primary/10 rounded-md border border-primary/20 transition-all cursor-pointer"
                       >
                         +{hiddenCount} more
                       </button>
@@ -380,7 +392,7 @@ export default function LanguagesPage() {
               <h4 className="font-semibold mb-1">Listen & Repeat</h4>
               <p className="text-xs text-muted-foreground">Use our text-to-speech feature to hear proper pronunciation and improve accent.</p>
             </div>
-            <div className="p-4 bg-gradient-to-br from-purple-500/5 to-violet-500/10 rounded-xl border">
+            <div className="p-4 bg-gradient-to-br from-primary/5 to-muted/10 rounded-xl border">
               <div className="text-2xl mb-2">✍️</div>
               <h4 className="font-semibold mb-1">Practice Writing</h4>
               <p className="text-xs text-muted-foreground">Translate your thoughts daily. Writing helps reinforce vocabulary and grammar.</p>
@@ -500,7 +512,7 @@ export default function LanguagesPage() {
               <h4 className="font-semibold mb-2">🗣️ Most Spoken</h4>
               <p className="text-sm text-muted-foreground">Chinese Mandarin has over 1.3 billion speakers, making it the most spoken language in the world.</p>
             </div>
-            <div className="p-4 bg-gradient-to-br from-violet-500/5 to-purple-500/10 rounded-xl border">
+            <div className="p-4 bg-gradient-to-br from-muted/30 to-muted/10 rounded-xl border">
               <h4 className="font-semibold mb-2">📝 Most Words</h4>
               <p className="text-sm text-muted-foreground">English has over 170,000 words in current use, with thousands more added every year.</p>
             </div>
