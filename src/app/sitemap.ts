@@ -99,6 +99,48 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.88,
     },
+    {
+      url: `${baseUrl}/tools`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/tools/word-counter`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.88,
+    },
+    {
+      url: `${baseUrl}/tools/case-converter`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.88,
+    },
+    {
+      url: `${baseUrl}/tools/text-repeater`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.88,
+    },
+    {
+      url: `${baseUrl}/tools/text-reverser`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.88,
+    },
+    {
+      url: `${baseUrl}/tools/remove-whitespace`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.88,
+    },
+    {
+      url: `${baseUrl}/tools/find-replace`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.88,
+    },
   ]
 
   // Language pillar pages (/language/[lang]) — comprehensive per-language guide

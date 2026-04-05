@@ -14,7 +14,8 @@ import {
   MessageSquare,
   GraduationCap,
   BookMarked,
-  Library
+  Library,
+  Wrench
 } from 'lucide-react'
 import { ThemeToggle } from '@/components/theme-toggle'
 
@@ -46,6 +47,9 @@ export function Navbar({ showHistoryButton = false, historyCount = 0, onHistoryC
     }
     if (path === '/language') {
       return pathname === '/language' || pathname.startsWith('/language/')
+    }
+    if (path === '/tools') {
+      return pathname === '/tools' || pathname.startsWith('/tools/')
     }
     return pathname === path
   }
@@ -143,6 +147,17 @@ export function Navbar({ showHistoryButton = false, historyCount = 0, onHistoryC
             >
               <Library className="w-4 h-4" />
               Guides
+            </Link>
+            <Link
+              href="/tools"
+              className={`text-sm font-medium flex items-center gap-1 transition-colors ${
+                isActive('/tools')
+                  ? 'text-primary'
+                  : 'text-muted-foreground hover:text-primary'
+              }`}
+            >
+              <Wrench className="w-4 h-4" />
+              Tools
             </Link>
             <Link
               href="/about"
@@ -287,6 +302,18 @@ export function Navbar({ showHistoryButton = false, historyCount = 0, onHistoryC
                 >
                   <Library className="w-4 h-4" />
                   Language Guides
+                </Link>
+                <Link
+                  href="/tools"
+                  className={`text-sm font-medium flex items-center gap-2 transition-colors ${
+                    isActive('/tools')
+                      ? 'text-primary'
+                      : 'text-muted-foreground hover:text-primary'
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <Wrench className="w-4 h-4" />
+                  Tools
                 </Link>
                 <Link
                   href="/about"
