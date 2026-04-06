@@ -6,8 +6,8 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Text Tools - Free Online Text Utilities',
-  description: 'Collection of free online text tools including word counter, case converter, random word generator, slug generator, URL encoder/decoder, sort and deduplicate, find and replace, remove whitespace, text repeater, text reverser, and citation generator. Easy to use text utilities for everyone.',
-  keywords: ['text tools', 'online text tools', 'text utilities', 'free text tools', 'text manipulation', 'word counter', 'case converter', 'random word generator', 'generate random words', 'random words', 'word list generator', 'slug generator', 'url slug generator', 'url encoder', 'url decoder', 'url encode decode', 'percent encoding', 'sort text', 'deduplicate text', 'sort lines', 'find and replace', 'remove whitespace', 'text repeater', 'text reverser', 'citation generator', 'APA citation generator', 'MLA citation generator', 'Chicago citation generator', 'Harvard citation generator', 'book citation', 'webpage citation', 'academic citation'],
+  description: 'Collection of free online text tools including word counter, case converter, random word generator, slug generator, URL encoder/decoder, sort and deduplicate, find and replace, remove whitespace, text repeater, text reverser, citation generator, and sort text. Easy to use text utilities for everyone.',
+  keywords: ['text tools', 'online text tools', 'text utilities', 'free text tools', 'text manipulation', 'word counter', 'case converter', 'random word generator', 'generate random words', 'random words', 'word list generator', 'slug generator', 'url slug generator', 'url encoder', 'url decoder', 'url encode decode', 'percent encoding', 'sort text', 'deduplicate text', 'sort lines', 'find and replace', 'remove whitespace', 'text repeater', 'text reverser', 'citation generator', 'APA citation generator', 'MLA citation generator', 'Chicago citation generator', 'Harvard citation generator', 'book citation', 'webpage citation', 'academic citation', 'sort text', 'alphabetical sort', 'natural sort', 'text sorter', 'sort list', 'sort by length'],
   openGraph: {
     title: 'Text Tools - Free Online Text Utilities',
     description: 'Collection of free online text tools for text manipulation and formatting.',
@@ -104,6 +104,22 @@ const tools = [
     color: 'from-emerald-500/5 to-emerald-500/10',
     borderColor: 'border-emerald-500/20',
   },
+  {
+    name: 'Sort Text',
+    description: 'Sort text alphabetically, naturally, by length, reverse, or shuffle',
+    path: '/tools/sort-text',
+    icon: '📊',
+    color: 'from-pink-500/5 to-pink-500/10',
+    borderColor: 'border-pink-500/20',
+  },
+  {
+    name: 'Add Prefix/Suffix',
+    description: 'Add prefix and/or suffix to each line of text',
+    path: '/tools/add-prefix-suffix',
+    icon: '➕',
+    color: 'from-teal-500/5 to-teal-500/10',
+    borderColor: 'border-teal-500/20',
+  },
 ]
 
 export default function ToolsPage() {
@@ -123,7 +139,7 @@ export default function ToolsPage() {
             Text Tools
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Collection of free online text tools for text manipulation and formatting including word counter, case converter, random word generator, slug generator, URL encoder/decoder, sort and deduplicate, find and replace, remove whitespace, text repeater, text reverser, and citation generator. Easy to use, no installation required.
+            Collection of free online text tools for text manipulation and formatting including word counter, case converter, random word generator, slug generator, URL encoder/decoder, sort and deduplicate, find and replace, remove whitespace, text repeater, text reverser, citation generator, and sort text. Easy to use, no installation required.
           </p>
         </div>
       </section>
