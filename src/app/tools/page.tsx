@@ -6,8 +6,8 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Text Tools - Free Online Text Utilities',
-  description: 'Collection of free online text tools including word counter, case converter, find and replace, remove whitespace, text repeater, and text reverser. Easy to use text utilities for everyone.',
-  keywords: ['text tools', 'online text tools', 'text utilities', 'free text tools', 'text manipulation', 'word counter', 'case converter', 'find and replace', 'remove whitespace', 'text repeater', 'text reverser'],
+  description: 'Collection of free online text tools including word counter, case converter, random word generator, slug generator, URL encoder/decoder, sort and deduplicate, find and replace, remove whitespace, text repeater, text reverser, and citation generator. Easy to use text utilities for everyone.',
+  keywords: ['text tools', 'online text tools', 'text utilities', 'free text tools', 'text manipulation', 'word counter', 'case converter', 'random word generator', 'generate random words', 'random words', 'word list generator', 'slug generator', 'url slug generator', 'url encoder', 'url decoder', 'url encode decode', 'percent encoding', 'sort text', 'deduplicate text', 'sort lines', 'find and replace', 'remove whitespace', 'text repeater', 'text reverser', 'citation generator', 'APA citation generator', 'MLA citation generator', 'Chicago citation generator', 'Harvard citation generator', 'book citation', 'webpage citation', 'academic citation'],
   openGraph: {
     title: 'Text Tools - Free Online Text Utilities',
     description: 'Collection of free online text tools for text manipulation and formatting.',
@@ -31,6 +31,38 @@ const tools = [
     icon: '🔠',
     color: 'from-orange-500/5 to-orange-500/10',
     borderColor: 'border-orange-500/20',
+  },
+  {
+    name: 'Random Word Generator',
+    description: 'Generate random words for creative writing, brainstorming, and more',
+    path: '/tools/random-word-generator',
+    icon: '✨',
+    color: 'from-violet-500/5 to-violet-500/10',
+    borderColor: 'border-violet-500/20',
+  },
+  {
+    name: 'Slug Generator',
+    description: 'Create URL-friendly slugs from text with custom separators',
+    path: '/tools/slug-generator',
+    icon: '🔗',
+    color: 'from-yellow-500/5 to-yellow-500/10',
+    borderColor: 'border-yellow-500/20',
+  },
+  {
+    name: 'URL Encoder/Decoder',
+    description: 'Encode and decode URLs with percent encoding for web development',
+    path: '/tools/url-encoder-decoder',
+    icon: '🔐',
+    color: 'from-cyan-500/5 to-cyan-500/10',
+    borderColor: 'border-cyan-500/20',
+  },
+  {
+    name: 'Sort & Deduplicate',
+    description: 'Sort text alphabetically, by length, or numerically while removing duplicates',
+    path: '/tools/sort-deduplicate',
+    icon: '📋',
+    color: 'from-indigo-500/5 to-indigo-500/10',
+    borderColor: 'border-indigo-500/20',
   },
   {
     name: 'Find and Replace',
@@ -64,6 +96,14 @@ const tools = [
     color: 'from-purple-500/5 to-purple-500/10',
     borderColor: 'border-purple-500/20',
   },
+  {
+    name: 'Citation Generator',
+    description: 'Generate citations in APA, MLA, Chicago, and Harvard styles instantly',
+    path: '/tools/citation-generator',
+    icon: '📝',
+    color: 'from-emerald-500/5 to-emerald-500/10',
+    borderColor: 'border-emerald-500/20',
+  },
 ]
 
 export default function ToolsPage() {
@@ -83,7 +123,7 @@ export default function ToolsPage() {
             Text Tools
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Collection of free online text tools for text manipulation and formatting including word counter, case converter, find and replace, remove whitespace, text repeater, and text reverser. Easy to use, no installation required.
+            Collection of free online text tools for text manipulation and formatting including word counter, case converter, random word generator, slug generator, URL encoder/decoder, sort and deduplicate, find and replace, remove whitespace, text repeater, text reverser, and citation generator. Easy to use, no installation required.
           </p>
         </div>
       </section>
