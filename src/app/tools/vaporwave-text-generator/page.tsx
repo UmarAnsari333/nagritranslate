@@ -1,22 +1,22 @@
 import { Metadata } from 'next'
 import { Wrench } from 'lucide-react'
-import { GlitchTextGeneratorTool } from '@/components/tools/glitch-text-generator-tool'
+import { VaporwaveTextGeneratorTool } from '@/components/tools/vaporwave-text-generator-tool'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Glitch Text Generator - 25+ Styles Free Online | Zalgo, Cursed & More',
-  description: 'Free online glitch text generator with 25+ unique styles including Zalgo, Cursed, Upside Down, Bubbles, Squares, Script, Medieval, and more. Perfect for social media, gaming, and creative projects.',
-  keywords: ['glitch text generator', 'zalgo text', 'cursed text', 'upside down text', 'bubble text', 'square text', 'creepy text', 'stylish text', 'text effects', 'cool text generator', 'script text', 'medieval text'],
+  title: 'Vaporwave Text Generator - 13+ Styles Free Online | Aesthetic & Full-Width',
+  description: 'Free online vaporwave text generator with 13+ unique styles including full-width, aesthetic small, bold, italic, script, fraktur, monospace, double struck, sans, circled, squared, and emoji-surrounded text. Perfect for social media, gaming, and aesthetic content.',
+  keywords: ['vaporwave text generator', 'aesthetic text', 'full width text', 'vaporwave font', 'aesthetic font generator', 'retro text', '80s text', '90s text', 'vaporwave aesthetic', 'aesthetic text converter', 'vaporwave style'],
   openGraph: {
-    title: 'Glitch Text Generator - 25+ Unique Styles Free Online',
-    description: 'Create stunning glitched text with 25+ unique styles including Zalgo, Cursed, Upside Down, Bubbles, Squares, Script, Medieval, and more.',
+    title: 'Vaporwave Text Generator - 13+ Unique Styles Free Online',
+    description: 'Create stunning vaporwave and aesthetic text with 13+ unique styles including full-width, aesthetic small, bold, italic, script, and more.',
     type: 'website',
   },
 }
 
-export default function GlitchTextGeneratorPage() {
+export default function VaporwaveTextGeneratorPage() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -30,10 +30,10 @@ export default function GlitchTextGeneratorPage() {
             </div>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Glitch Text Generator
+            Vaporwave Text Generator
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Free online glitch text generator with 25+ unique styles including Zalgo, Cursed, Upside Down, Bubbles, Squares, Script, Medieval, and more. Perfect for social media, gaming, and creative projects.
+            Free online vaporwave text generator with 13+ unique styles including full-width, aesthetic small, bold, italic, script, fraktur, monospace, double struck, sans, circled, squared, and emoji-surrounded text. Perfect for social media, gaming, and aesthetic content.
           </p>
         </div>
       </section>
@@ -44,17 +44,17 @@ export default function GlitchTextGeneratorPage() {
           {/* Tool Section */}
           <div className="lg:col-span-2">
             <div className="p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <GlitchTextGeneratorTool />
+              <VaporwaveTextGeneratorTool />
             </div>
 
             {/* What This Tool Does Section */}
             <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h2 className="text-2xl font-bold mb-6">What This Tool Does</h2>
               <p className="text-muted-foreground mb-4 leading-relaxed">
-                Our glitch text generator transforms normal text into 25+ unique glitched and stylized variations. Simply enter your text and instantly get multiple styles including Zalgo (creepy zalgo text), Cursed, Upside Down, Bubbles, Squares, Wide, Script, Medieval, Monospace, Bold, Italic, Fraktur, and many more.
+                Our vaporwave text generator transforms normal text into 13+ unique vaporwave and aesthetic variations. Simply enter your text and instantly get multiple styles including full-width characters (the classic vaporwave look), aesthetic small text, bold, italic, script, fraktur (gothic), monospace, double struck, sans-serif, circled, squared, and fun emoji-surrounded styles.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Each style is generated instantly and can be copied with a single click. Perfect for creating eye-catching social media posts, gaming usernames, Discord messages, creative projects, and any content that needs to stand out with unique text styling.
+                Each style is generated instantly and can be copied with a single click. Perfect for creating retro 80s and 90s aesthetic content, social media posts, gaming usernames, and any content that needs that nostalgic vaporwave vibe.
               </p>
             </div>
 
@@ -73,7 +73,7 @@ export default function GlitchTextGeneratorPage() {
                   <div className="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">2</div>
                   <div>
                     <h3 className="font-semibold mb-1">Instant Generation</h3>
-                    <p className="text-sm text-muted-foreground">All 12+ styles are generated automatically</p>
+                    <p className="text-sm text-muted-foreground">All 13+ styles are generated automatically</p>
                   </div>
                 </div>
                 <div className="flex gap-4 p-4 bg-primary/5 rounded-xl">
@@ -86,42 +86,42 @@ export default function GlitchTextGeneratorPage() {
               </div>
             </div>
 
-            {/* Why People Use Glitch Text Section */}
+            {/* Why People Use Vaporwave Text Section */}
             <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Why People Use Glitch Text</h2>
+              <h2 className="text-2xl font-bold mb-6">Why People Use Vaporwave Text</h2>
               <div className="grid md:grid-cols-2 gap-4">
                 {[
                   {
-                    title: "Social Media",
-                    desc: "Make posts stand out on Twitter, Instagram, TikTok"
+                    title: "Aesthetic Social Media",
+                    desc: "Create retro aesthetic posts"
                   },
                   {
-                    title: "Gaming Content",
-                    desc: "Create unique gaming handles and usernames"
+                    title: "Vaporwave Aesthetics",
+                    desc: "Embrace the 80s/90s nostalgia"
+                  },
+                  {
+                    title: "Gaming Usernames",
+                    desc: "Unique vaporwave handles"
                   },
                   {
                     title: "Discord Servers",
-                    desc: "Stand out in chat with unique text styles"
+                    desc: "Stand out with aesthetic text"
                   },
                   {
                     title: "Creative Projects",
-                    desc: "Add aesthetic effects to digital art"
-                  },
-                  {
-                    title: "Memes",
-                    desc: "Create glitched text for meme content"
-                  },
-                  {
-                    title: "Cyberpunk Style",
-                    desc: "Achieve the popular cyberpunk aesthetic"
-                  },
-                  {
-                    title: "Zalgo Text",
-                    desc: "Create creepy zalgo text for horror content"
+                    desc: "Retro digital art effects"
                   },
                   {
                     title: "Brand Identity",
-                    desc: "Unique text styling for personal branding"
+                    desc: "Nostalgic branding style"
+                  },
+                  {
+                    title: "Content Creation",
+                    desc: "Eye-catching thumbnails"
+                  },
+                  {
+                    title: "Personal Style",
+                    desc: "Express retro aesthetic taste"
                   }
                 ].map((useCase, i) => (
                   <div key={i} className="p-4 bg-primary/5 rounded-xl">
@@ -140,8 +140,8 @@ export default function GlitchTextGeneratorPage() {
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
                     <Wrench className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="font-semibold mb-2">25+ Unique Styles</h3>
-                  <p className="text-xs text-muted-foreground">Zalgo, Script, Medieval, Bubbles and more</p>
+                  <h3 className="font-semibold mb-2">13+ Unique Styles</h3>
+                  <p className="text-xs text-muted-foreground">Full-width, aesthetic, emoji and more</p>
                 </div>
                 <div className="text-center p-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
@@ -165,28 +165,28 @@ export default function GlitchTextGeneratorPage() {
               <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
               <div className="space-y-4">
                 <div className="border-b pb-4">
-                  <h3 className="font-semibold mb-2">What is glitch text?</h3>
-                  <p className="text-sm text-muted-foreground">Glitch text is stylized text that appears corrupted or distorted with special characters, combining diacritical marks, or enclosed characters. It creates a digital glitch effect popular in cyberpunk aesthetics, horror content, and creative digital projects.</p>
+                  <h3 className="font-semibold mb-2">What is vaporwave text?</h3>
+                  <p className="text-sm text-muted-foreground">Vaporwave text is a stylistic choice that uses full-width Unicode characters to create text that appears wider and more spacious. It's part of the vaporwave aesthetic, a visual art style that emerged in the early 2010s, drawing inspiration from 1980s and 1990s consumer culture and technology.</p>
                 </div>
                 <div className="border-b pb-4">
-                  <h3 className="font-semibold mb-2">How do I use the glitch text generator?</h3>
-                  <p className="text-sm text-muted-foreground">Simply enter your text into the input field and all 12+ styles will be generated automatically. Click the copy button on any style to use it immediately. No need to click generate - it's instant!</p>
+                  <h3 className="font-semibold mb-2">How do I use the vaporwave text generator?</h3>
+                  <p className="text-sm text-muted-foreground">Simply enter your text into the input field and all 13+ styles will be generated automatically. Click the copy button on any style to use it immediately. No need to click generate - it's instant!</p>
                 </div>
                 <div className="border-b pb-4">
                   <h3 className="font-semibold mb-2">What styles are available?</h3>
-                  <p className="text-sm text-muted-foreground">Our glitch text generator includes: Zalgo, Behind Bars, Double Strikethrough, Creepy, Upside Down, Bubbles, Squares, Wide, Cursed, Bricks, Electric, Shuriken, Circled, Small Caps, Monospace, Bold, Italic, Script, Bold Script, Fraktur, Double Struck, Parenthesized, Dotted, Tilde, Small Text, Medieval, Full Block, Dashed, and Crossed styles.</p>
+                  <p className="text-sm text-muted-foreground">Our vaporwave text generator includes: Full Width, Aesthetic Small, Aesthetic Bold, Aesthetic Italic, Aesthetic Script, Aesthetic Bold Script, Aesthetic Fraktur, Aesthetic Monospace, Aesthetic Double Struck, Aesthetic Sans, Aesthetic Circled, Aesthetic Squared, Vaporwave Emoji, Vaporwave Stars, and Vaporwave Hearts.</p>
                 </div>
                 <div className="border-b pb-4">
-                  <h3 className="font-semibold mb-2">Can I use glitch text on social media?</h3>
-                  <p className="text-sm text-muted-foreground">Yes! Glitch text works on most social media platforms including Twitter, Instagram, TikTok, Discord, Reddit, and more. It's perfect for making your posts stand out with unique styling.</p>
+                  <h3 className="font-semibold mb-2">Can I use vaporwave text on social media?</h3>
+                  <p className="text-sm text-muted-foreground">Yes! Vaporwave text works on most social media platforms including Twitter, Instagram, TikTok, Discord, Reddit, and more. It's perfect for creating aesthetic posts and embracing the retro vaporwave vibe.</p>
                 </div>
                 <div className="border-b pb-4">
-                  <h3 className="font-semibold mb-2">What is Zalgo text?</h3>
-                  <p className="text-sm text-muted-foreground">Zalgo text is a style that uses combining diacritical marks (accents and other symbols) placed above, below, and through characters to create a creepy, corrupted appearance. It's often used in horror content and memes.</p>
+                  <h3 className="font-semibold mb-2">What is the vaporwave aesthetic?</h3>
+                  <p className="text-sm text-muted-foreground">Vaporwave is an aesthetic and microgenre of electronic music that emerged in the early 2010s. It's characterized by a nostalgic fascination with 1980s and 1990s consumer culture, technology, and pop culture. Visual elements often include neon colors, Greek statues, palm trees, and retro computer graphics.</p>
                 </div>
                 <div className="pb-4">
                   <h3 className="font-semibold mb-2">Is this tool free to use?</h3>
-                  <p className="text-sm text-muted-foreground">Yes! Our glitch text generator is completely free with no limitations. No registration or installation required - just visit the page and start creating glitched text instantly.</p>
+                  <p className="text-sm text-muted-foreground">Yes! Our vaporwave text generator is completely free with no limitations. No registration or installation required - just visit the page and start creating vaporwave text instantly.</p>
                 </div>
               </div>
             </div>
@@ -219,33 +219,33 @@ export default function GlitchTextGeneratorPage() {
                   </div>
                 </Link>
                 <Link
-                  href="/tools/case-converter"
+                  href="/tools/fancy-text-generator"
                   className="flex items-center gap-3 p-4 rounded-xl bg-primary/5 hover:bg-primary/10 transition-colors"
                 >
                   <Wrench className="w-5 h-5 text-primary" />
                   <div>
-                    <p className="font-medium text-sm">Case Converter</p>
-                    <p className="text-xs text-muted-foreground">Convert text to uppercase, lowercase</p>
+                    <p className="font-medium text-sm">Fancy Text</p>
+                    <p className="text-xs text-muted-foreground">Bold, script, gothic and more</p>
                   </div>
                 </Link>
                 <Link
-                  href="/tools/text-repeater"
+                  href="/tools/tiny-text-generator"
                   className="flex items-center gap-3 p-4 rounded-xl bg-primary/5 hover:bg-primary/10 transition-colors"
                 >
                   <Wrench className="w-5 h-5 text-primary" />
                   <div>
-                    <p className="font-medium text-sm">Text Repeater</p>
-                    <p className="text-xs text-muted-foreground">Repeat text multiple times</p>
+                    <p className="font-medium text-sm">Tiny Text</p>
+                    <p className="text-xs text-muted-foreground">Superscript, subscript and more</p>
                   </div>
                 </Link>
                 <Link
-                  href="/tools/text-reverser"
+                  href="/tools/cursive-text-generator"
                   className="flex items-center gap-3 p-4 rounded-xl bg-primary/5 hover:bg-primary/10 transition-colors"
                 >
                   <Wrench className="w-5 h-5 text-primary" />
                   <div>
-                    <p className="font-medium text-sm">Text Reverser</p>
-                    <p className="text-xs text-muted-foreground">Reverse text, words, or both</p>
+                    <p className="font-medium text-sm">Cursive Text</p>
+                    <p className="text-xs text-muted-foreground">Beautiful handwriting styles</p>
                   </div>
                 </Link>
               </div>
@@ -290,15 +290,15 @@ export default function GlitchTextGeneratorPage() {
 
             {/* SEO Content */}
             <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h3 className="text-lg font-bold mb-4">About Glitch Text Generator</h3>
+              <h3 className="text-lg font-bold mb-4">About Vaporwave Text</h3>
               <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                Our glitch text generator creates 25+ unique text styles including Zalgo text, Cursed text, Upside Down text, Bubbles, Squares, Script, Medieval, Monospace, Bold, Italic, Fraktur, and many more. Perfect for social media posts, gaming usernames, Discord messages, and creative projects.
+                Our vaporwave text generator creates 13+ unique text styles including full-width characters (the classic vaporwave look), aesthetic small text, bold, italic, script, fraktur, monospace, double struck, sans-serif, circled, squared, and fun emoji-surrounded styles.
               </p>
               <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                 Simply enter your text and instantly get multiple styles. Each style can be copied with one click. No registration needed - just type and go!
               </p>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Works perfectly on all devices - desktop, tablet, and mobile. Start creating unique glitched text today!
+                Works perfectly on all devices - desktop, tablet, and mobile. Start creating vaporwave aesthetic text today!
               </p>
             </div>
 
@@ -308,7 +308,15 @@ export default function GlitchTextGeneratorPage() {
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Social media posts and bios</span>
+                  <span>Aesthetic social media posts</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                  <span>Vaporwave aesthetic content</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                  <span>Retro 80s/90s themed projects</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
@@ -316,19 +324,11 @@ export default function GlitchTextGeneratorPage() {
                 </li>
                 <li className="flex items-start gap-2">
                   <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Digital art and design projects</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Cyberpunk themed content</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Meme creation</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                   <span>Discord server messages</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                  <span>Retro digital art and design</span>
                 </li>
               </ul>
             </div>
@@ -339,11 +339,11 @@ export default function GlitchTextGeneratorPage() {
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Available styles:</span>
-                  <span className="font-medium">25+ unique styles</span>
+                  <span className="font-medium">13+ unique styles</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Popular styles:</span>
-                  <span className="font-medium">Zalgo, Script, Medieval</span>
+                  <span className="font-medium">Full Width, Aesthetic Small</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Instant generation:</span>

@@ -1,22 +1,22 @@
 import { Metadata } from 'next'
 import { Wrench } from 'lucide-react'
-import { GlitchTextGeneratorTool } from '@/components/tools/glitch-text-generator-tool'
+import { EnglishToBinaryTool } from '@/components/tools/english-to-binary-tool'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Glitch Text Generator - 25+ Styles Free Online | Zalgo, Cursed & More',
-  description: 'Free online glitch text generator with 25+ unique styles including Zalgo, Cursed, Upside Down, Bubbles, Squares, Script, Medieval, and more. Perfect for social media, gaming, and creative projects.',
-  keywords: ['glitch text generator', 'zalgo text', 'cursed text', 'upside down text', 'bubble text', 'square text', 'creepy text', 'stylish text', 'text effects', 'cool text generator', 'script text', 'medieval text'],
+  title: 'English to Binary Converter - Free Online | Text to Binary & Vice Versa',
+  description: 'Free online English to binary converter. Convert text to binary code and vice versa instantly. Also supports hexadecimal, decimal, and octal conversions. Perfect for programmers and students.',
+  keywords: ['english to binary', 'text to binary', 'binary to text', 'binary converter', 'ascii to binary', 'binary code converter', 'hex to text', 'decimal to binary', 'octal to binary'],
   openGraph: {
-    title: 'Glitch Text Generator - 25+ Unique Styles Free Online',
-    description: 'Create stunning glitched text with 25+ unique styles including Zalgo, Cursed, Upside Down, Bubbles, Squares, Script, Medieval, and more.',
+    title: 'English to Binary Converter - Free Online',
+    description: 'Convert text to binary code and vice versa. Also supports hex, decimal, and octal conversions.',
     type: 'website',
   },
 }
 
-export default function GlitchTextGeneratorPage() {
+export default function EnglishToBinaryPage() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -30,10 +30,10 @@ export default function GlitchTextGeneratorPage() {
             </div>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Glitch Text Generator
+            English to Binary Converter
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Free online glitch text generator with 25+ unique styles including Zalgo, Cursed, Upside Down, Bubbles, Squares, Script, Medieval, and more. Perfect for social media, gaming, and creative projects.
+            Free online English to binary converter. Convert text to binary code and vice versa instantly. Also supports hexadecimal, decimal, and octal conversions. Perfect for programmers and students.
           </p>
         </div>
       </section>
@@ -44,17 +44,17 @@ export default function GlitchTextGeneratorPage() {
           {/* Tool Section */}
           <div className="lg:col-span-2">
             <div className="p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <GlitchTextGeneratorTool />
+              <EnglishToBinaryTool />
             </div>
 
             {/* What This Tool Does Section */}
             <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h2 className="text-2xl font-bold mb-6">What This Tool Does</h2>
               <p className="text-muted-foreground mb-4 leading-relaxed">
-                Our glitch text generator transforms normal text into 25+ unique glitched and stylized variations. Simply enter your text and instantly get multiple styles including Zalgo (creepy zalgo text), Cursed, Upside Down, Bubbles, Squares, Wide, Script, Medieval, Monospace, Bold, Italic, Fraktur, and many more.
+                Our English to binary converter instantly transforms text into binary code (0s and 1s) and converts binary code back to readable text. Simply enter your text or binary code and get instant conversion. The tool also provides conversions to other number systems including hexadecimal, decimal, and octal for comprehensive character encoding analysis.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Each style is generated instantly and can be copied with a single click. Perfect for creating eye-catching social media posts, gaming usernames, Discord messages, creative projects, and any content that needs to stand out with unique text styling.
+                Each character is converted to its ASCII value and represented as an 8-bit binary number. This makes it perfect for programmers, students learning about character encoding, and anyone working with binary data.
               </p>
             </div>
 
@@ -65,63 +65,63 @@ export default function GlitchTextGeneratorPage() {
                 <div className="flex gap-4 p-4 bg-primary/5 rounded-xl">
                   <div className="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">1</div>
                   <div>
-                    <h3 className="font-semibold mb-1">Enter Your Text</h3>
-                    <p className="text-sm text-muted-foreground">Type or paste your text into the input field</p>
+                    <h3 className="font-semibold mb-1">Enter Text or Binary</h3>
+                    <p className="text-sm text-muted-foreground">Switch between Text to Binary or Binary to Text mode</p>
                   </div>
                 </div>
                 <div className="flex gap-4 p-4 bg-primary/5 rounded-xl">
                   <div className="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">2</div>
                   <div>
-                    <h3 className="font-semibold mb-1">Instant Generation</h3>
-                    <p className="text-sm text-muted-foreground">All 12+ styles are generated automatically</p>
+                    <h3 className="font-semibold mb-1">Instant Conversion</h3>
+                    <p className="text-sm text-muted-foreground">Get the converted result immediately as you type</p>
                   </div>
                 </div>
                 <div className="flex gap-4 p-4 bg-primary/5 rounded-xl">
                   <div className="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">3</div>
                   <div>
-                    <h3 className="font-semibold mb-1">Copy Any Style</h3>
-                    <p className="text-sm text-muted-foreground">Click copy on any style to use it immediately</p>
+                    <h3 className="font-semibold mb-1">View All Formats</h3>
+                    <p className="text-sm text-muted-foreground">See conversions in hex, decimal, and octal too</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Why People Use Glitch Text Section */}
+            {/* Why People Use This Tool Section */}
             <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Why People Use Glitch Text</h2>
+              <h2 className="text-2xl font-bold mb-6">Why People Use This Tool</h2>
               <div className="grid md:grid-cols-2 gap-4">
                 {[
                   {
-                    title: "Social Media",
-                    desc: "Make posts stand out on Twitter, Instagram, TikTok"
+                    title: "Programming",
+                    desc: "Understand character encoding"
                   },
                   {
-                    title: "Gaming Content",
-                    desc: "Create unique gaming handles and usernames"
+                    title: "Education",
+                    desc: "Learn about binary systems"
                   },
                   {
-                    title: "Discord Servers",
-                    desc: "Stand out in chat with unique text styles"
+                    title: "Debugging",
+                    desc: "Analyze binary data"
                   },
                   {
-                    title: "Creative Projects",
-                    desc: "Add aesthetic effects to digital art"
+                    title: "Data Analysis",
+                    desc: "Examine character codes"
                   },
                   {
-                    title: "Memes",
-                    desc: "Create glitched text for meme content"
+                    title: "Cybersecurity",
+                    desc: "Analyze encoded messages"
                   },
                   {
-                    title: "Cyberpunk Style",
-                    desc: "Achieve the popular cyberpunk aesthetic"
+                    title: "File Analysis",
+                    desc: "Examine file content"
                   },
                   {
-                    title: "Zalgo Text",
-                    desc: "Create creepy zalgo text for horror content"
+                    title: "Network Communication",
+                    desc: "Analyze data transmission"
                   },
                   {
-                    title: "Brand Identity",
-                    desc: "Unique text styling for personal branding"
+                    title: "Learning ASCII",
+                    desc: "Study character codes"
                   }
                 ].map((useCase, i) => (
                   <div key={i} className="p-4 bg-primary/5 rounded-xl">
@@ -140,22 +140,22 @@ export default function GlitchTextGeneratorPage() {
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
                     <Wrench className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="font-semibold mb-2">25+ Unique Styles</h3>
-                  <p className="text-xs text-muted-foreground">Zalgo, Script, Medieval, Bubbles and more</p>
+                  <h3 className="font-semibold mb-2">Two-Way Conversion</h3>
+                  <p className="text-xs text-muted-foreground">Text to Binary and Binary to Text</p>
                 </div>
                 <div className="text-center p-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
                     <Wrench className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="font-semibold mb-2">Instant Generation</h3>
-                  <p className="text-xs text-muted-foreground">All styles generated automatically</p>
+                  <h3 className="font-semibold mb-2">Multiple Formats</h3>
+                  <p className="text-xs text-muted-foreground">Binary, Hex, Decimal, Octal</p>
                 </div>
                 <div className="text-center p-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
                     <Wrench className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="font-semibold mb-2">One-Click Copy</h3>
-                  <p className="text-xs text-muted-foreground">Copy any style instantly</p>
+                  <h3 className="font-semibold mb-2">Instant Results</h3>
+                  <p className="text-xs text-muted-foreground">Real-time conversion as you type</p>
                 </div>
               </div>
             </div>
@@ -165,28 +165,28 @@ export default function GlitchTextGeneratorPage() {
               <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
               <div className="space-y-4">
                 <div className="border-b pb-4">
-                  <h3 className="font-semibold mb-2">What is glitch text?</h3>
-                  <p className="text-sm text-muted-foreground">Glitch text is stylized text that appears corrupted or distorted with special characters, combining diacritical marks, or enclosed characters. It creates a digital glitch effect popular in cyberpunk aesthetics, horror content, and creative digital projects.</p>
+                  <h3 className="font-semibold mb-2">What is binary code?</h3>
+                  <p className="text-sm text-muted-foreground">Binary code is a system of representing text or computer processor instructions using the binary number system's two binary digits, 0 and 1. In character encoding, each character is represented by a unique sequence of 0s and 1s.</p>
                 </div>
                 <div className="border-b pb-4">
-                  <h3 className="font-semibold mb-2">How do I use the glitch text generator?</h3>
-                  <p className="text-sm text-muted-foreground">Simply enter your text into the input field and all 12+ styles will be generated automatically. Click the copy button on any style to use it immediately. No need to click generate - it's instant!</p>
+                  <h3 className="font-semibold mb-2">How do I use the English to binary converter?</h3>
+                  <p className="text-sm text-muted-foreground">Simply enter your text in the input field to get the binary representation, or enter binary code to decode it back to text. Switch between modes using the tabs. You'll also see conversions to hex, decimal, and octal.</p>
                 </div>
                 <div className="border-b pb-4">
-                  <h3 className="font-semibold mb-2">What styles are available?</h3>
-                  <p className="text-sm text-muted-foreground">Our glitch text generator includes: Zalgo, Behind Bars, Double Strikethrough, Creepy, Upside Down, Bubbles, Squares, Wide, Cursed, Bricks, Electric, Shuriken, Circled, Small Caps, Monospace, Bold, Italic, Script, Bold Script, Fraktur, Double Struck, Parenthesized, Dotted, Tilde, Small Text, Medieval, Full Block, Dashed, and Crossed styles.</p>
+                  <h3 className="font-semibold mb-2">What other formats are supported?</h3>
+                  <p className="text-sm text-muted-foreground">In addition to binary, our tool shows conversions to hexadecimal (base-16), decimal (base-10), and octal (base-8). Each character is converted using its ASCII value and displayed in all these number systems.</p>
                 </div>
                 <div className="border-b pb-4">
-                  <h3 className="font-semibold mb-2">Can I use glitch text on social media?</h3>
-                  <p className="text-sm text-muted-foreground">Yes! Glitch text works on most social media platforms including Twitter, Instagram, TikTok, Discord, Reddit, and more. It's perfect for making your posts stand out with unique styling.</p>
+                  <h3 className="font-semibold mb-2">How is text converted to binary?</h3>
+                  <p className="text-sm text-muted-foreground">Each character is first converted to its ASCII code (a number), then that number is converted to binary. For example, 'A' has ASCII code 65, which in binary is 01000001. Each character becomes an 8-bit binary number.</p>
                 </div>
                 <div className="border-b pb-4">
-                  <h3 className="font-semibold mb-2">What is Zalgo text?</h3>
-                  <p className="text-sm text-muted-foreground">Zalgo text is a style that uses combining diacritical marks (accents and other symbols) placed above, below, and through characters to create a creepy, corrupted appearance. It's often used in horror content and memes.</p>
+                  <h3 className="font-semibold mb-2">Can I convert special characters?</h3>
+                  <p className="text-sm text-muted-foreground">Yes! Our converter supports all ASCII characters including letters, numbers, spaces, punctuation, and special characters. Each is converted to its appropriate binary representation.</p>
                 </div>
                 <div className="pb-4">
                   <h3 className="font-semibold mb-2">Is this tool free to use?</h3>
-                  <p className="text-sm text-muted-foreground">Yes! Our glitch text generator is completely free with no limitations. No registration or installation required - just visit the page and start creating glitched text instantly.</p>
+                  <p className="text-sm text-muted-foreground">Yes! Our English to binary converter is completely free with no limitations. No registration or installation required - just visit the page and start converting text to binary instantly.</p>
                 </div>
               </div>
             </div>
@@ -229,23 +229,23 @@ export default function GlitchTextGeneratorPage() {
                   </div>
                 </Link>
                 <Link
-                  href="/tools/text-repeater"
+                  href="/tools/numbers-to-words"
                   className="flex items-center gap-3 p-4 rounded-xl bg-primary/5 hover:bg-primary/10 transition-colors"
                 >
                   <Wrench className="w-5 h-5 text-primary" />
                   <div>
-                    <p className="font-medium text-sm">Text Repeater</p>
-                    <p className="text-xs text-muted-foreground">Repeat text multiple times</p>
+                    <p className="font-medium text-sm">Numbers To Words</p>
+                    <p className="text-xs text-muted-foreground">Convert numbers to word format</p>
                   </div>
                 </Link>
                 <Link
-                  href="/tools/text-reverser"
+                  href="/tools/morse-code-translator"
                   className="flex items-center gap-3 p-4 rounded-xl bg-primary/5 hover:bg-primary/10 transition-colors"
                 >
                   <Wrench className="w-5 h-5 text-primary" />
                   <div>
-                    <p className="font-medium text-sm">Text Reverser</p>
-                    <p className="text-xs text-muted-foreground">Reverse text, words, or both</p>
+                    <p className="font-medium text-sm">Morse Code</p>
+                    <p className="text-xs text-muted-foreground">Text to Morse with audio</p>
                   </div>
                 </Link>
               </div>
@@ -290,15 +290,15 @@ export default function GlitchTextGeneratorPage() {
 
             {/* SEO Content */}
             <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h3 className="text-lg font-bold mb-4">About Glitch Text Generator</h3>
+              <h3 className="text-lg font-bold mb-4">About English to Binary</h3>
               <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                Our glitch text generator creates 25+ unique text styles including Zalgo text, Cursed text, Upside Down text, Bubbles, Squares, Script, Medieval, Monospace, Bold, Italic, Fraktur, and many more. Perfect for social media posts, gaming usernames, Discord messages, and creative projects.
+                Our English to binary converter instantly transforms text into binary code (0s and 1s) and converts binary code back to readable text. Supports hexadecimal, decimal, and octal conversions for comprehensive analysis.
               </p>
               <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                Simply enter your text and instantly get multiple styles. Each style can be copied with one click. No registration needed - just type and go!
+                Each character is converted to its ASCII value and represented as an 8-bit binary number. Perfect for programmers, students, and anyone working with binary data.
               </p>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Works perfectly on all devices - desktop, tablet, and mobile. Start creating unique glitched text today!
+                Works perfectly on all devices - desktop, tablet, and mobile. Start converting text to binary today!
               </p>
             </div>
 
@@ -308,27 +308,27 @@ export default function GlitchTextGeneratorPage() {
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Social media posts and bios</span>
+                  <span>Programming and development</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Gaming usernames and handles</span>
+                  <span>Learning character encoding</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Digital art and design projects</span>
+                  <span>Debugging binary data</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Cyberpunk themed content</span>
+                  <span>Analyzing file content</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Meme creation</span>
+                  <span>Cybersecurity analysis</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Discord server messages</span>
+                  <span>Network communication analysis</span>
                 </li>
               </ul>
             </div>
@@ -338,15 +338,23 @@ export default function GlitchTextGeneratorPage() {
               <h3 className="text-lg font-bold mb-4">Technical Information</h3>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Available styles:</span>
-                  <span className="font-medium">25+ unique styles</span>
+                  <span className="text-muted-foreground">Conversion modes:</span>
+                  <span className="font-medium">Text to Binary, Binary to Text</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Popular styles:</span>
-                  <span className="font-medium">Zalgo, Script, Medieval</span>
+                  <span className="text-muted-foreground">Additional formats:</span>
+                  <span className="font-medium">Hex, Decimal, Octal</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Instant generation:</span>
+                  <span className="text-muted-foreground">Character encoding:</span>
+                  <span className="font-medium">ASCII (8-bit)</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Binary format:</span>
+                  <span className="font-medium">8-bit per character</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Instant conversion:</span>
                   <span className="font-medium">Yes</span>
                 </div>
                 <div className="flex justify-between">

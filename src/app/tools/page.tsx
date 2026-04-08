@@ -6,8 +6,8 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Text Tools - Free Online Text Utilities',
-  description: 'Collection of free online text tools including word counter, case converter, random word generator, slug generator, URL encoder/decoder, sort and deduplicate, find and replace, remove whitespace, text repeater, text reverser, citation generator, and sort text. Easy to use text utilities for everyone.',
-  keywords: ['text tools', 'online text tools', 'text utilities', 'free text tools', 'text manipulation', 'word counter', 'case converter', 'random word generator', 'generate random words', 'random words', 'word list generator', 'slug generator', 'url slug generator', 'url encoder', 'url decoder', 'url encode decode', 'percent encoding', 'sort text', 'deduplicate text', 'sort lines', 'find and replace', 'remove whitespace', 'text repeater', 'text reverser', 'citation generator', 'APA citation generator', 'MLA citation generator', 'Chicago citation generator', 'Harvard citation generator', 'book citation', 'webpage citation', 'academic citation', 'sort text', 'alphabetical sort', 'natural sort', 'text sorter', 'sort list', 'sort by length'],
+  description: 'Collection of free online text tools including word counter, case converter, random word generator, slug generator, URL encoder/decoder, sort and deduplicate, find and replace, remove whitespace, text repeater, text reverser, citation generator, cursive text generator, glitch text generator, fancy text generator, numbers to words, morse code translator, tiny text generator, vaporwave text generator, english to binary, ned flanders translator, and sort text. Easy to use text utilities for everyone.',
+  keywords: ['text tools', 'online text tools', 'text utilities', 'free text tools', 'text manipulation', 'word counter', 'case converter', 'random word generator', 'generate random words', 'random words', 'word list generator', 'slug generator', 'url slug generator', 'url encoder', 'url decoder', 'url encode decode', 'percent encoding', 'sort text', 'deduplicate text', 'sort lines', 'find and replace', 'remove whitespace', 'text repeater', 'text reverser', 'citation generator', 'cursive text generator', 'glitch text generator', 'fancy text generator', 'numbers to words', 'number to text', 'convert number to words', 'number converter', 'morse code translator', 'text to morse', 'morse to text', 'morse code audio', 'morse code player', 'learn morse code', 'tiny text generator', 'small text', 'superscript generator', 'subscript generator', 'small caps converter', 'tiny letters', 'mini text', 'vaporwave text generator', 'vaporwave font', 'aesthetic text', 'full width text', 'retro text', '80s text', '90s text', 'vaporwave aesthetic', 'english to binary', 'text to binary', 'binary to text', 'binary converter', 'ascii to binary', 'binary code converter', 'hex to text', 'decimal to binary', 'octal to binary', 'APA citation generator', 'MLA citation generator', 'Chicago citation generator', 'Harvard citation generator', 'book citation', 'webpage citation', 'academic citation', 'sort text', 'alphabetical sort', 'natural sort', 'text sorter', 'sort list', 'sort by length'],
   openGraph: {
     title: 'Text Tools - Free Online Text Utilities',
     description: 'Collection of free online text tools for text manipulation and formatting.',
@@ -120,6 +120,94 @@ const tools = [
     color: 'from-teal-500/5 to-teal-500/10',
     borderColor: 'border-teal-500/20',
   },
+  {
+    name: 'Cursive Text Generator',
+    description: 'Convert text to beautiful cursive, script, and handwriting styles',
+    path: '/tools/cursive-text-generator',
+    icon: '✍️',
+    color: 'from-rose-500/5 to-rose-500/10',
+    borderColor: 'border-rose-500/20',
+  },
+  {
+    name: 'Glitch Text Generator',
+    description: 'Create 25+ glitch and cursed text styles including Zalgo, Cursed, and more',
+    path: '/tools/glitch-text-generator',
+    icon: '👾',
+    color: 'from-fuchsia-500/5 to-fuchsia-500/10',
+    borderColor: 'border-fuchsia-500/20',
+  },
+  {
+    name: 'Fancy Text Generator',
+    description: 'Transform text into 25+ styles — bold, script, gothic, circled, upside down & more',
+    path: '/tools/fancy-text-generator',
+    icon: '✨',
+    color: 'from-violet-500/5 to-violet-500/10',
+    borderColor: 'border-violet-500/20',
+  },
+  {
+    name: 'Numbers To Words',
+    description: 'Convert any number to words instantly — integers, decimals, and negatives supported',
+    path: '/tools/numbers-to-words',
+    icon: '🔢',
+    color: 'from-amber-500/5 to-amber-500/10',
+    borderColor: 'border-amber-500/20',
+  },
+  {
+    name: 'Morse Code Translator',
+    description: 'Convert text to Morse code and vice versa with audio playback and adjustable settings',
+    path: '/tools/morse-code-translator',
+    icon: '📻',
+    color: 'from-cyan-500/5 to-cyan-500/10',
+    borderColor: 'border-cyan-500/20',
+  },
+  {
+    name: 'Tiny Text Generator',
+    description: 'Convert text to 16+ tiny styles including superscript, subscript, small caps and more',
+    path: '/tools/tiny-text-generator',
+    icon: '✍️',
+    color: 'from-lime-500/5 to-lime-500/10',
+    borderColor: 'border-lime-500/20',
+  },
+  {
+    name: 'Vaporwave Text Generator',
+    description: 'Convert text to 13+ vaporwave and aesthetic styles including full-width and emoji text',
+    path: '/tools/vaporwave-text-generator',
+    icon: '🌸',
+    color: 'from-pink-500/5 to-pink-500/10',
+    borderColor: 'border-pink-500/20',
+  },
+  {
+    name: 'English to Binary',
+    description: 'Convert text to binary code and vice versa with hex, decimal, and octal support',
+    path: '/tools/english-to-binary',
+    icon: '💻',
+    color: 'from-indigo-500/5 to-indigo-500/10',
+    borderColor: 'border-indigo-500/20',
+  },
+  {
+    name: 'Ned Flanders Translator',
+    description: 'Convert English to Ned Flanders\' iconic diddly-doodly speak from The Simpsons',
+    path: '/tools/ned-flanders-translator',
+    icon: '🏡',
+    color: 'from-yellow-500/5 to-yellow-500/10',
+    borderColor: 'border-yellow-500/20',
+  },
+  {
+    name: 'Robot Voice Generator',
+    description: 'Convert text to robot voice with adjustable speed and pitch, plus 6 visual robot text styles',
+    path: '/tools/robot-voice-generator',
+    icon: '🤖',
+    color: 'from-slate-500/5 to-slate-500/10',
+    borderColor: 'border-slate-500/20',
+  },
+  {
+    name: 'Zalgo Text Generator',
+    description: 'Create creepy cursed Zalgo text with dripping diacritics. Adjustable craziness level from subtle to full chaos',
+    path: '/tools/zalgo-text-generator',
+    icon: '☠️',
+    color: 'from-red-900/5 to-red-900/10',
+    borderColor: 'border-red-900/20',
+  },
 ]
 
 export default function ToolsPage() {
@@ -139,7 +227,7 @@ export default function ToolsPage() {
             Text Tools
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Collection of free online text tools for text manipulation and formatting including word counter, case converter, random word generator, slug generator, URL encoder/decoder, sort and deduplicate, find and replace, remove whitespace, text repeater, text reverser, citation generator, and sort text. Easy to use, no installation required.
+            Collection of free online text tools for text manipulation and formatting including word counter, case converter, random word generator, slug generator, URL encoder/decoder, sort and deduplicate, find and replace, remove whitespace, text repeater, text reverser, citation generator, cursive text generator, glitch text generator, fancy text generator, numbers to words, morse code translator, tiny text generator, vaporwave text generator, english to binary, and sort text. Easy to use, no installation required.
           </p>
         </div>
       </section>

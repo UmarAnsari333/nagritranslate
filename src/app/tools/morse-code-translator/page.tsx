@@ -1,22 +1,22 @@
 import { Metadata } from 'next'
 import { Wrench } from 'lucide-react'
-import { GlitchTextGeneratorTool } from '@/components/tools/glitch-text-generator-tool'
+import { MorseCodeTranslatorTool } from '@/components/tools/morse-code-translator-tool'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Glitch Text Generator - 25+ Styles Free Online | Zalgo, Cursed & More',
-  description: 'Free online glitch text generator with 25+ unique styles including Zalgo, Cursed, Upside Down, Bubbles, Squares, Script, Medieval, and more. Perfect for social media, gaming, and creative projects.',
-  keywords: ['glitch text generator', 'zalgo text', 'cursed text', 'upside down text', 'bubble text', 'square text', 'creepy text', 'stylish text', 'text effects', 'cool text generator', 'script text', 'medieval text'],
+  title: 'Morse Code Translator - Free Online | Text to Morse with Audio',
+  description: 'Free online Morse code translator with audio playback. Convert text to Morse code and vice versa. Listen to Morse code with adjustable speed and frequency. Perfect for learning and communication.',
+  keywords: ['morse code translator', 'text to morse', 'morse to text', 'morse code audio', 'morse code player', 'morse code generator', 'learn morse code', 'morse code converter'],
   openGraph: {
-    title: 'Glitch Text Generator - 25+ Unique Styles Free Online',
-    description: 'Create stunning glitched text with 25+ unique styles including Zalgo, Cursed, Upside Down, Bubbles, Squares, Script, Medieval, and more.',
+    title: 'Morse Code Translator - Free Online with Audio',
+    description: 'Convert text to Morse code and vice versa with audio playback. Listen to your Morse code with customizable speed and frequency.',
     type: 'website',
   },
 }
 
-export default function GlitchTextGeneratorPage() {
+export default function MorseCodeTranslatorPage() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -30,10 +30,10 @@ export default function GlitchTextGeneratorPage() {
             </div>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Glitch Text Generator
+            Morse Code Translator
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Free online glitch text generator with 25+ unique styles including Zalgo, Cursed, Upside Down, Bubbles, Squares, Script, Medieval, and more. Perfect for social media, gaming, and creative projects.
+            Free online Morse code translator with audio playback. Convert text to Morse code and vice versa. Listen to Morse code with adjustable speed and frequency. Perfect for learning and communication.
           </p>
         </div>
       </section>
@@ -44,17 +44,17 @@ export default function GlitchTextGeneratorPage() {
           {/* Tool Section */}
           <div className="lg:col-span-2">
             <div className="p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <GlitchTextGeneratorTool />
+              <MorseCodeTranslatorTool />
             </div>
 
             {/* What This Tool Does Section */}
             <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h2 className="text-2xl font-bold mb-6">What This Tool Does</h2>
               <p className="text-muted-foreground mb-4 leading-relaxed">
-                Our glitch text generator transforms normal text into 25+ unique glitched and stylized variations. Simply enter your text and instantly get multiple styles including Zalgo (creepy zalgo text), Cursed, Upside Down, Bubbles, Squares, Wide, Script, Medieval, Monospace, Bold, Italic, Fraktur, and many more.
+                Our Morse code translator instantly converts text to Morse code and Morse code back to text. Simply type your message and get the Morse code representation instantly, or enter Morse code to decode it back to readable text. The built-in audio player lets you listen to Morse code with customizable speed and frequency, making it perfect for learning and practice.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Each style is generated instantly and can be copied with a single click. Perfect for creating eye-catching social media posts, gaming usernames, Discord messages, creative projects, and any content that needs to stand out with unique text styling.
+                Supports all letters, numbers, and common punctuation marks. The audio playback feature uses the Web Audio API to generate authentic Morse code sounds that you can adjust to your preference.
               </p>
             </div>
 
@@ -65,63 +65,63 @@ export default function GlitchTextGeneratorPage() {
                 <div className="flex gap-4 p-4 bg-primary/5 rounded-xl">
                   <div className="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">1</div>
                   <div>
-                    <h3 className="font-semibold mb-1">Enter Your Text</h3>
-                    <p className="text-sm text-muted-foreground">Type or paste your text into the input field</p>
+                    <h3 className="font-semibold mb-1">Enter Text or Morse Code</h3>
+                    <p className="text-sm text-muted-foreground">Switch between Text to Morse or Morse to Text mode</p>
                   </div>
                 </div>
                 <div className="flex gap-4 p-4 bg-primary/5 rounded-xl">
                   <div className="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">2</div>
                   <div>
-                    <h3 className="font-semibold mb-1">Instant Generation</h3>
-                    <p className="text-sm text-muted-foreground">All 12+ styles are generated automatically</p>
+                    <h3 className="font-semibold mb-1">Instant Conversion</h3>
+                    <p className="text-sm text-muted-foreground">Get the converted result immediately as you type</p>
                   </div>
                 </div>
                 <div className="flex gap-4 p-4 bg-primary/5 rounded-xl">
                   <div className="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">3</div>
                   <div>
-                    <h3 className="font-semibold mb-1">Copy Any Style</h3>
-                    <p className="text-sm text-muted-foreground">Click copy on any style to use it immediately</p>
+                    <h3 className="font-semibold mb-1">Play Audio</h3>
+                    <p className="text-sm text-muted-foreground">Click play to hear the Morse code with adjustable settings</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Why People Use Glitch Text Section */}
+            {/* Why People Use This Tool Section */}
             <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Why People Use Glitch Text</h2>
+              <h2 className="text-2xl font-bold mb-6">Why People Use This Tool</h2>
               <div className="grid md:grid-cols-2 gap-4">
                 {[
                   {
-                    title: "Social Media",
-                    desc: "Make posts stand out on Twitter, Instagram, TikTok"
+                    title: "Learning Morse Code",
+                    desc: "Practice and learn Morse code effectively"
                   },
                   {
-                    title: "Gaming Content",
-                    desc: "Create unique gaming handles and usernames"
+                    title: "Emergency Communication",
+                    desc: "Prepare for emergency signaling"
                   },
                   {
-                    title: "Discord Servers",
-                    desc: "Stand out in chat with unique text styles"
+                    title: "Ham Radio",
+                    desc: "Amateur radio communication practice"
                   },
                   {
-                    title: "Creative Projects",
-                    desc: "Add aesthetic effects to digital art"
+                    title: "Educational Projects",
+                    desc: "Teach students about communication history"
                   },
                   {
-                    title: "Memes",
-                    desc: "Create glitched text for meme content"
+                    title: "Secret Messages",
+                    desc: "Create encoded messages for fun"
                   },
                   {
-                    title: "Cyberpunk Style",
-                    desc: "Achieve the popular cyberpunk aesthetic"
+                    title: "Historical Interest",
+                    desc: "Explore traditional communication methods"
                   },
                   {
-                    title: "Zalgo Text",
-                    desc: "Create creepy zalgo text for horror content"
+                    title: "Accessibility",
+                    desc: "Alternative communication method"
                   },
                   {
-                    title: "Brand Identity",
-                    desc: "Unique text styling for personal branding"
+                    title: "Hobby & Fun",
+                    desc: "Enjoy learning and using Morse code"
                   }
                 ].map((useCase, i) => (
                   <div key={i} className="p-4 bg-primary/5 rounded-xl">
@@ -140,22 +140,22 @@ export default function GlitchTextGeneratorPage() {
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
                     <Wrench className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="font-semibold mb-2">25+ Unique Styles</h3>
-                  <p className="text-xs text-muted-foreground">Zalgo, Script, Medieval, Bubbles and more</p>
+                  <h3 className="font-semibold mb-2">Two-Way Conversion</h3>
+                  <p className="text-xs text-muted-foreground">Text to Morse and Morse to text</p>
                 </div>
                 <div className="text-center p-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
                     <Wrench className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="font-semibold mb-2">Instant Generation</h3>
-                  <p className="text-xs text-muted-foreground">All styles generated automatically</p>
+                  <h3 className="font-semibold mb-2">Audio Playback</h3>
+                  <p className="text-xs text-muted-foreground">Listen to Morse code with adjustable settings</p>
                 </div>
                 <div className="text-center p-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
                     <Wrench className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="font-semibold mb-2">One-Click Copy</h3>
-                  <p className="text-xs text-muted-foreground">Copy any style instantly</p>
+                  <h3 className="font-semibold mb-2">Instant Results</h3>
+                  <p className="text-xs text-muted-foreground">Real-time conversion as you type</p>
                 </div>
               </div>
             </div>
@@ -165,28 +165,28 @@ export default function GlitchTextGeneratorPage() {
               <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
               <div className="space-y-4">
                 <div className="border-b pb-4">
-                  <h3 className="font-semibold mb-2">What is glitch text?</h3>
-                  <p className="text-sm text-muted-foreground">Glitch text is stylized text that appears corrupted or distorted with special characters, combining diacritical marks, or enclosed characters. It creates a digital glitch effect popular in cyberpunk aesthetics, horror content, and creative digital projects.</p>
+                  <h3 className="font-semibold mb-2">What is Morse code?</h3>
+                  <p className="text-sm text-muted-foreground">Morse code is a method used in telecommunication to encode text characters as standardized sequences of two different signal durations, called dots and dashes. It was developed in the 1830s and 1840s by Samuel Morse and Alfred Vail for use with their electrical telegraph.</p>
                 </div>
                 <div className="border-b pb-4">
-                  <h3 className="font-semibold mb-2">How do I use the glitch text generator?</h3>
-                  <p className="text-sm text-muted-foreground">Simply enter your text into the input field and all 12+ styles will be generated automatically. Click the copy button on any style to use it immediately. No need to click generate - it's instant!</p>
+                  <h3 className="font-semibold mb-2">How do I use the Morse code translator?</h3>
+                  <p className="text-sm text-muted-foreground">Simply switch between "Text to Morse" or "Morse to Text" mode, enter your input, and get instant conversion. You can also click the play button to hear the Morse code audio. Use the sliders to adjust speed and frequency.</p>
                 </div>
                 <div className="border-b pb-4">
-                  <h3 className="font-semibold mb-2">What styles are available?</h3>
-                  <p className="text-sm text-muted-foreground">Our glitch text generator includes: Zalgo, Behind Bars, Double Strikethrough, Creepy, Upside Down, Bubbles, Squares, Wide, Cursed, Bricks, Electric, Shuriken, Circled, Small Caps, Monospace, Bold, Italic, Script, Bold Script, Fraktur, Double Struck, Parenthesized, Dotted, Tilde, Small Text, Medieval, Full Block, Dashed, and Crossed styles.</p>
+                  <h3 className="font-semibold mb-2">Can I listen to the Morse code?</h3>
+                  <p className="text-sm text-muted-foreground">Yes! Our tool includes an audio player that generates authentic Morse code sounds. You can adjust the speed (dot duration) and frequency (pitch) to customize the playback to your preference.</p>
                 </div>
                 <div className="border-b pb-4">
-                  <h3 className="font-semibold mb-2">Can I use glitch text on social media?</h3>
-                  <p className="text-sm text-muted-foreground">Yes! Glitch text works on most social media platforms including Twitter, Instagram, TikTok, Discord, Reddit, and more. It's perfect for making your posts stand out with unique styling.</p>
+                  <h3 className="font-semibold mb-2">What characters are supported?</h3>
+                  <p className="text-sm text-muted-foreground">Our translator supports all letters (A-Z), numbers (0-9), and common punctuation marks including period, comma, question mark, exclamation mark, slash, parentheses, ampersand, colon, semicolon, equals, plus, minus, underscore, quote, dollar sign, and at sign.</p>
                 </div>
                 <div className="border-b pb-4">
-                  <h3 className="font-semibold mb-2">What is Zalgo text?</h3>
-                  <p className="text-sm text-muted-foreground">Zalgo text is a style that uses combining diacritical marks (accents and other symbols) placed above, below, and through characters to create a creepy, corrupted appearance. It's often used in horror content and memes.</p>
+                  <h3 className="font-semibold mb-2">What is the correct timing for Morse code?</h3>
+                  <p className="text-sm text-muted-foreground">Standard Morse code timing: a dot is one unit, a dash is three units, the space between parts of the same letter is one unit, between letters is three units, and between words is seven units. Our tool automatically applies these ratios based on your chosen speed.</p>
                 </div>
                 <div className="pb-4">
                   <h3 className="font-semibold mb-2">Is this tool free to use?</h3>
-                  <p className="text-sm text-muted-foreground">Yes! Our glitch text generator is completely free with no limitations. No registration or installation required - just visit the page and start creating glitched text instantly.</p>
+                  <p className="text-sm text-muted-foreground">Yes! Our Morse code translator is completely free with no limitations. No registration or installation required - just visit the page and start translating Morse code instantly.</p>
                 </div>
               </div>
             </div>
@@ -239,13 +239,13 @@ export default function GlitchTextGeneratorPage() {
                   </div>
                 </Link>
                 <Link
-                  href="/tools/text-reverser"
+                  href="/tools/numbers-to-words"
                   className="flex items-center gap-3 p-4 rounded-xl bg-primary/5 hover:bg-primary/10 transition-colors"
                 >
                   <Wrench className="w-5 h-5 text-primary" />
                   <div>
-                    <p className="font-medium text-sm">Text Reverser</p>
-                    <p className="text-xs text-muted-foreground">Reverse text, words, or both</p>
+                    <p className="font-medium text-sm">Numbers To Words</p>
+                    <p className="text-xs text-muted-foreground">Convert numbers to word format</p>
                   </div>
                 </Link>
               </div>
@@ -290,15 +290,15 @@ export default function GlitchTextGeneratorPage() {
 
             {/* SEO Content */}
             <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h3 className="text-lg font-bold mb-4">About Glitch Text Generator</h3>
+              <h3 className="text-lg font-bold mb-4">About Morse Code</h3>
               <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                Our glitch text generator creates 25+ unique text styles including Zalgo text, Cursed text, Upside Down text, Bubbles, Squares, Script, Medieval, Monospace, Bold, Italic, Fraktur, and many more. Perfect for social media posts, gaming usernames, Discord messages, and creative projects.
+                Our Morse code translator instantly converts text to Morse code and vice versa with audio playback. Perfect for learning, practice, and communication. Supports all letters, numbers, and common punctuation.
               </p>
               <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                Simply enter your text and instantly get multiple styles. Each style can be copied with one click. No registration needed - just type and go!
+                The built-in audio player lets you listen to authentic Morse code with adjustable speed and frequency, making it an excellent tool for learning and practice.
               </p>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Works perfectly on all devices - desktop, tablet, and mobile. Start creating unique glitched text today!
+                Works perfectly on all devices - desktop, tablet, and mobile. Start translating Morse code today!
               </p>
             </div>
 
@@ -308,27 +308,27 @@ export default function GlitchTextGeneratorPage() {
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Social media posts and bios</span>
+                  <span>Learning and practicing Morse code</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Gaming usernames and handles</span>
+                  <span>Emergency communication preparation</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Digital art and design projects</span>
+                  <span>Ham radio and amateur radio</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Cyberpunk themed content</span>
+                  <span>Educational projects and teaching</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Meme creation</span>
+                  <span>Creating secret messages</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Discord server messages</span>
+                  <span>Historical communication study</span>
                 </li>
               </ul>
             </div>
@@ -338,15 +338,27 @@ export default function GlitchTextGeneratorPage() {
               <h3 className="text-lg font-bold mb-4">Technical Information</h3>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Available styles:</span>
-                  <span className="font-medium">25+ unique styles</span>
+                  <span className="text-muted-foreground">Conversion modes:</span>
+                  <span className="font-medium">Text to Morse, Morse to Text</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Popular styles:</span>
-                  <span className="font-medium">Zalgo, Script, Medieval</span>
+                  <span className="text-muted-foreground">Audio playback:</span>
+                  <span className="font-medium">Yes</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Instant generation:</span>
+                  <span className="text-muted-foreground">Speed control:</span>
+                  <span className="font-medium">20-200ms</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Frequency range:</span>
+                  <span className="font-medium">200-1000Hz</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Supported chars:</span>
+                  <span className="font-medium">A-Z, 0-9, punctuation</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Instant conversion:</span>
                   <span className="font-medium">Yes</span>
                 </div>
                 <div className="flex justify-between">

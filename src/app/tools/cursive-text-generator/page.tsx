@@ -1,22 +1,22 @@
 import { Metadata } from 'next'
 import { Wrench } from 'lucide-react'
-import { GlitchTextGeneratorTool } from '@/components/tools/glitch-text-generator-tool'
+import { CursiveTextGeneratorTool } from '@/components/tools/cursive-text-generator-tool'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Glitch Text Generator - 25+ Styles Free Online | Zalgo, Cursed & More',
-  description: 'Free online glitch text generator with 25+ unique styles including Zalgo, Cursed, Upside Down, Bubbles, Squares, Script, Medieval, and more. Perfect for social media, gaming, and creative projects.',
-  keywords: ['glitch text generator', 'zalgo text', 'cursed text', 'upside down text', 'bubble text', 'square text', 'creepy text', 'stylish text', 'text effects', 'cool text generator', 'script text', 'medieval text'],
+  title: 'Cursive Text Generator - Copy, Paste and Use Anywhere | Free Online Tool',
+  description: 'Free online cursive text generator. Convert normal text to beautiful cursive, script, and handwriting styles. Copy and paste anywhere - social media, documents, and more.',
+  keywords: ['cursive text generator', 'script text', 'handwriting font', 'fancy text generator', 'calligraphy text', 'beautiful text', 'text to cursive', 'script font converter'],
   openGraph: {
-    title: 'Glitch Text Generator - 25+ Unique Styles Free Online',
-    description: 'Create stunning glitched text with 25+ unique styles including Zalgo, Cursed, Upside Down, Bubbles, Squares, Script, Medieval, and more.',
+    title: 'Cursive Text Generator - Copy, Paste and Use Anywhere',
+    description: 'Convert normal text to beautiful cursive, script, and handwriting styles. Perfect for social media and creative projects.',
     type: 'website',
   },
 }
 
-export default function GlitchTextGeneratorPage() {
+export default function CursiveTextGeneratorPage() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -30,10 +30,10 @@ export default function GlitchTextGeneratorPage() {
             </div>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Glitch Text Generator
+            Cursive Text Generator
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Free online glitch text generator with 25+ unique styles including Zalgo, Cursed, Upside Down, Bubbles, Squares, Script, Medieval, and more. Perfect for social media, gaming, and creative projects.
+            Free online cursive text generator. Convert normal text to beautiful cursive, script, and handwriting styles. Copy and paste anywhere - social media, documents, and more.
           </p>
         </div>
       </section>
@@ -44,17 +44,17 @@ export default function GlitchTextGeneratorPage() {
           {/* Tool Section */}
           <div className="lg:col-span-2">
             <div className="p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <GlitchTextGeneratorTool />
+              <CursiveTextGeneratorTool />
             </div>
 
             {/* What This Tool Does Section */}
             <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h2 className="text-2xl font-bold mb-6">What This Tool Does</h2>
               <p className="text-muted-foreground mb-4 leading-relaxed">
-                Our glitch text generator transforms normal text into 25+ unique glitched and stylized variations. Simply enter your text and instantly get multiple styles including Zalgo (creepy zalgo text), Cursed, Upside Down, Bubbles, Squares, Wide, Script, Medieval, Monospace, Bold, Italic, Fraktur, and many more.
+                Our cursive text generator transforms normal text into beautiful script and handwriting styles. Simply enter your text and instantly get multiple cursive variations including classic script, bold script, fraktur, mathematical script, italic, and many more elegant styles.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Each style is generated instantly and can be copied with a single click. Perfect for creating eye-catching social media posts, gaming usernames, Discord messages, creative projects, and any content that needs to stand out with unique text styling.
+                Each style is generated instantly and can be copied with a single click. Perfect for creating elegant social media posts, invitations, artistic projects, signatures, and any content that needs beautiful handwritten-style text.
               </p>
             </div>
 
@@ -73,7 +73,7 @@ export default function GlitchTextGeneratorPage() {
                   <div className="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">2</div>
                   <div>
                     <h3 className="font-semibold mb-1">Instant Generation</h3>
-                    <p className="text-sm text-muted-foreground">All 12+ styles are generated automatically</p>
+                    <p className="text-sm text-muted-foreground">All cursive styles are generated automatically</p>
                   </div>
                 </div>
                 <div className="flex gap-4 p-4 bg-primary/5 rounded-xl">
@@ -86,42 +86,42 @@ export default function GlitchTextGeneratorPage() {
               </div>
             </div>
 
-            {/* Why People Use Glitch Text Section */}
+            {/* Why People Use Cursive Text Section */}
             <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Why People Use Glitch Text</h2>
+              <h2 className="text-2xl font-bold mb-6">Why People Use Cursive Text</h2>
               <div className="grid md:grid-cols-2 gap-4">
                 {[
                   {
                     title: "Social Media",
-                    desc: "Make posts stand out on Twitter, Instagram, TikTok"
+                    desc: "Make posts look elegant on Instagram, Facebook, Twitter"
                   },
                   {
-                    title: "Gaming Content",
-                    desc: "Create unique gaming handles and usernames"
+                    title: "Weddings & Events",
+                    desc: "Create beautiful invitations and announcements"
                   },
                   {
-                    title: "Discord Servers",
-                    desc: "Stand out in chat with unique text styles"
+                    title: "Digital Signatures",
+                    desc: "Add personal touch to emails and documents"
                   },
                   {
                     title: "Creative Projects",
-                    desc: "Add aesthetic effects to digital art"
+                    desc: "Enhance designs with elegant text styles"
                   },
                   {
-                    title: "Memes",
-                    desc: "Create glitched text for meme content"
+                    title: "Gaming Usernames",
+                    desc: "Create unique gaming handles and profiles"
                   },
                   {
-                    title: "Cyberpunk Style",
-                    desc: "Achieve the popular cyberpunk aesthetic"
+                    title: "Art & Design",
+                    desc: "Add aesthetic handwriting to digital art"
                   },
                   {
-                    title: "Zalgo Text",
-                    desc: "Create creepy zalgo text for horror content"
+                    title: "Personal Branding",
+                    desc: "Stand out with unique script styles"
                   },
                   {
-                    title: "Brand Identity",
-                    desc: "Unique text styling for personal branding"
+                    title: "Content Creation",
+                    desc: "Elegant text for blogs, videos, and more"
                   }
                 ].map((useCase, i) => (
                   <div key={i} className="p-4 bg-primary/5 rounded-xl">
@@ -140,8 +140,8 @@ export default function GlitchTextGeneratorPage() {
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
                     <Wrench className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="font-semibold mb-2">25+ Unique Styles</h3>
-                  <p className="text-xs text-muted-foreground">Zalgo, Script, Medieval, Bubbles and more</p>
+                  <h3 className="font-semibold mb-2">10+ Styles</h3>
+                  <p className="text-xs text-muted-foreground">Multiple cursive and script variations</p>
                 </div>
                 <div className="text-center p-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
@@ -165,28 +165,28 @@ export default function GlitchTextGeneratorPage() {
               <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
               <div className="space-y-4">
                 <div className="border-b pb-4">
-                  <h3 className="font-semibold mb-2">What is glitch text?</h3>
-                  <p className="text-sm text-muted-foreground">Glitch text is stylized text that appears corrupted or distorted with special characters, combining diacritical marks, or enclosed characters. It creates a digital glitch effect popular in cyberpunk aesthetics, horror content, and creative digital projects.</p>
+                  <h3 className="font-semibold mb-2">What is cursive text?</h3>
+                  <p className="text-sm text-muted-foreground">Cursive text is flowing, connected handwriting-style text that appears elegant and artistic. It's commonly used for invitations, signatures, and adding a personal touch to digital content.</p>
                 </div>
                 <div className="border-b pb-4">
-                  <h3 className="font-semibold mb-2">How do I use the glitch text generator?</h3>
-                  <p className="text-sm text-muted-foreground">Simply enter your text into the input field and all 12+ styles will be generated automatically. Click the copy button on any style to use it immediately. No need to click generate - it's instant!</p>
+                  <h3 className="font-semibold mb-2">How do I use the cursive text generator?</h3>
+                  <p className="text-sm text-muted-foreground">Simply enter your text into the input field and all 10+ cursive styles will be generated automatically. Click the copy button on any style to use it immediately.</p>
                 </div>
                 <div className="border-b pb-4">
                   <h3 className="font-semibold mb-2">What styles are available?</h3>
-                  <p className="text-sm text-muted-foreground">Our glitch text generator includes: Zalgo, Behind Bars, Double Strikethrough, Creepy, Upside Down, Bubbles, Squares, Wide, Cursed, Bricks, Electric, Shuriken, Circled, Small Caps, Monospace, Bold, Italic, Script, Bold Script, Fraktur, Double Struck, Parenthesized, Dotted, Tilde, Small Text, Medieval, Full Block, Dashed, and Crossed styles.</p>
+                  <p className="text-sm text-muted-foreground">Our cursive text generator includes: Script, Bold Script, Fraktur, Bold Fraktur, Mathematical Script, Italic, Handwriting, Calligraphy, Fancy Script, and Elegant Script styles.</p>
                 </div>
                 <div className="border-b pb-4">
-                  <h3 className="font-semibold mb-2">Can I use glitch text on social media?</h3>
-                  <p className="text-sm text-muted-foreground">Yes! Glitch text works on most social media platforms including Twitter, Instagram, TikTok, Discord, Reddit, and more. It's perfect for making your posts stand out with unique styling.</p>
+                  <h3 className="font-semibold mb-2">Can I use cursive text on social media?</h3>
+                  <p className="text-sm text-muted-foreground">Yes! Cursive text works on most social media platforms including Instagram, Facebook, Twitter, TikTok, and more. It's perfect for creating elegant posts and captions.</p>
                 </div>
                 <div className="border-b pb-4">
-                  <h3 className="font-semibold mb-2">What is Zalgo text?</h3>
-                  <p className="text-sm text-muted-foreground">Zalgo text is a style that uses combining diacritical marks (accents and other symbols) placed above, below, and through characters to create a creepy, corrupted appearance. It's often used in horror content and memes.</p>
+                  <h3 className="font-semibold mb-2">What is fraktur text?</h3>
+                  <p className="text-sm text-muted-foreground">Fraktur is a blackletter Gothic script style that dates back to medieval times. It's characterized by sharp angles and ornate designs, often used for formal or traditional aesthetics.</p>
                 </div>
                 <div className="pb-4">
                   <h3 className="font-semibold mb-2">Is this tool free to use?</h3>
-                  <p className="text-sm text-muted-foreground">Yes! Our glitch text generator is completely free with no limitations. No registration or installation required - just visit the page and start creating glitched text instantly.</p>
+                  <p className="text-sm text-muted-foreground">Yes! Our cursive text generator is completely free with no limitations. No registration or installation required - just visit the page and start creating beautiful cursive text instantly.</p>
                 </div>
               </div>
             </div>
@@ -229,6 +229,16 @@ export default function GlitchTextGeneratorPage() {
                   </div>
                 </Link>
                 <Link
+                  href="/tools/glitch-text-generator"
+                  className="flex items-center gap-3 p-4 rounded-xl bg-primary/5 hover:bg-primary/10 transition-colors"
+                >
+                  <Wrench className="w-5 h-5 text-primary" />
+                  <div>
+                    <p className="font-medium text-sm">Glitch Text Generator</p>
+                    <p className="text-xs text-muted-foreground">25+ glitch and cursed text styles</p>
+                  </div>
+                </Link>
+                <Link
                   href="/tools/text-repeater"
                   className="flex items-center gap-3 p-4 rounded-xl bg-primary/5 hover:bg-primary/10 transition-colors"
                 >
@@ -236,16 +246,6 @@ export default function GlitchTextGeneratorPage() {
                   <div>
                     <p className="font-medium text-sm">Text Repeater</p>
                     <p className="text-xs text-muted-foreground">Repeat text multiple times</p>
-                  </div>
-                </Link>
-                <Link
-                  href="/tools/text-reverser"
-                  className="flex items-center gap-3 p-4 rounded-xl bg-primary/5 hover:bg-primary/10 transition-colors"
-                >
-                  <Wrench className="w-5 h-5 text-primary" />
-                  <div>
-                    <p className="font-medium text-sm">Text Reverser</p>
-                    <p className="text-xs text-muted-foreground">Reverse text, words, or both</p>
                   </div>
                 </Link>
               </div>
@@ -290,15 +290,15 @@ export default function GlitchTextGeneratorPage() {
 
             {/* SEO Content */}
             <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h3 className="text-lg font-bold mb-4">About Glitch Text Generator</h3>
+              <h3 className="text-lg font-bold mb-4">About Cursive Text Generator</h3>
               <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                Our glitch text generator creates 25+ unique text styles including Zalgo text, Cursed text, Upside Down text, Bubbles, Squares, Script, Medieval, Monospace, Bold, Italic, Fraktur, and many more. Perfect for social media posts, gaming usernames, Discord messages, and creative projects.
+                Our cursive text generator creates beautiful script and handwriting styles for your text. Perfect for social media posts, invitations, signatures, and creative projects.
               </p>
               <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                Simply enter your text and instantly get multiple styles. Each style can be copied with one click. No registration needed - just type and go!
+                Simply enter your text and instantly get multiple elegant styles including classic script, bold script, fraktur, mathematical script, italic, handwriting, calligraphy, and more.
               </p>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Works perfectly on all devices - desktop, tablet, and mobile. Start creating unique glitched text today!
+                Works perfectly on all devices - desktop, tablet, and mobile. Start creating beautiful cursive text today!
               </p>
             </div>
 
@@ -308,27 +308,27 @@ export default function GlitchTextGeneratorPage() {
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Social media posts and bios</span>
+                  <span>Social media posts and captions</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Gaming usernames and handles</span>
+                  <span>Wedding invitations and announcements</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Digital art and design projects</span>
+                  <span>Digital signatures</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Cyberpunk themed content</span>
+                  <span>Art and design projects</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Meme creation</span>
+                  <span>Gaming usernames</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Discord server messages</span>
+                  <span>Personal branding</span>
                 </li>
               </ul>
             </div>
@@ -339,11 +339,11 @@ export default function GlitchTextGeneratorPage() {
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Available styles:</span>
-                  <span className="font-medium">25+ unique styles</span>
+                  <span className="font-medium">10+ unique styles</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Popular styles:</span>
-                  <span className="font-medium">Zalgo, Script, Medieval</span>
+                  <span className="font-medium">Script, Fraktur</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Instant generation:</span>

@@ -1,22 +1,22 @@
 import { Metadata } from 'next'
 import { Wrench } from 'lucide-react'
-import { GlitchTextGeneratorTool } from '@/components/tools/glitch-text-generator-tool'
+import { NumbersToWordsTool } from '@/components/tools/numbers-to-words-tool'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Glitch Text Generator - 25+ Styles Free Online | Zalgo, Cursed & More',
-  description: 'Free online glitch text generator with 25+ unique styles including Zalgo, Cursed, Upside Down, Bubbles, Squares, Script, Medieval, and more. Perfect for social media, gaming, and creative projects.',
-  keywords: ['glitch text generator', 'zalgo text', 'cursed text', 'upside down text', 'bubble text', 'square text', 'creepy text', 'stylish text', 'text effects', 'cool text generator', 'script text', 'medieval text'],
+  title: 'Numbers To Words Converter - Free Online | Instant Number to Text',
+  description: 'Free online numbers to words converter. Instantly convert any number to words in lowercase, title case, uppercase, and sentence case. Supports integers, decimals, and negative numbers.',
+  keywords: ['numbers to words', 'number to text', 'convert number to words', 'number converter', 'write numbers in words', 'spell out numbers', 'number spelling', 'digit to word converter'],
   openGraph: {
-    title: 'Glitch Text Generator - 25+ Unique Styles Free Online',
-    description: 'Create stunning glitched text with 25+ unique styles including Zalgo, Cursed, Upside Down, Bubbles, Squares, Script, Medieval, and more.',
+    title: 'Numbers To Words Converter - Free Online',
+    description: 'Instantly convert any number to words in multiple formats. Perfect for checks, documents, and educational purposes.',
     type: 'website',
   },
 }
 
-export default function GlitchTextGeneratorPage() {
+export default function NumbersToWordsPage() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -30,10 +30,10 @@ export default function GlitchTextGeneratorPage() {
             </div>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Glitch Text Generator
+            Numbers To Words Converter
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Free online glitch text generator with 25+ unique styles including Zalgo, Cursed, Upside Down, Bubbles, Squares, Script, Medieval, and more. Perfect for social media, gaming, and creative projects.
+            Free online numbers to words converter. Instantly convert any number to words in lowercase, title case, uppercase, and sentence case. Supports integers, decimals, and negative numbers.
           </p>
         </div>
       </section>
@@ -44,17 +44,17 @@ export default function GlitchTextGeneratorPage() {
           {/* Tool Section */}
           <div className="lg:col-span-2">
             <div className="p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <GlitchTextGeneratorTool />
+              <NumbersToWordsTool />
             </div>
 
             {/* What This Tool Does Section */}
             <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h2 className="text-2xl font-bold mb-6">What This Tool Does</h2>
               <p className="text-muted-foreground mb-4 leading-relaxed">
-                Our glitch text generator transforms normal text into 25+ unique glitched and stylized variations. Simply enter your text and instantly get multiple styles including Zalgo (creepy zalgo text), Cursed, Upside Down, Bubbles, Squares, Wide, Script, Medieval, Monospace, Bold, Italic, Fraktur, and many more.
+                Our numbers to words converter instantly transforms any numeric value into its written word form. Simply enter a number and get the word representation in multiple formats: lowercase, title case, uppercase, and sentence case. Perfect for writing checks, legal documents, educational materials, and any situation where numbers need to be spelled out.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Each style is generated instantly and can be copied with a single click. Perfect for creating eye-catching social media posts, gaming usernames, Discord messages, creative projects, and any content that needs to stand out with unique text styling.
+                The converter handles integers, decimal numbers, negative numbers, and very large numbers up to quintillions. Each conversion is instant and can be copied to clipboard with a single click.
               </p>
             </div>
 
@@ -65,63 +65,63 @@ export default function GlitchTextGeneratorPage() {
                 <div className="flex gap-4 p-4 bg-primary/5 rounded-xl">
                   <div className="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">1</div>
                   <div>
-                    <h3 className="font-semibold mb-1">Enter Your Text</h3>
-                    <p className="text-sm text-muted-foreground">Type or paste your text into the input field</p>
+                    <h3 className="font-semibold mb-1">Enter a Number</h3>
+                    <p className="text-sm text-muted-foreground">Type any number including decimals and negatives</p>
                   </div>
                 </div>
                 <div className="flex gap-4 p-4 bg-primary/5 rounded-xl">
                   <div className="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">2</div>
                   <div>
-                    <h3 className="font-semibold mb-1">Instant Generation</h3>
-                    <p className="text-sm text-muted-foreground">All 12+ styles are generated automatically</p>
+                    <h3 className="font-semibold mb-1">Instant Conversion</h3>
+                    <p className="text-sm text-muted-foreground">Get the word representation in 4 different formats automatically</p>
                   </div>
                 </div>
                 <div className="flex gap-4 p-4 bg-primary/5 rounded-xl">
                   <div className="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">3</div>
                   <div>
-                    <h3 className="font-semibold mb-1">Copy Any Style</h3>
-                    <p className="text-sm text-muted-foreground">Click copy on any style to use it immediately</p>
+                    <h3 className="font-semibold mb-1">Copy & Use</h3>
+                    <p className="text-sm text-muted-foreground">Click copy on any format to use it immediately</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Why People Use Glitch Text Section */}
+            {/* Why People Use This Tool Section */}
             <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Why People Use Glitch Text</h2>
+              <h2 className="text-2xl font-bold mb-6">Why People Use This Tool</h2>
               <div className="grid md:grid-cols-2 gap-4">
                 {[
                   {
-                    title: "Social Media",
-                    desc: "Make posts stand out on Twitter, Instagram, TikTok"
+                    title: "Writing Checks",
+                    desc: "Spell out check amounts accurately"
                   },
                   {
-                    title: "Gaming Content",
-                    desc: "Create unique gaming handles and usernames"
+                    title: "Legal Documents",
+                    desc: "Ensure numerical accuracy in contracts"
                   },
                   {
-                    title: "Discord Servers",
-                    desc: "Stand out in chat with unique text styles"
+                    title: "Educational Purposes",
+                    desc: "Teach number spelling to students"
                   },
                   {
-                    title: "Creative Projects",
-                    desc: "Add aesthetic effects to digital art"
+                    title: "Financial Reports",
+                    desc: "Add clarity to financial statements"
                   },
                   {
-                    title: "Memes",
-                    desc: "Create glitched text for meme content"
+                    title: "Invoice Creation",
+                    desc: "Professional invoice wording"
                   },
                   {
-                    title: "Cyberpunk Style",
-                    desc: "Achieve the popular cyberpunk aesthetic"
+                    title: "Academic Writing",
+                    desc: "Follow style guide requirements"
                   },
                   {
-                    title: "Zalgo Text",
-                    desc: "Create creepy zalgo text for horror content"
+                    title: "Business Communication",
+                    desc: "Professional number presentation"
                   },
                   {
-                    title: "Brand Identity",
-                    desc: "Unique text styling for personal branding"
+                    title: "Data Verification",
+                    desc: "Cross-check numeric data entry"
                   }
                 ].map((useCase, i) => (
                   <div key={i} className="p-4 bg-primary/5 rounded-xl">
@@ -140,22 +140,22 @@ export default function GlitchTextGeneratorPage() {
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
                     <Wrench className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="font-semibold mb-2">25+ Unique Styles</h3>
-                  <p className="text-xs text-muted-foreground">Zalgo, Script, Medieval, Bubbles and more</p>
+                  <h3 className="font-semibold mb-2">4 Format Options</h3>
+                  <p className="text-xs text-muted-foreground">Lowercase, title case, uppercase, and sentence</p>
                 </div>
                 <div className="text-center p-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
                     <Wrench className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="font-semibold mb-2">Instant Generation</h3>
-                  <p className="text-xs text-muted-foreground">All styles generated automatically</p>
+                  <h3 className="font-semibold mb-2">Instant Conversion</h3>
+                  <p className="text-xs text-muted-foreground">Real-time results as you type</p>
                 </div>
                 <div className="text-center p-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
                     <Wrench className="w-6 h-6 text-primary" />
                   </div>
                   <h3 className="font-semibold mb-2">One-Click Copy</h3>
-                  <p className="text-xs text-muted-foreground">Copy any style instantly</p>
+                  <p className="text-xs text-muted-foreground">Copy any format instantly</p>
                 </div>
               </div>
             </div>
@@ -165,28 +165,28 @@ export default function GlitchTextGeneratorPage() {
               <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
               <div className="space-y-4">
                 <div className="border-b pb-4">
-                  <h3 className="font-semibold mb-2">What is glitch text?</h3>
-                  <p className="text-sm text-muted-foreground">Glitch text is stylized text that appears corrupted or distorted with special characters, combining diacritical marks, or enclosed characters. It creates a digital glitch effect popular in cyberpunk aesthetics, horror content, and creative digital projects.</p>
+                  <h3 className="font-semibold mb-2">What numbers can this converter handle?</h3>
+                  <p className="text-sm text-muted-foreground">Our converter handles integers, decimal numbers, negative numbers, and very large numbers up to quintillions (10^18). It supports all standard numeric formats and provides accurate word representations for each.</p>
                 </div>
                 <div className="border-b pb-4">
-                  <h3 className="font-semibold mb-2">How do I use the glitch text generator?</h3>
-                  <p className="text-sm text-muted-foreground">Simply enter your text into the input field and all 12+ styles will be generated automatically. Click the copy button on any style to use it immediately. No need to click generate - it's instant!</p>
+                  <h3 className="font-semibold mb-2">How do I use the numbers to words converter?</h3>
+                  <p className="text-sm text-muted-foreground">Simply enter your number in the input field. The converter will automatically generate the word representation in four formats: lowercase, title case, uppercase, and sentence case. Click the copy button on any format to copy it to your clipboard.</p>
                 </div>
                 <div className="border-b pb-4">
-                  <h3 className="font-semibold mb-2">What styles are available?</h3>
-                  <p className="text-sm text-muted-foreground">Our glitch text generator includes: Zalgo, Behind Bars, Double Strikethrough, Creepy, Upside Down, Bubbles, Squares, Wide, Cursed, Bricks, Electric, Shuriken, Circled, Small Caps, Monospace, Bold, Italic, Script, Bold Script, Fraktur, Double Struck, Parenthesized, Dotted, Tilde, Small Text, Medieval, Full Block, Dashed, and Crossed styles.</p>
+                  <h3 className="font-semibold mb-2">What formats are available?</h3>
+                  <p className="text-sm text-muted-foreground">We offer four output formats: lowercase (e.g., "one hundred twenty-three"), title case (e.g., "One Hundred Twenty-Three"), uppercase (e.g., "ONE HUNDRED TWENTY-THREE"), and sentence case (e.g., "One hundred twenty-three").</p>
                 </div>
                 <div className="border-b pb-4">
-                  <h3 className="font-semibold mb-2">Can I use glitch text on social media?</h3>
-                  <p className="text-sm text-muted-foreground">Yes! Glitch text works on most social media platforms including Twitter, Instagram, TikTok, Discord, Reddit, and more. It's perfect for making your posts stand out with unique styling.</p>
+                  <h3 className="font-semibold mb-2">Does it handle decimal numbers?</h3>
+                  <p className="text-sm text-muted-foreground">Yes! Our converter handles decimal numbers accurately. For example, 123.45 converts to "one hundred twenty-three point four five". The decimal part is spelled out digit by digit after the word "point".</p>
                 </div>
                 <div className="border-b pb-4">
-                  <h3 className="font-semibold mb-2">What is Zalgo text?</h3>
-                  <p className="text-sm text-muted-foreground">Zalgo text is a style that uses combining diacritical marks (accents and other symbols) placed above, below, and through characters to create a creepy, corrupted appearance. It's often used in horror content and memes.</p>
+                  <h3 className="font-semibold mb-2">Can I use this for writing checks?</h3>
+                  <p className="text-sm text-muted-foreground">Absolutely! This tool is perfect for writing checks. Simply enter the check amount, copy the result in your preferred format (usually title case or sentence case for checks), and use it on your check document.</p>
                 </div>
                 <div className="pb-4">
                   <h3 className="font-semibold mb-2">Is this tool free to use?</h3>
-                  <p className="text-sm text-muted-foreground">Yes! Our glitch text generator is completely free with no limitations. No registration or installation required - just visit the page and start creating glitched text instantly.</p>
+                  <p className="text-sm text-muted-foreground">Yes! Our numbers to words converter is completely free with no limitations. No registration or installation required - just visit the page and start converting numbers to words instantly.</p>
                 </div>
               </div>
             </div>
@@ -290,15 +290,15 @@ export default function GlitchTextGeneratorPage() {
 
             {/* SEO Content */}
             <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h3 className="text-lg font-bold mb-4">About Glitch Text Generator</h3>
+              <h3 className="text-lg font-bold mb-4">About Numbers To Words</h3>
               <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                Our glitch text generator creates 25+ unique text styles including Zalgo text, Cursed text, Upside Down text, Bubbles, Squares, Script, Medieval, Monospace, Bold, Italic, Fraktur, and many more. Perfect for social media posts, gaming usernames, Discord messages, and creative projects.
+                Our numbers to words converter instantly transforms any numeric value into its written word form. Perfect for writing checks, legal documents, educational materials, and any situation where numbers need to be spelled out.
               </p>
               <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                Simply enter your text and instantly get multiple styles. Each style can be copied with one click. No registration needed - just type and go!
+                The converter handles integers, decimal numbers, negative numbers, and very large numbers up to quintillions. Each conversion is instant and can be copied to clipboard with a single click.
               </p>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Works perfectly on all devices - desktop, tablet, and mobile. Start creating unique glitched text today!
+                Works perfectly on all devices - desktop, tablet, and mobile. Start converting numbers to words today!
               </p>
             </div>
 
@@ -308,27 +308,27 @@ export default function GlitchTextGeneratorPage() {
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Social media posts and bios</span>
+                  <span>Writing checks and money orders</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Gaming usernames and handles</span>
+                  <span>Legal contracts and agreements</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Digital art and design projects</span>
+                  <span>Financial reports and invoices</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Cyberpunk themed content</span>
+                  <span>Educational materials and teaching</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Meme creation</span>
+                  <span>Academic writing and papers</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Wrench className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Discord server messages</span>
+                  <span>Business correspondence</span>
                 </li>
               </ul>
             </div>
@@ -338,15 +338,23 @@ export default function GlitchTextGeneratorPage() {
               <h3 className="text-lg font-bold mb-4">Technical Information</h3>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Available styles:</span>
-                  <span className="font-medium">25+ unique styles</span>
+                  <span className="text-muted-foreground">Output formats:</span>
+                  <span className="font-medium">4 formats</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Popular styles:</span>
-                  <span className="font-medium">Zalgo, Script, Medieval</span>
+                  <span className="text-muted-foreground">Number support:</span>
+                  <span className="font-medium">Up to quintillions</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Instant generation:</span>
+                  <span className="text-muted-foreground">Decimal support:</span>
+                  <span className="font-medium">Yes</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Negative numbers:</span>
+                  <span className="font-medium">Yes</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Instant conversion:</span>
                   <span className="font-medium">Yes</span>
                 </div>
                 <div className="flex justify-between">
