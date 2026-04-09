@@ -183,6 +183,102 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.88,
     },
+    {
+      url: `${baseUrl}/tools/cursive-text-generator`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.88,
+    },
+    {
+      url: `${baseUrl}/tools/glitch-text-generator`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.88,
+    },
+    {
+      url: `${baseUrl}/tools/fancy-text-generator`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.88,
+    },
+    {
+      url: `${baseUrl}/tools/numbers-to-words`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.88,
+    },
+    {
+      url: `${baseUrl}/tools/morse-code-translator`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.88,
+    },
+    {
+      url: `${baseUrl}/tools/tiny-text-generator`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.88,
+    },
+    {
+      url: `${baseUrl}/tools/vaporwave-text-generator`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.88,
+    },
+    {
+      url: `${baseUrl}/tools/english-to-binary`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.88,
+    },
+    {
+      url: `${baseUrl}/tools/ned-flanders-translator`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/tools/robot-voice-generator`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/tools/zalgo-text-generator`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/tools/aurebesh-translator`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/tools/mirror-text`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/tools/agario-names`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/tools/emoji-translator`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/tools/fancy-letters`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
   ]
 
   // Language pillar pages (/language/[lang]) — comprehensive per-language guide

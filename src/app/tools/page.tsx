@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Text Tools - Free Online Text Utilities',
-  description: 'Collection of free online text tools including word counter, case converter, random word generator, slug generator, URL encoder/decoder, sort and deduplicate, find and replace, remove whitespace, text repeater, text reverser, citation generator, cursive text generator, glitch text generator, fancy text generator, numbers to words, morse code translator, tiny text generator, vaporwave text generator, english to binary, ned flanders translator, and sort text. Easy to use text utilities for everyone.',
+  description: 'Collection of free online text tools including word counter, case converter, random word generator, slug generator, URL encoder/decoder, sort and deduplicate, find and replace, remove whitespace, text repeater, text reverser, citation generator, cursive text generator, glitch text generator, fancy text generator, numbers to words, morse code translator, tiny text generator, vaporwave text generator, english to binary, ned flanders translator, emoji translator, and sort text. Easy to use text utilities for everyone.',
   keywords: ['text tools', 'online text tools', 'text utilities', 'free text tools', 'text manipulation', 'word counter', 'case converter', 'random word generator', 'generate random words', 'random words', 'word list generator', 'slug generator', 'url slug generator', 'url encoder', 'url decoder', 'url encode decode', 'percent encoding', 'sort text', 'deduplicate text', 'sort lines', 'find and replace', 'remove whitespace', 'text repeater', 'text reverser', 'citation generator', 'cursive text generator', 'glitch text generator', 'fancy text generator', 'numbers to words', 'number to text', 'convert number to words', 'number converter', 'morse code translator', 'text to morse', 'morse to text', 'morse code audio', 'morse code player', 'learn morse code', 'tiny text generator', 'small text', 'superscript generator', 'subscript generator', 'small caps converter', 'tiny letters', 'mini text', 'vaporwave text generator', 'vaporwave font', 'aesthetic text', 'full width text', 'retro text', '80s text', '90s text', 'vaporwave aesthetic', 'english to binary', 'text to binary', 'binary to text', 'binary converter', 'ascii to binary', 'binary code converter', 'hex to text', 'decimal to binary', 'octal to binary', 'APA citation generator', 'MLA citation generator', 'Chicago citation generator', 'Harvard citation generator', 'book citation', 'webpage citation', 'academic citation', 'sort text', 'alphabetical sort', 'natural sort', 'text sorter', 'sort list', 'sort by length'],
   openGraph: {
     title: 'Text Tools - Free Online Text Utilities',
@@ -207,6 +207,46 @@ const tools = [
     icon: '☠️',
     color: 'from-red-900/5 to-red-900/10',
     borderColor: 'border-red-900/20',
+  },
+  {
+    name: 'Aurebesh Translator',
+    description: 'Translate English into Aurebesh — the written alphabet of the Star Wars universe (Galactic Basic)',
+    path: '/tools/aurebesh-translator',
+    icon: '⚔️',
+    color: 'from-yellow-600/5 to-yellow-600/10',
+    borderColor: 'border-yellow-600/20',
+  },
+  {
+    name: 'Mirror Text Generator',
+    description: 'Mirror your text like da Vinci\'s famous notebook handwriting using Unicode mirror characters',
+    path: '/tools/mirror-text',
+    icon: '🪞',
+    color: 'from-sky-500/5 to-sky-500/10',
+    borderColor: 'border-sky-500/20',
+  },
+  {
+    name: 'Cool Agario Names',
+    description: 'Generate 80+ cool fancy names for Agar.io — bold, gothic, frames, symbols and combined styles',
+    path: '/tools/agario-names',
+    icon: '🎮',
+    color: 'from-green-500/5 to-emerald-500/10',
+    borderColor: 'border-green-500/20',
+  },
+  {
+    name: 'Emoji Translator',
+    description: 'Convert English text to emojis instantly — 2000+ words mapped across emotions, food, animals, weather & more',
+    path: '/tools/emoji-translator',
+    icon: '😊',
+    color: 'from-yellow-400/5 to-orange-400/10',
+    borderColor: 'border-yellow-400/20',
+  },
+  {
+    name: 'Fancy Letters',
+    description: 'Convert text into 30+ fancy letter styles — bold, script, gothic, bubble, upside down, strikethrough and more',
+    path: '/tools/fancy-letters',
+    icon: '🔤',
+    color: 'from-violet-500/5 to-indigo-500/10',
+    borderColor: 'border-violet-500/20',
   },
 ]
 
