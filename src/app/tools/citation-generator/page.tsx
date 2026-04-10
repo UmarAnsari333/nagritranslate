@@ -22,17 +22,17 @@ export default function CitationGeneratorPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
+      <section className="max-w-6xl mx-auto px-4 py-8 md:py-16">
         <div className="text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="p-3 bg-primary/10 rounded-xl">
               <FileText className="w-8 h-8 text-primary" />
             </div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">
             Citation Generator
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Free online citation generator. Create citations in APA, MLA, Chicago, and Harvard styles instantly. Support for books, webpages, newspapers, and academic articles. Perfect for students and researchers.
           </p>
         </div>
@@ -43,13 +43,13 @@ export default function CitationGeneratorPage() {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Tool Section */}
           <div className="lg:col-span-2">
-            <div className="p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <CitationGeneratorTool />
             </div>
 
             {/* What This Tool Does Section */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">What This Tool Does</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">What This Tool Does</h2>
               <p className="text-muted-foreground mb-4 leading-relaxed">
                 Our citation generator is a free online tool that creates properly formatted citations in multiple academic styles. Simply paste your text, select the portion you want to cite, answer a few questions about your source, and generate accurate citations instantly in APA, MLA, Chicago, or Harvard format.
               </p>
@@ -59,8 +59,8 @@ export default function CitationGeneratorPage() {
             </div>
 
             {/* How It Works Section */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">How It Works</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">How It Works</h2>
               <div className="space-y-4">
                 <div className="flex gap-4 p-4 bg-primary/5 rounded-xl">
                   <div className="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">1</div>
@@ -101,8 +101,8 @@ export default function CitationGeneratorPage() {
             </div>
 
             {/* Supported Source Types Section */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Supported Source Types</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Supported Source Types</h2>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="p-4 bg-primary/5 rounded-xl">
                   <h3 className="font-semibold mb-2">📚 Books</h3>
@@ -124,8 +124,8 @@ export default function CitationGeneratorPage() {
             </div>
 
             {/* Citation Formats Section */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Citation Formats Supported</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Citation Formats Supported</h2>
               <div className="space-y-4">
                 <div className="p-4 bg-primary/5 rounded-xl">
                   <h3 className="font-semibold mb-2">APA 7th Edition</h3>
@@ -147,8 +147,8 @@ export default function CitationGeneratorPage() {
             </div>
 
             {/* Why Use Citation Generator Section */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Why Use Citation Generator</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Why Use Citation Generator</h2>
               <div className="grid md:grid-cols-2 gap-4">
                 {[
                   {
@@ -185,8 +185,8 @@ export default function CitationGeneratorPage() {
             </div>
 
             {/* FAQ Section */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Frequently Asked Questions</h2>
               <div className="space-y-4">
                 <div className="border-b pb-4">
                   <h3 className="font-semibold mb-2">What is a citation generator?</h3>
@@ -227,7 +227,7 @@ export default function CitationGeneratorPage() {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* All Text Tools */}
-            <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h3 className="text-lg font-bold mb-4">All Text Tools</h3>
               <div className="space-y-3">
                 <Link
@@ -284,7 +284,7 @@ export default function CitationGeneratorPage() {
             </div>
 
             {/* Related Language Features */}
-            <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h3 className="text-lg font-bold mb-4">Language Features</h3>
               <div className="space-y-3">
                 <Link
@@ -321,7 +321,7 @@ export default function CitationGeneratorPage() {
             </div>
 
             {/* SEO Content */}
-            <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h3 className="text-lg font-bold mb-4">About Citation Generator</h3>
               <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                 Our free online citation generator helps students, researchers, and writers create properly formatted citations in multiple academic styles. Generate citations for books, webpages, newspapers, and academic articles in APA, MLA, Chicago, and Harvard formats.
@@ -335,7 +335,7 @@ export default function CitationGeneratorPage() {
             </div>
 
             {/* Use Cases */}
-            <div className="p-6 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
               <h3 className="text-lg font-bold mb-4">Common Use Cases</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
@@ -366,7 +366,7 @@ export default function CitationGeneratorPage() {
             </div>
 
             {/* Technical Info */}
-            <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h3 className="text-lg font-bold mb-4">Technical Information</h3>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">

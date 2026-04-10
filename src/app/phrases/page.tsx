@@ -81,7 +81,138 @@ export default function PhrasesIndexPage() {
           </p>
         </div>
 
+        {/* Special English Phrase Collections */}
+        <div className="mb-8">
+          <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
+            <span className="w-7 h-7 bg-amber-500/10 text-amber-600 rounded-lg flex items-center justify-center text-sm">📜</span>
+            English Word Collections
+          </h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              {
+                href: '/phrases/old-timey-words',
+                emoji: '🎩',
+                title: 'Old Timey Words',
+                subtitle: 'Old-fashioned English',
+                tag: 'Historical',
+                count: '150+ words',
+                desc: 'Victorian slang, Shakespearean expressions, Jazz Age sayings, and Old West phrases.',
+                cta: 'Browse old-fashioned words',
+              },
+              {
+                href: '/phrases/funny-weird-words',
+                emoji: '🤪',
+                title: 'Funny & Weird Words',
+                subtitle: 'Delightfully bizarre English',
+                tag: 'Humour',
+                count: '35+ words',
+                desc: 'Real dictionary words that sound absolutely made up — from bumfuzzle to snollygoster.',
+                cta: 'Explore weird words',
+              },
+              {
+                href: '/phrases/british-vs-american-english',
+                emoji: '🇬🇧',
+                title: 'British vs American English',
+                subtitle: 'Two nations, one language',
+                tag: 'Comparison',
+                count: '100+ pairs',
+                desc: 'Biscuit vs cookie, boot vs trunk, lift vs elevator — all the differences explained.',
+                cta: 'Compare the differences',
+              },
+              {
+                href: '/phrases/english-idioms',
+                emoji: '💬',
+                title: 'Common English Idioms',
+                subtitle: 'Phrases that mean something else',
+                tag: 'Idioms',
+                count: '50+ idioms',
+                desc: 'Break a leg, bite the bullet, hit the nail on the head — what idioms really mean.',
+                cta: 'Learn the idioms',
+              },
+              {
+                href: '/phrases/collective-nouns',
+                emoji: '🦅',
+                title: 'Collective Nouns',
+                subtitle: 'A murder of crows & more',
+                tag: 'Grammar',
+                count: '80+ nouns',
+                desc: 'A parliament of owls, a flamboyance of flamingos, a bloat of hippos — the best collective nouns.',
+                cta: 'Discover collective nouns',
+              },
+              {
+                href: '/phrases/words-borrowed-from-other-languages',
+                emoji: '🌍',
+                title: 'Words Borrowed from Other Languages',
+                subtitle: 'English is a linguistic magpie',
+                tag: 'Etymology',
+                count: '50+ words',
+                desc: 'Coffee from Arabic, shampoo from Hindi, kindergarten from German — English borrowed from everyone.',
+                cta: 'Explore borrowed words',
+              },
+              {
+                href: '/phrases/gen-z-slang',
+                emoji: '📱',
+                title: 'Gen Z & Internet Slang',
+                subtitle: 'Modern internet language',
+                tag: 'Modern',
+                count: '40+ terms',
+                desc: "No cap, rizz, bussin, slay — decode the internet's ever-changing vocabulary.",
+                cta: 'Decode the slang',
+              },
+              {
+                href: '/phrases/untranslatable-words',
+                emoji: '🌐',
+                title: 'Untranslatable Words',
+                subtitle: "Concepts English can't name",
+                tag: 'Global',
+                count: '40+ words',
+                desc: "Hygge, saudade, schadenfreude, ikigai — beautiful words English doesn't have a word for.",
+                cta: 'Explore untranslatable words',
+              },
+              {
+                href: '/phrases/cockney-rhyming-slang',
+                emoji: '🎭',
+                title: 'Cockney Rhyming Slang',
+                subtitle: "East London's secret language",
+                tag: 'British',
+                count: '40+ phrases',
+                desc: "Dog and bone (phone), plates of meat (feet), china plate (mate) — East London's rhyming code.",
+                cta: 'Learn Cockney slang',
+              },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="group p-5 bg-gradient-to-br from-amber-500/5 to-amber-500/10 rounded-2xl border border-amber-500/20 hover:border-amber-500/40 hover:shadow-lg transition-all"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-3xl">{item.emoji}</span>
+                  <div>
+                    <h2 className="text-base font-bold group-hover:text-primary transition-colors">{item.title}</h2>
+                    <p className="text-xs text-muted-foreground">{item.subtitle}</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-xs px-2 py-0.5 bg-amber-500/10 text-amber-700 dark:text-amber-400 rounded-full">{item.tag}</span>
+                  <span className="text-xs text-muted-foreground">{item.count}</span>
+                </div>
+                <p className="text-xs text-muted-foreground mb-3">{item.desc}</p>
+                <div className="flex items-center text-xs text-primary font-medium">
+                  {item.cta}
+                  <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+
         {/* Language Grid */}
+        <div className="mb-4">
+          <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
+            <span className="w-7 h-7 bg-blue-500/10 text-blue-600 rounded-lg flex items-center justify-center text-sm">🌍</span>
+            Phrases by Language
+          </h2>
+        </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {phrasesIndex.map((lang) => (
             <Link

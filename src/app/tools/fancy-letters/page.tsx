@@ -31,17 +31,17 @@ export default function FancyLettersPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
+      <section className="max-w-6xl mx-auto px-4 py-8 md:py-16">
         <div className="text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="p-3 bg-primary/10 rounded-xl">
               <Wrench className="w-8 h-8 text-primary" />
             </div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">
             Fancy Letters Generator
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Convert any text into 30+ fancy letter styles using{' '}
             <a href="https://home.unicode.org" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2 hover:opacity-80">
               Unicode
@@ -57,13 +57,13 @@ export default function FancyLettersPage() {
 
           {/* Tool */}
           <div className="lg:col-span-2">
-            <div className="p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <FancyLettersTool />
             </div>
 
             {/* What are fancy letters */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-4">What Are Fancy Letters?</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">What Are Fancy Letters?</h2>
               <p className="text-muted-foreground mb-4 leading-relaxed">
                 Fancy letters are characters from the{' '}
                 <a href="https://en.wikipedia.org/wiki/Mathematical_Alphanumeric_Symbols" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2 hover:opacity-80 font-semibold">
@@ -84,8 +84,8 @@ export default function FancyLettersPage() {
             </div>
 
             {/* Unicode history */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-4">A Brief History of Unicode Fancy Text</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">A Brief History of Unicode Fancy Text</h2>
               <p className="text-muted-foreground mb-4 leading-relaxed">
                 The Unicode Consortium was founded in 1991 with the goal of creating a universal character encoding standard that could represent every writing system in the world. Before Unicode, text encoding was fragmented across hundreds of incompatible systems — ASCII for English, various ISO standards for European languages, and proprietary encodings for East Asian scripts.
               </p>
@@ -101,8 +101,8 @@ export default function FancyLettersPage() {
             </div>
 
             {/* Style categories */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Style Categories Explained</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Style Categories Explained</h2>
               <div className="space-y-4">
                 {[
                   {
@@ -133,8 +133,8 @@ export default function FancyLettersPage() {
             </div>
 
             {/* How to use */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">How to Use Fancy Letters</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">How to Use Fancy Letters</h2>
               <div className="space-y-3">
                 {[
                   { step: '1', title: 'Type or paste your text', detail: 'Enter any text in the input field on the Convert Text tab. All 30+ styles update instantly as you type.' },
@@ -155,8 +155,8 @@ export default function FancyLettersPage() {
             </div>
 
             {/* Where to use */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Where to Use Fancy Letters</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Where to Use Fancy Letters</h2>
               <div className="grid md:grid-cols-2 gap-4">
                 {[
                   { icon: '📸', title: 'Instagram Bios & Captions', desc: 'Instagram strips formatting from bios and captions — but Unicode letters paste as-is. Bold or script bios immediately stand out from plain text profiles.' },
@@ -177,8 +177,8 @@ export default function FancyLettersPage() {
             </div>
 
             {/* FAQ */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">FAQ</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">FAQ</h2>
               <div className="space-y-4">
                 {[
                   {
@@ -215,7 +215,7 @@ export default function FancyLettersPage() {
             </div>
 
             {/* External links */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h2 className="text-xl font-bold mb-4">External Resources</h2>
               <ul className="space-y-3">
                 {[
@@ -245,7 +245,7 @@ export default function FancyLettersPage() {
 
           {/* Sidebar */}
           <div className="space-y-6">
-            <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h3 className="text-lg font-bold mb-4">Related Text Tools</h3>
               <div className="space-y-2">
                 {[
@@ -271,7 +271,7 @@ export default function FancyLettersPage() {
             </div>
 
             {/* Popular styles preview */}
-            <div className="p-6 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
               <h3 className="text-lg font-bold mb-3">Popular Styles</h3>
               <div className="space-y-2 text-sm">
                 {[
@@ -292,7 +292,7 @@ export default function FancyLettersPage() {
             </div>
 
             {/* Quick tip */}
-            <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h3 className="text-lg font-bold mb-3">Quick Tips</h3>
               <div className="space-y-3 text-sm text-muted-foreground">
                 <p>💡 Use the <strong>Alphabet Chart</strong> tab to hand-pick letters from any style and combine them for a unique look.</p>

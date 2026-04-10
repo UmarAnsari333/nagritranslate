@@ -22,17 +22,17 @@ export default function AddPrefixSuffixPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
+      <section className="max-w-6xl mx-auto px-4 py-8 md:py-16">
         <div className="text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="p-3 bg-primary/10 rounded-xl">
               <Plus className="w-8 h-8 text-primary" />
             </div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">
             Add Prefix and/or Suffix
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Free online tool to add prefix and/or suffix to each line of text. Perfect for numbering lists, adding URLs, formatting filenames, and applying common text patterns. Works with multiple lines instantly.
           </p>
         </div>
@@ -43,13 +43,13 @@ export default function AddPrefixSuffixPage() {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Tool Section */}
           <div className="lg:col-span-2">
-            <div className="p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <AddPrefixSuffixTool />
             </div>
 
             {/* What This Tool Does Section */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">What This Tool Does</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">What This Tool Does</h2>
               <p className="text-muted-foreground mb-4 leading-relaxed">
                 Our add prefix/suffix tool is a free online utility that helps you add text to the beginning, end, or both sides of each line in your text. Whether you need to number lists, add URLs to items, format filenames, or apply common text patterns, this tool makes it simple and efficient.
               </p>
@@ -59,8 +59,8 @@ export default function AddPrefixSuffixPage() {
             </div>
 
             {/* How It Works Section */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">How It Works</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">How It Works</h2>
               <div className="space-y-4">
                 <div className="flex gap-4 p-4 bg-primary/5 rounded-xl">
                   <div className="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">1</div>
@@ -94,8 +94,8 @@ export default function AddPrefixSuffixPage() {
             </div>
 
             {/* Use Cases Section */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Common Use Cases</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Common Use Cases</h2>
               <div className="grid md:grid-cols-2 gap-4">
                 {[
                   {
@@ -132,8 +132,8 @@ export default function AddPrefixSuffixPage() {
             </div>
 
             {/* FAQ Section */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Frequently Asked Questions</h2>
               <div className="space-y-4">
                 <div className="border-b pb-4">
                   <h3 className="font-semibold mb-2">What is add prefix/suffix tool?</h3>
@@ -158,7 +158,7 @@ export default function AddPrefixSuffixPage() {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* All Text Tools */}
-            <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h3 className="text-lg font-bold mb-4">All Text Tools</h3>
               <div className="space-y-3">
                 <Link

@@ -22,17 +22,17 @@ export default function EmojiTranslatorPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
+      <section className="max-w-6xl mx-auto px-4 py-8 md:py-16">
         <div className="text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="p-3 bg-primary/10 rounded-xl">
               <Wrench className="w-8 h-8 text-primary" />
             </div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">
             Emoji Translator
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Convert English text into emojis instantly. Type any sentence and we&apos;ll automatically match words to their best emoji — emotions, animals, food, weather, sports, and 500+ more words supported.
           </p>
         </div>
@@ -43,13 +43,13 @@ export default function EmojiTranslatorPage() {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Tool */}
           <div className="lg:col-span-2">
-            <div className="p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <EmojiTranslatorTool />
             </div>
 
             {/* How it works */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">How It Works</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">How It Works</h2>
               <div className="space-y-4">
                 {[
                   { n: '1', title: 'Type Your Text', desc: 'Enter any English sentence, phrase, or word into the input field.' },
@@ -69,8 +69,8 @@ export default function EmojiTranslatorPage() {
             </div>
 
             {/* Modes explained */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Translation Modes</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Translation Modes</h2>
               <div className="space-y-4">
                 {[
                   {
@@ -99,8 +99,8 @@ export default function EmojiTranslatorPage() {
             </div>
 
             {/* Word categories */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-4">Supported Word Categories</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">Supported Word Categories</h2>
               <p className="text-muted-foreground mb-4 text-sm">Our emoji dictionary covers 500+ words across 15+ categories:</p>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {[
@@ -129,8 +129,8 @@ export default function EmojiTranslatorPage() {
             </div>
 
             {/* FAQ */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">FAQ</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">FAQ</h2>
               <div className="space-y-4">
                 {[
                   {
@@ -165,7 +165,7 @@ export default function EmojiTranslatorPage() {
 
           {/* Sidebar */}
           <div className="space-y-6">
-            <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h3 className="text-lg font-bold mb-4">Related Text Tools</h3>
               <div className="space-y-2">
                 {[
@@ -189,7 +189,7 @@ export default function EmojiTranslatorPage() {
             </div>
 
             {/* Quick examples */}
-            <div className="p-6 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
               <h3 className="text-lg font-bold mb-3">Example Translations</h3>
               <div className="space-y-3 text-sm">
                 {[
@@ -208,7 +208,7 @@ export default function EmojiTranslatorPage() {
             </div>
 
             {/* Tips */}
-            <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h3 className="text-lg font-bold mb-3">Tips</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 {[

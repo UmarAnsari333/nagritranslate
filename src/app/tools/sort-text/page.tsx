@@ -22,17 +22,17 @@ export default function SortTextPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
+      <section className="max-w-6xl mx-auto px-4 py-8 md:py-16">
         <div className="text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="p-3 bg-primary/10 rounded-xl">
               <ArrowUpDown className="w-8 h-8 text-primary" />
             </div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">
             Sort Text
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Free online text sorting tool. Sort text alphabetically, naturally, by character length, reverse, or shuffle. Perfect for organizing lists, names, data, and text files. Case-sensitive options available.
           </p>
         </div>
@@ -43,13 +43,13 @@ export default function SortTextPage() {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Tool Section */}
           <div className="lg:col-span-2">
-            <div className="p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <SortTextTool />
             </div>
 
             {/* What This Tool Does Section */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">What This Tool Does</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">What This Tool Does</h2>
               <p className="text-muted-foreground mb-4 leading-relaxed">
                 Our sort text tool is a free online utility that helps you organize and arrange text in various ways. Whether you need to sort names alphabetically, organize numerical data with natural sorting, reverse text order, or shuffle content randomly, this tool makes it simple and efficient.
               </p>
@@ -59,8 +59,8 @@ export default function SortTextPage() {
             </div>
 
             {/* How It Works Section */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">How It Works</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">How It Works</h2>
               <div className="space-y-4">
                 <div className="flex gap-4 p-4 bg-primary/5 rounded-xl">
                   <div className="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">1</div>
@@ -94,8 +94,8 @@ export default function SortTextPage() {
             </div>
 
             {/* Sort Types Section */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Sorting Methods Explained</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Sorting Methods Explained</h2>
               <div className="space-y-6">
                 <div className="p-6 bg-primary/5 rounded-xl">
                   <h3 className="font-semibold mb-4">Alphabetical Sort (A-Z / Z-A)</h3>
@@ -208,8 +208,8 @@ Banana</pre>
             </div>
 
             {/* Use Cases Section */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Common Use Cases</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Common Use Cases</h2>
               <div className="grid md:grid-cols-2 gap-4">
                 {[
                   {
@@ -246,8 +246,8 @@ Banana</pre>
             </div>
 
             {/* FAQ Section */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Frequently Asked Questions</h2>
               <div className="space-y-4">
                 <div className="border-b pb-4">
                   <h3 className="font-semibold mb-2">What is the difference between alphabetical and natural sort?</h3>
@@ -288,7 +288,7 @@ Banana</pre>
           {/* Sidebar */}
           <div className="space-y-6">
             {/* All Text Tools */}
-            <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h3 className="text-lg font-bold mb-4">All Text Tools</h3>
               <div className="space-y-3">
                 <Link
@@ -345,7 +345,7 @@ Banana</pre>
             </div>
 
             {/* Related Language Features */}
-            <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h3 className="text-lg font-bold mb-4">Language Features</h3>
               <div className="space-y-3">
                 <Link
@@ -382,7 +382,7 @@ Banana</pre>
             </div>
 
             {/* SEO Content */}
-            <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h3 className="text-lg font-bold mb-4">About Sort Text Tool</h3>
               <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                 Our free online sort text tool helps you organize and arrange text in various ways. Sort alphabetically, naturally, by character length, reverse order, or shuffle randomly. Perfect for organizing lists, names, data, and text files.
@@ -396,7 +396,7 @@ Banana</pre>
             </div>
 
             {/* Use Cases */}
-            <div className="p-6 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
               <h3 className="text-lg font-bold mb-4">Common Use Cases</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
@@ -427,7 +427,7 @@ Banana</pre>
             </div>
 
             {/* Technical Info */}
-            <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h3 className="text-lg font-bold mb-4">Technical Information</h3>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">

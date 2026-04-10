@@ -248,6 +248,22 @@ const tools = [
     color: 'from-violet-500/5 to-indigo-500/10',
     borderColor: 'border-violet-500/20',
   },
+  {
+    name: 'Gibberish Translator',
+    description: 'Encode & decode English in 6 secret languages — Pig Latin, Ubbi Dubbi, Ob, Op, Idig & Tutnese',
+    path: '/tools/gibberish-translator',
+    icon: '🐷',
+    color: 'from-pink-500/5 to-rose-500/10',
+    borderColor: 'border-pink-500/20',
+  },
+  {
+    name: 'Al Bhed Translator',
+    description: 'Translate English to Al Bhed and back — the Final Fantasy X cipher with Primer Mode and full substitution table',
+    path: '/tools/al-bhed-translator',
+    icon: '🎮',
+    color: 'from-emerald-500/5 to-teal-500/10',
+    borderColor: 'border-emerald-500/20',
+  },
 ]
 
 export default function ToolsPage() {
@@ -256,17 +272,17 @@ export default function ToolsPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
+      <section className="max-w-6xl mx-auto px-4 py-8 md:py-16">
         <div className="text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="p-3 bg-primary/10 rounded-xl">
               <Wrench className="w-8 h-8 text-primary" />
             </div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">
             Text Tools
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Collection of free online text tools for text manipulation and formatting including word counter, case converter, random word generator, slug generator, URL encoder/decoder, sort and deduplicate, find and replace, remove whitespace, text repeater, text reverser, citation generator, cursive text generator, glitch text generator, fancy text generator, numbers to words, morse code translator, tiny text generator, vaporwave text generator, english to binary, and sort text. Easy to use, no installation required.
           </p>
         </div>
@@ -292,8 +308,8 @@ export default function ToolsPage() {
         </div>
 
         {/* Coming Soon */}
-        <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border border-dashed">
-          <h2 className="text-2xl font-bold mb-4 text-center">More Tools Coming Soon</h2>
+        <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border border-dashed">
+          <h2 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-center">More Tools Coming Soon</h2>
           <p className="text-center text-muted-foreground">
             We're constantly adding new text tools to help you work more efficiently. Check back soon for updates!
           </p>
@@ -301,7 +317,7 @@ export default function ToolsPage() {
 
         {/* Related Language Features */}
         <div className="mt-8">
-          <h2 className="text-2xl font-bold mb-6 text-center">Related Features</h2>
+          <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-center">Related Features</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <Link
               href="/ai-translate"

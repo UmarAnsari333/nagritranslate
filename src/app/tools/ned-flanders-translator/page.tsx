@@ -22,17 +22,17 @@ export default function NedFlandersTranslatorPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
+      <section className="max-w-6xl mx-auto px-4 py-8 md:py-16">
         <div className="text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="p-3 bg-primary/10 rounded-xl">
               <Wrench className="w-8 h-8 text-primary" />
             </div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">
             English to Ned Flanders Translator
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Convert regular English into the iconic diddly-doodly speech of Ned Flanders from The Simpsons. Okely-dokely, neighborino!
           </p>
         </div>
@@ -43,13 +43,13 @@ export default function NedFlandersTranslatorPage() {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Tool Section */}
           <div className="lg:col-span-2">
-            <div className="p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <NedFlandersTranslatorTool />
             </div>
 
             {/* What This Tool Does Section */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">What This Tool Does</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">What This Tool Does</h2>
               <p className="text-muted-foreground mb-4 leading-relaxed">
                 Our Ned Flanders Translator converts regular English text into the beloved speech patterns of Ned Flanders, the iconic character from The Simpsons. Ned is known for his upbeat, overly cheerful personality, his deep religious faith, and his unique way of speaking that involves adding &quot;diddly,&quot; &quot;doodly,&quot; &quot;erino,&quot; and other fun suffixes to words.
               </p>
@@ -59,8 +59,8 @@ export default function NedFlandersTranslatorPage() {
             </div>
 
             {/* How It Works Section */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">How It Works</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">How It Works</h2>
               <div className="space-y-4">
                 <div className="flex gap-4 p-4 bg-primary/5 rounded-xl">
                   <div className="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">1</div>
@@ -87,8 +87,8 @@ export default function NedFlandersTranslatorPage() {
             </div>
 
             {/* Why People Use It Section */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Why People Use This Translator</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Why People Use This Translator</h2>
               <div className="grid md:grid-cols-2 gap-4">
                 {[
                   { title: 'Simpsons Fan Fun', desc: 'Celebrate The Simpsons with your favorite neighborino' },
@@ -109,8 +109,8 @@ export default function NedFlandersTranslatorPage() {
             </div>
 
             {/* Key Benefits Section */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Key Features</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Key Features</h2>
               <div className="grid md:grid-cols-3 gap-4">
                 <div className="text-center p-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl">🏡</div>
@@ -131,8 +131,8 @@ export default function NedFlandersTranslatorPage() {
             </div>
 
             {/* FAQ Section */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Frequently Asked Questions</h2>
               <div className="space-y-4">
                 <div className="border-b pb-4">
                   <h3 className="font-semibold mb-2">Who is Ned Flanders?</h3>
@@ -161,7 +161,7 @@ export default function NedFlandersTranslatorPage() {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* All Text Tools */}
-            <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h3 className="text-lg font-bold mb-4">All Text Tools</h3>
               <div className="space-y-3">
                 <Link href="/tools" className="flex items-center gap-3 p-4 rounded-xl bg-primary/5 hover:bg-primary/10 transition-colors">
@@ -203,7 +203,7 @@ export default function NedFlandersTranslatorPage() {
             </div>
 
             {/* About Ned */}
-            <div className="p-6 bg-gradient-to-br from-yellow-500/5 to-yellow-500/10 rounded-2xl border border-yellow-500/20">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-yellow-500/5 to-yellow-500/10 rounded-2xl border border-yellow-500/20">
               <h3 className="text-lg font-bold mb-4">About Ned Flanders</h3>
               <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
                 Ned Flanders first appeared in The Simpsons premiere in 1989. He is Homer&apos;s cheerful, devoutly religious next-door neighbor at 740 Evergreen Terrace.
@@ -217,7 +217,7 @@ export default function NedFlandersTranslatorPage() {
             </div>
 
             {/* Related Language Features */}
-            <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h3 className="text-lg font-bold mb-4">Language Features</h3>
               <div className="space-y-3">
                 <Link href="/ai-translate" className="flex items-center gap-3 p-4 rounded-xl bg-primary/5 hover:bg-primary/10 transition-colors">
@@ -238,7 +238,7 @@ export default function NedFlandersTranslatorPage() {
             </div>
 
             {/* Common Phrases */}
-            <div className="p-6 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
               <h3 className="text-lg font-bold mb-4">Classic Ned Phrases</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="p-2 bg-background/50 rounded-lg"><span className="font-medium text-foreground">Hi-diddly-ho!</span> — Hello</li>

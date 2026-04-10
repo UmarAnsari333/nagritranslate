@@ -318,7 +318,7 @@ export function NedFlandersTranslatorTool() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 w-full min-w-0">
       {/* Examples */}
       <div>
         <p className="text-sm font-medium mb-2 text-muted-foreground">Try an example:</p>

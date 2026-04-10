@@ -52,7 +52,7 @@ export function TextRepeaterTool() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 w-full min-w-0">
       {/* Input Section */}
       <div>
         <label className="block text-sm font-medium mb-2">Enter Text to Repeat</label>

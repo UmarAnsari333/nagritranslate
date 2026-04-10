@@ -615,7 +615,7 @@ export function GlitchTextGeneratorTool() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 w-full min-w-0">
       <div>
         <h2 className="text-2xl font-bold mb-2">Glitch Text Generator</h2>
         <p className="text-sm text-muted-foreground">

@@ -399,7 +399,7 @@ export function RobotVoiceGeneratorTool() {
   const pitchLabel = pitch[0] < 0.15 ? 'Deep Robot' : pitch[0] < 0.4 ? 'Low Robot' : pitch[0] < 0.7 ? 'Robot' : pitch[0] < 1.1 ? 'Normal' : 'High'
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 w-full min-w-0">
       {/* Input */}
       <div className="space-y-2">
         <label className="text-sm font-medium">Your Text</label>

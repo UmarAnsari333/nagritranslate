@@ -56,7 +56,7 @@ export function UrlEncoderDecoderTool() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 w-full min-w-0">
       {/* Mode Selection */}
       <Card className="p-6">
         <div className="flex items-center gap-2 mb-4">

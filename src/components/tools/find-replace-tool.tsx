@@ -55,7 +55,7 @@ export function FindReplaceTool() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 w-full min-w-0">
       {/* Find and Replace Options */}
       <Card className="p-6 space-y-4">
         <div className="space-y-2">

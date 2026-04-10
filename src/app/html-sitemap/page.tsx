@@ -46,6 +46,20 @@ const TEXT_TOOLS = [
   { name: 'Mirror Text Generator', path: '/tools/mirror-text', desc: 'Da Vinci-style Unicode mirror writing' },
   { name: 'Cool Agario Names', path: '/tools/agario-names', desc: '80+ fancy styles for Agar.io' },
   { name: 'Emoji Translator', path: '/tools/emoji-translator', desc: '2000+ words mapped to emoji' },
+  { name: 'Gibberish Translator', path: '/tools/gibberish-translator', desc: 'Pig Latin, Ubbi Dubbi, Ob, Op, Idig & Tutnese' },
+  { name: 'Al Bhed Translator', path: '/tools/al-bhed-translator', desc: 'Final Fantasy X cipher with Primer Mode' },
+]
+
+const PHRASE_COLLECTIONS = [
+  { name: 'Old Timey Words & Phrases', path: '/phrases/old-timey-words', desc: 'Victorian, Shakespeare & Jazz Age old-fashioned English' },
+  { name: 'Funny & Weird English Words', path: '/phrases/funny-weird-words', desc: 'Real dictionary words that sound absolutely made up' },
+  { name: 'British vs American English', path: '/phrases/british-vs-american-english', desc: 'Biscuit vs cookie, boot vs trunk — all the differences' },
+  { name: 'Common English Idioms', path: '/phrases/english-idioms', desc: 'Break a leg, bite the bullet — what idioms really mean' },
+  { name: 'Collective Nouns', path: '/phrases/collective-nouns', desc: 'A murder of crows, a parliament of owls & more' },
+  { name: 'Words Borrowed from Other Languages', path: '/phrases/words-borrowed-from-other-languages', desc: 'Coffee, shampoo, kindergarten — English borrowed from everyone' },
+  { name: 'Gen Z & Internet Slang', path: '/phrases/gen-z-slang', desc: 'No cap, rizz, bussin — decode modern internet vocabulary' },
+  { name: 'Untranslatable Words', path: '/phrases/untranslatable-words', desc: 'Hygge, saudade, schadenfreude — concepts English can\'t name' },
+  { name: 'Cockney Rhyming Slang', path: '/phrases/cockney-rhyming-slang', desc: 'Dog and bone (phone), china plate (mate) — East London\'s code' },
 ]
 
 // Deduplicate by label (some languages share the same value/code)
@@ -112,6 +126,27 @@ export default function HtmlSitemapPage() {
                 >
                   <span className="font-medium">{tool.name}</span>
                   <span className="block text-xs text-muted-foreground">{tool.desc}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {/* ── Phrase Collections ─────────────────────────────────────────────── */}
+        <section className="mb-12">
+          <h2 className="text-xl font-bold mb-3 pb-2 border-b flex items-center gap-2">
+            <span className="w-8 h-8 bg-primary text-primary-foreground rounded-lg flex items-center justify-center text-sm">📜</span>
+            Phrase Collections
+          </h2>
+          <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-1.5">
+            {PHRASE_COLLECTIONS.map((p) => (
+              <li key={p.path}>
+                <Link
+                  href={p.path}
+                  className="block px-3 py-2 rounded-lg text-sm hover:bg-muted/40 hover:text-primary transition-colors"
+                >
+                  <span className="font-medium">{p.name}</span>
+                  <span className="block text-xs text-muted-foreground">{p.desc}</span>
                 </Link>
               </li>
             ))}

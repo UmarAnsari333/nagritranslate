@@ -22,17 +22,17 @@ export default function RemoveWhitespacePage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
+      <section className="max-w-6xl mx-auto px-4 py-8 md:py-16">
         <div className="text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="p-3 bg-primary/10 rounded-xl">
               <Wrench className="w-8 h-8 text-primary" />
             </div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">
             Remove Whitespace
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Free online remove whitespace tool. Clean text, remove extra spaces, trim text, remove line breaks, and more. Easy text cleanup tool with copy and paste.
           </p>
         </div>
@@ -43,13 +43,13 @@ export default function RemoveWhitespacePage() {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Tool Section */}
           <div className="lg:col-span-2">
-            <div className="p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <RemoveWhitespaceTool />
             </div>
 
             {/* What This Tool Does Section */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">What This Tool Does</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">What This Tool Does</h2>
               <p className="text-muted-foreground mb-4 leading-relaxed">
                 Our remove whitespace tool is a free online text cleanup utility that helps you clean and format text by removing unwanted whitespace. Whether you need to trim text, remove extra spaces, remove line breaks, or completely clean text, this text cleanup tool makes it simple and efficient.
               </p>
@@ -59,8 +59,8 @@ export default function RemoveWhitespacePage() {
             </div>
 
             {/* How It Works Section */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">How It Works</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">How It Works</h2>
               <div className="space-y-4">
                 <div className="flex gap-4 p-4 bg-primary/5 rounded-xl">
                   <div className="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">1</div>
@@ -94,8 +94,8 @@ export default function RemoveWhitespacePage() {
             </div>
 
             {/* Why People Use Remove Whitespace Section */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Why People Use Remove Whitespace</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Why People Use Remove Whitespace</h2>
               <div className="grid md:grid-cols-2 gap-4">
                 {[
                   {
@@ -132,8 +132,8 @@ export default function RemoveWhitespacePage() {
             </div>
 
             {/* Key Benefits Section */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Key Benefits</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Key Benefits</h2>
               <div className="grid md:grid-cols-3 gap-4">
                 <div className="text-center p-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
@@ -160,8 +160,8 @@ export default function RemoveWhitespacePage() {
             </div>
 
             {/* FAQ Section */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Frequently Asked Questions</h2>
               <div className="space-y-4">
                 <div className="border-b pb-4">
                   <h3 className="font-semibold mb-2">What is a remove whitespace tool?</h3>
@@ -202,7 +202,7 @@ export default function RemoveWhitespacePage() {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* All Text Tools */}
-            <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h3 className="text-lg font-bold mb-4">All Text Tools</h3>
               <div className="space-y-3">
                 <Link
@@ -259,7 +259,7 @@ export default function RemoveWhitespacePage() {
             </div>
 
             {/* Related Language Features */}
-            <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h3 className="text-lg font-bold mb-4">Language Features</h3>
               <div className="space-y-3">
                 <Link
@@ -296,7 +296,7 @@ export default function RemoveWhitespacePage() {
             </div>
 
             {/* SEO Content */}
-            <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h3 className="text-lg font-bold mb-4">About Remove Whitespace</h3>
               <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                 Our remove whitespace tool is the perfect trim text and clean text online utility for anyone who needs to remove whitespace. Whether you need to remove extra spaces, trim text, or completely clean text, this text cleanup tool makes it simple.
@@ -313,7 +313,7 @@ export default function RemoveWhitespacePage() {
             </div>
 
             {/* Use Cases */}
-            <div className="p-6 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
               <h3 className="text-lg font-bold mb-4">Common Use Cases</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
@@ -344,7 +344,7 @@ export default function RemoveWhitespacePage() {
             </div>
 
             {/* Technical Info */}
-            <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h3 className="text-lg font-bold mb-4">Technical Information</h3>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">

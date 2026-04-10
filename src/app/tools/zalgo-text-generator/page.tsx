@@ -22,17 +22,17 @@ export default function ZalgoTextGeneratorPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
+      <section className="max-w-6xl mx-auto px-4 py-8 md:py-16">
         <div className="text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="p-3 bg-primary/10 rounded-xl">
               <Wrench className="w-8 h-8 text-primary" />
             </div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">
             Zalgo Text Generator
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Transform normal text into creepy, corrupted Zalgo text with stacked diacritics dripping above and below each character. Adjust the craziness level from subtle to full chaos.
           </p>
         </div>
@@ -43,13 +43,13 @@ export default function ZalgoTextGeneratorPage() {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Tool */}
           <div className="lg:col-span-2">
-            <div className="p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <ZalgoTextGeneratorTool />
             </div>
 
             {/* What is Zalgo */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">What is Zalgo Text?</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">What is Zalgo Text?</h2>
               <p className="text-muted-foreground mb-4 leading-relaxed">
                 Zalgo text (also called &quot;cursed text&quot; or &quot;glitch text&quot;) is created by stacking large numbers of Unicode combining diacritical marks on top of regular characters. These combining characters are intended to add accents and marks to letters, but when applied in excess, they overflow the normal text bounds and create the iconic &quot;dripping&quot; or &quot;corrupted&quot; appearance.
               </p>
@@ -59,8 +59,8 @@ export default function ZalgoTextGeneratorPage() {
             </div>
 
             {/* How it works */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">How It Works</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">How It Works</h2>
               <div className="space-y-4">
                 {[
                   { n: '1', title: 'Type Your Text', desc: 'Enter any text into the input field' },
@@ -81,8 +81,8 @@ export default function ZalgoTextGeneratorPage() {
             </div>
 
             {/* Zalgo styles explained */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Zalgo Styles Explained</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Zalgo Styles Explained</h2>
               <div className="grid md:grid-cols-2 gap-4">
                 {[
                   { title: '▼ Drip Down', desc: 'Combining marks placed below each character — creates the classic downward dripping horror effect seen in most Zalgo examples.' },
@@ -100,8 +100,8 @@ export default function ZalgoTextGeneratorPage() {
             </div>
 
             {/* Key Benefits */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Key Features</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Key Features</h2>
               <div className="grid md:grid-cols-3 gap-4">
                 <div className="text-center p-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl">🎚️</div>
@@ -122,8 +122,8 @@ export default function ZalgoTextGeneratorPage() {
             </div>
 
             {/* FAQ */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Frequently Asked Questions</h2>
               <div className="space-y-4">
                 <div className="border-b pb-4">
                   <h3 className="font-semibold mb-2">Does Zalgo text work on all platforms?</h3>
@@ -151,7 +151,7 @@ export default function ZalgoTextGeneratorPage() {
 
           {/* Sidebar */}
           <div className="space-y-6">
-            <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h3 className="text-lg font-bold mb-4">All Text Tools</h3>
               <div className="space-y-3">
                 {[
@@ -175,7 +175,7 @@ export default function ZalgoTextGeneratorPage() {
             </div>
 
             {/* Craziness guide */}
-            <div className="p-6 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
               <h3 className="text-lg font-bold mb-4">Craziness Guide</h3>
               <div className="space-y-2 text-sm">
                 {[
@@ -195,7 +195,7 @@ export default function ZalgoTextGeneratorPage() {
             </div>
 
             {/* Use cases */}
-            <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h3 className="text-lg font-bold mb-4">Common Uses</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 {[

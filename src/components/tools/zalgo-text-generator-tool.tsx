@@ -154,7 +154,7 @@ export function ZalgoTextGeneratorTool() {
     : 'He Comes'
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 w-full min-w-0">
       {/* Quick examples */}
       <div>
         <p className="text-sm font-medium mb-2 text-muted-foreground">Try an example:</p>

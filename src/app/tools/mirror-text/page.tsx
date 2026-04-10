@@ -27,17 +27,17 @@ export default function MirrorTextPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
+      <section className="max-w-6xl mx-auto px-4 py-8 md:py-16">
         <div className="text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="p-3 bg-primary/10 rounded-xl">
               <Wrench className="w-8 h-8 text-primary" />
             </div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">
             Mirror Text Generator
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Convert text into mirror writing using Unicode characters — exactly as
             <strong> Leonardo da Vinci</strong> wrote in his famous notebooks. Ideal for puzzles,
             secret messages, artistic typography, and creative projects.
@@ -51,13 +51,13 @@ export default function MirrorTextPage() {
 
           {/* Tool */}
           <div className="lg:col-span-2">
-            <div className="p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <MirrorTextTool />
             </div>
 
             {/* What is Mirror Writing */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-4">What is Mirror Writing?</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">What is Mirror Writing?</h2>
               <p className="text-muted-foreground mb-4 leading-relaxed">
                 <strong>Mirror writing</strong> is a form of script in which letters and words are written in reverse — readable only when held up to a mirror or viewed through a transparent surface from behind. Each individual character is also flipped horizontally, creating a true mirror image of normal text.
               </p>
@@ -70,8 +70,8 @@ export default function MirrorTextPage() {
             </div>
 
             {/* Da Vinci History */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-4">Leonardo da Vinci and Mirror Writing</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">Leonardo da Vinci and Mirror Writing</h2>
               <p className="text-muted-foreground mb-4 leading-relaxed">
                 The most famous practitioner of mirror writing in history was <strong>Leonardo da Vinci</strong> (1452–1519) — the Italian Renaissance polymath known for works like the <em>Mona Lisa</em> and <em>The Last Supper</em>. Da Vinci filled over <strong>7,000 pages</strong> of notebooks in his distinctive mirror script, writing from right to left in Italian, with each letter reversed.
               </p>
@@ -105,8 +105,8 @@ export default function MirrorTextPage() {
             </div>
 
             {/* How it works */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">How the Mirror Text Generator Works</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">How the Mirror Text Generator Works</h2>
               <div className="space-y-4">
                 {[
                   {
@@ -138,8 +138,8 @@ export default function MirrorTextPage() {
             </div>
 
             {/* Three modes explained */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Three Mirror Modes</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Three Mirror Modes</h2>
               <div className="space-y-4">
                 {[
                   {
@@ -168,8 +168,8 @@ export default function MirrorTextPage() {
             </div>
 
             {/* Famous examples */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Famous Uses of Mirror Writing</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Famous Uses of Mirror Writing</h2>
               <div className="grid md:grid-cols-2 gap-4">
                 {[
                   {
@@ -209,8 +209,8 @@ export default function MirrorTextPage() {
             </div>
 
             {/* FAQ */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Frequently Asked Questions</h2>
               <div className="space-y-4">
                 {[
                   {
@@ -247,8 +247,8 @@ export default function MirrorTextPage() {
             </div>
 
             {/* External resources */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-4">Learn More</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">Learn More</h2>
               <p className="text-muted-foreground mb-4 text-sm">Explore these authoritative external resources on mirror writing and da Vinci:</p>
               <ul className="space-y-3">
                 {[
@@ -295,7 +295,7 @@ export default function MirrorTextPage() {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Related tools */}
-            <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h3 className="text-lg font-bold mb-4">Related Text Tools</h3>
               <div className="space-y-2">
                 {[
@@ -320,7 +320,7 @@ export default function MirrorTextPage() {
             </div>
 
             {/* Mirror alphabet */}
-            <div className="p-6 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
               <h3 className="text-lg font-bold mb-3">Mirror Alphabet</h3>
               <div className="grid grid-cols-3 gap-1.5 text-xs font-mono">
                 {[
@@ -341,7 +341,7 @@ export default function MirrorTextPage() {
             </div>
 
             {/* Fun facts */}
-            <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h3 className="text-lg font-bold mb-3">Da Vinci Facts</h3>
               <ul className="space-y-3 text-sm text-muted-foreground">
                 {[
@@ -361,7 +361,7 @@ export default function MirrorTextPage() {
             </div>
 
             {/* Use cases */}
-            <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h3 className="text-lg font-bold mb-3">Common Uses</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 {[

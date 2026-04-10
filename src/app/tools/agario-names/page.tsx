@@ -28,17 +28,17 @@ export default function AgarioNamesPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
+      <section className="max-w-6xl mx-auto px-4 py-8 md:py-16">
         <div className="text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="p-3 bg-primary/10 rounded-xl">
               <Wrench className="w-8 h-8 text-primary" />
             </div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">
             Cool Agario Names Generator
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Generate 80+ fancy, stylish names for{' '}
             <a href="https://agar.io" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2 hover:opacity-80">
               Agar.io
@@ -54,13 +54,13 @@ export default function AgarioNamesPage() {
 
           {/* Tool */}
           <div className="lg:col-span-2">
-            <div className="p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <AgarioNamesTool />
             </div>
 
             {/* What is Agar.io */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-4">What is Agar.io?</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">What is Agar.io?</h2>
               <p className="text-muted-foreground mb-4 leading-relaxed">
                 <a href="https://agar.io" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2 hover:opacity-80 font-semibold">Agar.io</a>{' '}
                 is a massively popular browser-based multiplayer game developed by <strong>Matheus Valadares</strong> and released in 2015. Players control a circular cell on a large map and must eat smaller cells (and other players) to grow larger, while avoiding being eaten by bigger cells.
@@ -74,8 +74,8 @@ export default function AgarioNamesPage() {
             </div>
 
             {/* Why fancy names matter */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Why Cool Names Matter in Agar.io</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Why Cool Names Matter in Agar.io</h2>
               <div className="grid md:grid-cols-2 gap-4">
                 {[
                   { icon: '👑', title: 'Stand Out on the Leaderboard', desc: 'Fancy Unicode names catch the eye when you appear in the top 10. Players with stylish names are more memorable and often feared.' },
@@ -96,8 +96,8 @@ export default function AgarioNamesPage() {
             </div>
 
             {/* Style categories explained */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">4 Name Style Categories</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">4 Name Style Categories</h2>
               <div className="space-y-4">
                 {[
                   {
@@ -133,8 +133,8 @@ export default function AgarioNamesPage() {
             </div>
 
             {/* Tips */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Tips for Choosing the Best Agario Name</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Tips for Choosing the Best Agario Name</h2>
               <div className="space-y-3">
                 {[
                   { tip: 'Keep it under 15 characters', detail: 'Agar.io displays names on your cell body. Very long names shrink to fit the cell or get cut off. Shorter names look cleaner and more readable.' },
@@ -156,8 +156,8 @@ export default function AgarioNamesPage() {
             </div>
 
             {/* FAQ */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">FAQ</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">FAQ</h2>
               <div className="space-y-4">
                 {[
                   {
@@ -194,7 +194,7 @@ export default function AgarioNamesPage() {
             </div>
 
             {/* External resources */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h2 className="text-xl font-bold mb-4">External Links</h2>
               <ul className="space-y-3">
                 {[
@@ -223,7 +223,7 @@ export default function AgarioNamesPage() {
 
           {/* Sidebar */}
           <div className="space-y-6">
-            <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h3 className="text-lg font-bold mb-4">Related Text Tools</h3>
               <div className="space-y-2">
                 {[
@@ -248,7 +248,7 @@ export default function AgarioNamesPage() {
             </div>
 
             {/* Popular names */}
-            <div className="p-6 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
               <h3 className="text-lg font-bold mb-3">Popular Name Ideas</h3>
               <div className="space-y-2 text-sm font-mono">
                 {[
@@ -269,7 +269,7 @@ export default function AgarioNamesPage() {
             </div>
 
             {/* Game tips */}
-            <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h3 className="text-lg font-bold mb-3">Quick Game Tips</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 {[

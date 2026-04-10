@@ -350,7 +350,7 @@ export function FancyLettersTool() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 w-full min-w-0">
       {/* Tabs */}
       <div className="flex gap-2 border-b">
         {([

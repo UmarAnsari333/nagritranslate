@@ -22,17 +22,17 @@ export default function AurebeshTranslatorPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
+      <section className="max-w-6xl mx-auto px-4 py-8 md:py-16">
         <div className="text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="p-3 bg-primary/10 rounded-xl">
               <Wrench className="w-8 h-8 text-primary" />
             </div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">
             Aurebesh Translator
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Convert English into Aurebesh — the written alphabet of the Star Wars universe, also known as Galactic Basic. See your text as Jedi, Sith, and the Galactic Empire would write it.
           </p>
         </div>
@@ -43,13 +43,13 @@ export default function AurebeshTranslatorPage() {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Tool */}
           <div className="lg:col-span-2">
-            <div className="p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <AurebeshTranslatorTool />
             </div>
 
             {/* What is Aurebesh */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">What is Aurebesh?</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">What is Aurebesh?</h2>
               <p className="text-muted-foreground mb-4 leading-relaxed">
                 Aurebesh is the in-universe writing system of the Star Wars galaxy, used to represent the <strong>Galactic Basic Standard</strong> language — the common tongue spoken throughout the galaxy. Its name comes from the first two characters of the alphabet: <em>Aurek</em> (A) and <em>Besh</em> (B), similar to how &quot;alphabet&quot; derives from Greek alpha and beta.
               </p>
@@ -59,8 +59,8 @@ export default function AurebeshTranslatorPage() {
             </div>
 
             {/* Aurebesh in Star Wars */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Aurebesh in the Star Wars Universe</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Aurebesh in the Star Wars Universe</h2>
               <div className="grid md:grid-cols-2 gap-4">
                 {[
                   { title: 'Films & Series', desc: 'Appears on screens, signs, and equipment throughout the Skywalker Saga, The Mandalorian, Andor, Obi-Wan Kenobi, and more.' },
@@ -79,8 +79,8 @@ export default function AurebeshTranslatorPage() {
             </div>
 
             {/* How it works */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">How the Translator Works</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">How the Translator Works</h2>
               <div className="space-y-4">
                 {[
                   { n: '1', title: 'Type English Text', desc: 'Enter any English word, phrase, or sentence into the input field.' },
@@ -100,8 +100,8 @@ export default function AurebeshTranslatorPage() {
             </div>
 
             {/* Digraphs */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-4">Aurebesh Digraphs</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">Aurebesh Digraphs</h2>
               <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
                 Aurebesh includes 7 special characters for common English letter pairs. When detected in your text, these are automatically combined into a single Aurebesh glyph:
               </p>
@@ -124,8 +124,8 @@ export default function AurebeshTranslatorPage() {
             </div>
 
             {/* FAQ */}
-            <div className="mt-8 p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">FAQ</h2>
+            <div className="mt-6 p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">FAQ</h2>
               <div className="space-y-4">
                 {[
                   {
@@ -160,7 +160,7 @@ export default function AurebeshTranslatorPage() {
 
           {/* Sidebar */}
           <div className="space-y-6">
-            <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h3 className="text-lg font-bold mb-4">All Text Tools</h3>
               <div className="space-y-2">
                 {[
@@ -184,7 +184,7 @@ export default function AurebeshTranslatorPage() {
             </div>
 
             {/* Quick reference */}
-            <div className="p-6 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
               <h3 className="text-lg font-bold mb-3">Quick Alphabet Reference</h3>
               <div className="grid grid-cols-3 gap-1.5 text-xs font-mono">
                 {[
@@ -207,7 +207,7 @@ export default function AurebeshTranslatorPage() {
             </div>
 
             {/* Fun facts */}
-            <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h3 className="text-lg font-bold mb-3">Star Wars Fun Facts</h3>
               <ul className="space-y-3 text-sm text-muted-foreground">
                 {[

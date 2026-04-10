@@ -78,7 +78,7 @@ export default function FancyTextGeneratorPage() {
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-violet-400/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-400/10 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="relative max-w-6xl mx-auto px-4 py-16 text-center">
+        <div className="relative max-w-6xl mx-auto px-4 py-8 md:py-16 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-sm text-violet-600 dark:text-violet-400 font-medium mb-6">
             <Sparkles className="w-4 h-4" />
             25+ Unique Styles
@@ -88,7 +88,7 @@ export default function FancyTextGeneratorPage() {
             Fancy Text Generator
           </h1>
 
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
             Transform any text into bold, script, gothic, circled, upside-down, and 20+ more unique styles.
             Copy and paste anywhere — no app or font install needed.
           </p>
@@ -126,8 +126,8 @@ export default function FancyTextGeneratorPage() {
             </div>
 
             {/* How It Works */}
-            <div className="p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">How to Use</h2>
+            <div className="p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">How to Use</h2>
               <div className="space-y-4">
                 {[
                   ['1', 'Type Your Text', 'Enter any word, phrase, or sentence in the input box above.'],
@@ -148,8 +148,8 @@ export default function FancyTextGeneratorPage() {
             </div>
 
             {/* Use Cases Grid */}
-            <div className="p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Why People Use Fancy Text</h2>
+            <div className="p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Why People Use Fancy Text</h2>
               <div className="grid md:grid-cols-2 gap-4">
                 {USE_CASES.map(uc => (
                   <div key={uc.title} className="p-4 bg-primary/5 rounded-xl flex gap-3">
@@ -164,8 +164,8 @@ export default function FancyTextGeneratorPage() {
             </div>
 
             {/* FAQ */}
-            <div className="p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
-              <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
+            <div className="p-4 md:p-8 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Frequently Asked Questions</h2>
               <div className="space-y-4">
                 {FAQS.map((faq, i) => (
                   <div key={i} className={i < FAQS.length - 1 ? 'border-b pb-4' : 'pb-2'}>
@@ -181,7 +181,7 @@ export default function FancyTextGeneratorPage() {
           <div className="space-y-6">
 
             {/* Style Categories */}
-            <div className="p-6 bg-gradient-to-br from-violet-500/5 to-purple-500/5 rounded-2xl border border-violet-500/20">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-violet-500/5 to-purple-500/5 rounded-2xl border border-violet-500/20">
               <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
                 <Sparkles className="w-5 h-5 text-violet-500" />
                 Style Categories
@@ -205,7 +205,7 @@ export default function FancyTextGeneratorPage() {
             </div>
 
             {/* Platform Compatibility */}
-            <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h3 className="text-lg font-bold mb-4">Works On</h3>
               <div className="grid grid-cols-2 gap-2">
                 {PLATFORMS.map(p => (
@@ -218,7 +218,7 @@ export default function FancyTextGeneratorPage() {
             </div>
 
             {/* Quick Samples */}
-            <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h3 className="text-lg font-bold mb-3">Style Showcase</h3>
               <div className="space-y-2 text-sm">
                 {[
@@ -239,7 +239,7 @@ export default function FancyTextGeneratorPage() {
             </div>
 
             {/* Related Tools */}
-            <div className="p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl border">
               <h3 className="text-lg font-bold mb-4">Related Tools</h3>
               <div className="space-y-2">
                 {[
@@ -264,7 +264,7 @@ export default function FancyTextGeneratorPage() {
             </div>
 
             {/* Key Benefits */}
-            <div className="p-6 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
+            <div className="p-4 md:p-6 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl border">
               <h3 className="text-lg font-bold mb-4">Key Benefits</h3>
               <ul className="space-y-2.5 text-sm">
                 {[

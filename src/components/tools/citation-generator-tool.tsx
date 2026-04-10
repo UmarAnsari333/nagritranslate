@@ -413,7 +413,7 @@ export function CitationGeneratorTool() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 w-full min-w-0">
       {/* Citation Format Selection - Always visible at top */}
       <Card className="p-6 bg-primary/5 border-primary/20">
         <div className="flex items-center justify-between gap-4">

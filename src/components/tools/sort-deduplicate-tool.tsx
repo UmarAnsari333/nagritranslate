@@ -78,7 +78,7 @@ export function SortDeduplicateTool() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 w-full min-w-0">
       {/* Options */}
       <Card className="p-6 space-y-4">
         <div className="flex items-center gap-2 mb-4">
