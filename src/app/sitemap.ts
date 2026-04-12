@@ -250,6 +250,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.88,
     },
     {
+      url: `${baseUrl}/tools/fontlu`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.92,
+    },
+    {
+      url: `${baseUrl}/tools/subscript-generator`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.88,
+    },
+    {
+      url: `${baseUrl}/tools/text-obfuscator`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.88,
+    },
+    {
       url: `${baseUrl}/tools/fancy-text-generator`,
       lastModified: BUILD_DATE,
       changeFrequency: 'weekly',
@@ -304,6 +322,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     {
+      url: `${baseUrl}/tools/navi-translator`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
       url: `${baseUrl}/tools/aurebesh-translator`,
       lastModified: BUILD_DATE,
       changeFrequency: 'weekly',
@@ -341,6 +365,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/tools/al-bhed-translator`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/tools/medieval-english-translator`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/tools/papyrus-font-generator`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/tools/lorem-ipsum-generator`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/tools/comic-sans-font-generator`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/tools/pig-latin-translator`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/tools/gen-z-translator`,
       lastModified: BUILD_DATE,
       changeFrequency: 'weekly',
       priority: 0.85,
