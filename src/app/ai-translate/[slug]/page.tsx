@@ -74,24 +74,28 @@ const getSpeechLangCode = (langCode: string): string => {
   return speechLangMap[langCode] || langCode
 }
 
-function parseSlugToLangs(slug: string): { source: string; target: string } {
+function parseSlugToLangs(slug: string): { source: string; target: string; sourceLabel: string; targetLabel: string } {
   const match = slug.match(/^(.+)-to-(.+)$/)
-  if (!match) return { source: 'auto', target: 'en' }
+  if (!match) return { source: 'auto', target: 'en', sourceLabel: 'Detect Language', targetLabel: 'English' }
   const sourceLang = getLanguageBySlug(match[1])
   const targetLang = getLanguageBySlug(match[2])
   return {
     source: sourceLang?.value ?? 'auto',
     target: targetLang?.value ?? 'en',
+    sourceLabel: sourceLang?.label ?? 'Detect Language',
+    targetLabel: targetLang?.label ?? 'English',
   }
 }
 
 export default function GeneralTranslatePage() {
   const params = useParams()
   const slug = Array.isArray(params.slug) ? params.slug[0] : (params.slug ?? '')
-  const { source: initialSource, target: initialTarget } = parseSlugToLangs(slug)
+  const { source: initialSource, target: initialTarget, sourceLabel: initialSourceLabel, targetLabel: initialTargetLabel } = parseSlugToLangs(slug)
 
   const [sourceLang, setSourceLang] = useState(initialSource)
   const [targetLang, setTargetLang] = useState(initialTarget)
+  const [sourceLangLabel, setSourceLangLabel] = useState(initialSourceLabel)
+  const [targetLangLabel, setTargetLangLabel] = useState(initialTargetLabel)
   const [inputText, setInputText] = useState('')
   const [translatedText, setTranslatedText] = useState('')
   const [isLoading, setIsLoading] = useState(false)
@@ -257,18 +261,14 @@ export default function GeneralTranslatePage() {
 
       setTranslatedText(data.translatedText)
 
-      const sourceLanguage = getLanguageByValue(sourceLang)
-      const targetLanguage = getLanguageByValue(targetLang)
-      if (sourceLanguage && targetLanguage) {
-        addToHistory(
-          sourceLang,
-          sourceLanguage.label,
-          targetLang,
-          targetLanguage.label,
-          inputText,
-          data.translatedText
-        )
-      }
+      addToHistory(
+        sourceLang,
+        sourceLangLabel,
+        targetLang,
+        targetLangLabel,
+        inputText,
+        data.translatedText
+      )
     } catch (error) {
       console.error('Translation error:', error)
       toast.error('Translation failed. Please try again.')
@@ -282,9 +282,12 @@ export default function GeneralTranslatePage() {
       toast.error('Cannot swap - languages are the same')
       return
     }
-    const temp = sourceLang
+    const tempCode = sourceLang
+    const tempLabel = sourceLangLabel
     setSourceLang(targetLang)
-    setTargetLang(temp)
+    setSourceLangLabel(targetLangLabel)
+    setTargetLang(tempCode)
+    setTargetLangLabel(tempLabel)
     setInputText(translatedText)
     setTranslatedText(inputText)
   }
@@ -385,7 +388,9 @@ export default function GeneralTranslatePage() {
 
   const handleSelectHistoryItem = (item: HistoryItem) => {
     setSourceLang(item.sourceLang)
+    setSourceLangLabel(item.sourceLangName)
     setTargetLang(item.targetLang)
+    setTargetLangLabel(item.targetLangName)
     setInputText(item.inputText)
     setTranslatedText(item.translatedText)
     setIsHistoryOpen(false)
@@ -417,8 +422,8 @@ export default function GeneralTranslatePage() {
   const charCount = inputText.length
   const isOverLimit = charCount > MAX_CHARS
 
-  const sourceLanguage = getLanguageByValue(sourceLang)
-  const targetLanguage = getLanguageByValue(targetLang)
+  const sourceLanguage = { label: sourceLangLabel, value: sourceLang }
+  const targetLanguage = { label: targetLangLabel, value: targetLang }
 
   return (
     <div className="min-h-screen bg-background transition-colors duration-300">
@@ -485,19 +490,25 @@ export default function GeneralTranslatePage() {
         >
           <div className="w-full sm:flex-1 max-w-md">
             <Select
-              value={sourceLang}
-              onValueChange={setSourceLang}
+              value={sourceLangLabel}
+              onValueChange={(label) => {
+                const lang = languages.find(l => l.label === label)
+                if (lang) {
+                  setSourceLang(lang.value)
+                  setSourceLangLabel(lang.label)
+                }
+              }}
               open={isSourceDropdownOpen}
               onOpenChange={setIsSourceDropdownOpen}
             >
               <SelectTrigger className="bg-background border-border h-12 rounded-lg w-full">
-                <SelectValue placeholder={`Select ${sourceLanguage?.label === 'Text' ? 'source' : 'source'} language`} />
+                <SelectValue placeholder="Select source language" />
               </SelectTrigger>
               <SelectContent className="rounded-lg max-h-80 overflow-y-auto">
                 {languages.map((lang) => (
                   <SelectItem
                     key={lang.id}
-                    value={lang.value}
+                    value={lang.label}
                     className="rounded-md"
                   >
                     {lang.label}
@@ -517,7 +528,7 @@ export default function GeneralTranslatePage() {
               onClick={handleSwapLanguages}
               className="h-12 w-12 rounded-full"
               disabled={sourceLang === 'auto'}
-              title={`Swap ${sourceLanguage?.label || 'source'} and ${targetLanguage?.label || 'target'} languages`}
+              title={`Swap ${sourceLangLabel || 'source'} and ${targetLangLabel || 'target'} languages`}
             >
               <ArrowLeftRight className="h-5 w-5" />
             </Button>
@@ -525,19 +536,25 @@ export default function GeneralTranslatePage() {
 
           <div className="w-full sm:flex-1 max-w-md">
             <Select
-              value={targetLang}
-              onValueChange={setTargetLang}
+              value={targetLangLabel}
+              onValueChange={(label) => {
+                const lang = languages.find(l => l.label === label)
+                if (lang) {
+                  setTargetLang(lang.value)
+                  setTargetLangLabel(lang.label)
+                }
+              }}
               open={isTargetDropdownOpen}
               onOpenChange={setIsTargetDropdownOpen}
             >
               <SelectTrigger className="bg-background border-border h-12 rounded-lg w-full">
-                <SelectValue placeholder={`Select ${targetLanguage?.label === 'Text' ? 'target' : 'target'} language`} />
+                <SelectValue placeholder="Select target language" />
               </SelectTrigger>
               <SelectContent className="rounded-lg max-h-80 overflow-y-auto">
                 {languages.filter(l => l.value !== 'auto').map((lang) => (
                   <SelectItem
                     key={lang.id}
-                    value={lang.value}
+                    value={lang.label}
                     className="rounded-md"
                   >
                     {lang.label}
