@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/theme-provider";
+import { WebMCPProvider } from "@/components/webmcp-provider";
 import { siteConfig } from "@/lib/seo";
 import { 
   organizationSchema, 
@@ -197,6 +198,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <WebMCPProvider />
           {children}
           <Toaster />
         </ThemeProvider>
