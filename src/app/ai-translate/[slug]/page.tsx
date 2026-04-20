@@ -36,6 +36,7 @@ import {
 } from '@/components/ui/select'
 import { toast } from 'sonner'
 import { languages, getLanguageByValue, getLanguageBySlug, slugifyLanguage } from '@/lib/languages'
+import { COMMON_PHRASES } from '@/lib/common-phrases'
 import { useTranslationHistory, HistoryItem } from '@/hooks/use-translation-history'
 import { HistorySidebar } from '@/components/history-sidebar'
 import { DocumentUploadModal } from '@/components/document-upload-modal'
@@ -45,6 +46,67 @@ import { BreadcrumbSchema } from '@/components/breadcrumb-schema'
 import { WebPageSchema } from '@/components/webpage-schema'
 
 const MAX_CHARS = 5000
+
+// ── Language facts lookup — gives each page unique, crawlable content ────────
+const LANG_FACTS: Record<string, {
+  speakers: string
+  countries: string
+  family: string
+  script: string
+  fact: string
+  fsi?: string
+}> = {
+  English:    { speakers: '1.5 billion total', countries: '67+ countries', family: 'West Germanic', script: 'Latin alphabet', fact: 'English borrows words from over 350 languages. About 29% of its vocabulary is French-origin, making it unique among Germanic languages.' },
+  Spanish:    { speakers: '490 million native', countries: '21 countries', family: 'Romance', script: 'Latin alphabet', fact: 'Spanish is the second most-spoken native language in the world and the official language of the entire United Nations along with 5 others.', fsi: 'Category I — ~24 weeks for English speakers' },
+  French:     { speakers: '300 million total', countries: '29 countries', family: 'Romance', script: 'Latin alphabet', fact: 'French is an official language at the UN, EU, NATO, and over 50 other international organisations, making it a key diplomatic language.', fsi: 'Category I — ~24 weeks for English speakers' },
+  German:     { speakers: '100 million native', countries: '6 countries', family: 'West Germanic', script: 'Latin alphabet', fact: 'German creates compound words of unlimited length. "Donaudampfschifffahrtsgesellschaft" (Danube Steamship Company) is one widely cited example.', fsi: 'Category II — ~36 weeks for English speakers' },
+  Chinese:    { speakers: '920 million native', countries: 'Mainland China, Singapore', family: 'Sino-Tibetan', script: 'Chinese characters (Hanzi)', fact: 'Mandarin has 4 tones — the same syllable means entirely different things depending on pitch. "mā, má, mǎ, mà" are four distinct words.', fsi: 'Category IV — ~88 weeks for English speakers' },
+  'Chinese Traditional': { speakers: '25 million native', countries: 'Taiwan, Hong Kong', family: 'Sino-Tibetan', script: 'Traditional Chinese characters', fact: 'Traditional Chinese characters are used in Taiwan and Hong Kong. They retain more strokes and pictographic complexity than Simplified Chinese.' },
+  Japanese:   { speakers: '125 million native', countries: 'Japan', family: 'Japonic', script: 'Hiragana, Katakana, Kanji', fact: 'Japanese uses three writing systems simultaneously. A single newspaper sentence can mix all three — Kanji, Hiragana, and Katakana.', fsi: 'Category IV+ — ~88 weeks for English speakers' },
+  Arabic:     { speakers: '310 million native', countries: '25+ countries', family: 'Semitic (Afro-Asiatic)', script: 'Arabic script (right to left)', fact: 'Arabic gave the world words like algebra, algorithm, coffee, sugar, and cotton. It is written right-to-left and has no separate upper/lowercase.', fsi: 'Category IV — ~88 weeks for English speakers' },
+  Hindi:      { speakers: '600 million total', countries: 'India (official)', family: 'Indo-Aryan', script: 'Devanagari', fact: 'Hindi and English share distant Indo-European roots. English words like jungle, shampoo, bungalow, yoga, and guru all originate from Sanskrit/Hindi.', fsi: 'Category III — ~44 weeks for English speakers' },
+  Portuguese: { speakers: '250 million native', countries: '9 countries', family: 'Romance', script: 'Latin alphabet', fact: 'Portuguese is spoken on 5 continents. Brazil alone has more Portuguese speakers than Portugal — over 215 million people.', fsi: 'Category I — ~24 weeks for English speakers' },
+  Russian:    { speakers: '150 million native', countries: '4 countries (UN official)', family: 'East Slavic', script: 'Cyrillic alphabet', fact: 'The Cyrillic alphabet used in Russian was designed in the 9th century based on Greek letters. Russian is one of 6 official UN languages.', fsi: 'Category III — ~44 weeks for English speakers' },
+  Korean:     { speakers: '80 million native', countries: 'South Korea, North Korea', family: 'Koreanic (isolate)', script: 'Hangul', fact: 'Hangul was scientifically engineered by King Sejong in 1443 and can be learned in hours — a deliberate feature to improve literacy.', fsi: 'Category IV+ — ~88 weeks for English speakers' },
+  Italian:    { speakers: '65 million native', countries: '4 countries', family: 'Romance', script: 'Latin alphabet', fact: 'Italian is the closest living language to Latin, retaining roughly 90% of classical Latin vocabulary.', fsi: 'Category I — ~24 weeks for English speakers' },
+  Turkish:    { speakers: '88 million native', countries: 'Turkey, Cyprus', family: 'Turkic', script: 'Latin alphabet (since 1928)', fact: 'Turkish is agglutinative — you add suffixes to a root word instead of using separate words. A single Turkish word can express a whole English sentence.', fsi: 'Category III — ~44 weeks for English speakers' },
+  Dutch:      { speakers: '25 million native', countries: '3 countries', family: 'West Germanic', script: 'Latin alphabet', fact: 'Dutch is the closest relative of English and gave us words like cookie, boss, yacht, drill, and landscape.', fsi: 'Category I — ~24 weeks for English speakers' },
+  Polish:     { speakers: '45 million native', countries: 'Poland (official)', family: 'West Slavic', script: 'Latin alphabet + special chars', fact: 'Polish has 7 grammatical cases and 3 grammatical genders. A single Polish noun can take up to 14 different forms depending on context.', fsi: 'Category III — ~44 weeks for English speakers' },
+  Ukrainian:  { speakers: '45 million native', countries: 'Ukraine (official)', family: 'East Slavic', script: 'Cyrillic alphabet', fact: 'Ukrainian is considered one of the most melodic Slavic languages and has a literary tradition stretching back over 1,000 years.', fsi: 'Category III — ~44 weeks for English speakers' },
+  Persian:    { speakers: '110 million total', countries: 'Iran, Afghanistan, Tajikistan', family: 'Iranian (Indo-European)', script: 'Persian script (right to left)', fact: 'The poet Rumi wrote in Persian in the 13th century. His works remain some of the best-selling poetry in the world today.', fsi: 'Category III — ~44 weeks for English speakers' },
+  Urdu:       { speakers: '70 million native', countries: 'Pakistan, India', family: 'Indo-Aryan', script: 'Nastaliq script (right to left)', fact: 'Urdu and Hindi are mutually intelligible in spoken form — they share the same grammar. The key difference is script and formal vocabulary.', fsi: 'Category III — ~44 weeks for English speakers' },
+  Bengali:    { speakers: '230 million native', countries: 'Bangladesh, India', family: 'Indo-Aryan', script: 'Bengali script', fact: 'Bengali is the 7th most spoken language in the world. The Language Movement of 1952 in Dhaka, where students died defending Bengali, is commemorated on International Mother Language Day.', fsi: 'Category III — ~44 weeks for English speakers' },
+  Vietnamese: { speakers: '95 million native', countries: 'Vietnam (official)', family: 'Austroasiatic', script: 'Latin alphabet with tone marks', fact: 'Vietnamese has 6 tones and switched from Chinese characters to a Latin-based alphabet in the 17th century — making it rare among Southeast Asian languages.', fsi: 'Category III — ~44 weeks for English speakers' },
+  Thai:       { speakers: '61 million native', countries: 'Thailand (official)', family: 'Kra-Dai', script: 'Thai script (abugida)', fact: 'Thai has 5 tones, 44 consonants, and 30+ vowel forms. The script has no spaces between words — spaces indicate the end of a clause.', fsi: 'Category III — ~44 weeks for English speakers' },
+  Indonesian: { speakers: '200 million total', countries: 'Indonesia (official)', family: 'Austronesian', script: 'Latin alphabet', fact: 'Indonesian has no grammatical gender, no verb conjugation for tense, and no plural forms — making it one of the easiest Asian languages for English speakers.', fsi: 'Category II — ~36 weeks for English speakers' },
+  Malay:      { speakers: '80 million total', countries: 'Malaysia, Brunei, Singapore', family: 'Austronesian', script: 'Latin alphabet (Rumi)', fact: 'Malay and Indonesian are largely mutually intelligible. Standard Malay evolved from a lingua franca used across maritime Southeast Asia for centuries.' },
+  Swedish:    { speakers: '10 million native', countries: 'Sweden, Finland', family: 'North Germanic', script: 'Latin alphabet', fact: 'Swedish is a pitch-accent language — "anden" means "the duck" or "the spirit" depending solely on which syllable you stress.', fsi: 'Category I — ~24 weeks for English speakers' },
+  Norwegian:  { speakers: '5 million native', countries: 'Norway (official)', family: 'North Germanic', script: 'Latin alphabet', fact: 'Norwegian has two official written standards (Bokmål and Nynorsk) — the only language in the world with two legally equal written forms.', fsi: 'Category I — ~24 weeks for English speakers' },
+  Danish:     { speakers: '6 million native', countries: 'Denmark, Faroe Islands, Greenland', family: 'North Germanic', script: 'Latin alphabet', fact: 'Danish famously swallows many of its consonants. Linguists call this "stød" — a distinct creaky voice quality unique to Danish.', fsi: 'Category I — ~24 weeks for English speakers' },
+  Finnish:    { speakers: '5 million native', countries: 'Finland (official)', family: 'Uralic (Finno-Ugric)', script: 'Latin alphabet', fact: 'Finnish is unrelated to most European languages. Its 15 grammatical cases and agglutinative structure make it very distinctive.', fsi: 'Category III — ~44 weeks for English speakers' },
+  Greek:      { speakers: '13 million native', countries: 'Greece, Cyprus', family: 'Hellenic (Indo-European)', script: 'Greek alphabet', fact: 'Greek has the longest documented history of any living language — written records date back 3,400 years. The Greek alphabet gave rise to Latin, Cyrillic, and Coptic.', fsi: 'Category III — ~44 weeks for English speakers' },
+  Hebrew:     { speakers: '9 million native', countries: 'Israel (official)', family: 'Semitic (Afro-Asiatic)', script: 'Hebrew script (right to left)', fact: 'Hebrew is the only language successfully revived as a spoken everyday language after centuries of purely religious use. Modern Hebrew was standardised in the late 19th century.', fsi: 'Category III — ~44 weeks for English speakers' },
+  Romanian:   { speakers: '26 million native', countries: '2 countries', family: 'Romance (Eastern)', script: 'Latin alphabet', fact: 'Romanian is the only Eastern Romance language, preserving Latin features that other Romance languages lost, including a neuter grammatical gender.', fsi: 'Category II — ~30 weeks for English speakers' },
+  Czech:      { speakers: '10 million native', countries: 'Czech Republic (official)', family: 'West Slavic', script: 'Latin alphabet + háček marks', fact: 'Czech has a unique letter "ř" (a rolled/fricative R blend) that is considered one of the most difficult sounds for non-native speakers to pronounce.', fsi: 'Category III — ~44 weeks for English speakers' },
+  Hungarian:  { speakers: '13 million native', countries: '2 countries', family: 'Uralic (Finno-Ugric)', script: 'Latin alphabet', fact: 'Hungarian is unrelated to surrounding European languages. It uses vowel harmony — all vowels in a word must belong to the same harmonic class.', fsi: 'Category III — ~44 weeks for English speakers' },
+  Swahili:    { speakers: '200 million total', countries: '4 countries (official)', family: 'Bantu (Niger-Congo)', script: 'Latin alphabet', fact: 'Swahili is the most widely spoken African language and a lingua franca across East Africa. About 80% of its vocabulary comes from Bantu roots, with Arabic loanwords from centuries of trade.', fsi: 'Category II — ~36 weeks for English speakers' },
+  Tagalog:    { speakers: '82 million total', countries: 'Philippines (official, as Filipino)', family: 'Austronesian', script: 'Latin alphabet', fact: 'Tagalog has a focus system where verbs change form to indicate what element of the sentence is in focus — unlike most languages, any argument can be the grammatical focus.', fsi: 'Category III — ~44 weeks for English speakers' },
+}
+
+// ── Map language names → related pairs for internal linking ─────────────────
+const RELATED_FROM: Record<string, string[]> = {
+  English:    ['Spanish', 'French', 'German', 'Chinese', 'Japanese', 'Hindi', 'Arabic', 'Portuguese', 'Russian', 'Korean', 'Italian', 'Dutch', 'Turkish', 'Polish', 'Urdu', 'Vietnamese'],
+  Spanish:    ['English', 'French', 'Portuguese', 'Italian', 'German', 'Chinese', 'Arabic', 'Hindi'],
+  French:     ['English', 'Spanish', 'German', 'Italian', 'Portuguese', 'Arabic', 'Chinese', 'Russian'],
+  German:     ['English', 'French', 'Spanish', 'Italian', 'Dutch', 'Polish', 'Russian', 'Turkish'],
+  Chinese:    ['English', 'Japanese', 'Korean', 'Spanish', 'French', 'German', 'Russian', 'Arabic'],
+  Japanese:   ['English', 'Chinese', 'Korean', 'Spanish', 'French', 'German', 'Portuguese', 'Arabic'],
+  Arabic:     ['English', 'French', 'Spanish', 'Turkish', 'Persian', 'Urdu', 'Hindi', 'German'],
+  Hindi:      ['English', 'Urdu', 'Bengali', 'Tamil', 'Spanish', 'French', 'German', 'Arabic'],
+  Portuguese: ['English', 'Spanish', 'French', 'Italian', 'German', 'Chinese', 'Arabic', 'Japanese'],
+  Russian:    ['English', 'German', 'French', 'Ukrainian', 'Spanish', 'Chinese', 'Polish', 'Arabic'],
+  Korean:     ['English', 'Japanese', 'Chinese', 'Spanish', 'French', 'German', 'Thai', 'Vietnamese'],
+}
 
 // Map language codes to speech synthesis language codes
 const getSpeechLangCode = (langCode: string): string => {
@@ -826,11 +888,170 @@ export default function GeneralTranslatePage() {
           </div>
         </motion.div>
 
+        {/* ── Language Facts — unique content per language pair ───────────── */}
+        {(LANG_FACTS[sourceLangLabel] || LANG_FACTS[targetLangLabel]) && (
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="mt-12"
+          >
+            <div className="flex items-center gap-2 sm:gap-3 mb-4">
+              <div className="p-2 bg-indigo-500/10 rounded-lg">
+                <Globe className="w-5 h-5 text-indigo-500" />
+              </div>
+              <div>
+                <h2 className="text-base sm:text-lg font-semibold">About {sourceLangLabel} &amp; {targetLangLabel}</h2>
+                <p className="text-sm text-muted-foreground">Language facts to help with your translation</p>
+              </div>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {[
+                { label: sourceLangLabel, info: LANG_FACTS[sourceLangLabel] },
+                { label: targetLangLabel, info: LANG_FACTS[targetLangLabel] },
+              ].filter(item => !!item.info).map(({ label, info }) => (
+                <div key={label} className="p-4 sm:p-5 rounded-xl border bg-gradient-to-br from-muted/30 to-muted/10 space-y-3">
+                  <h3 className="font-bold text-sm flex items-center gap-2">
+                    <Globe className="w-4 h-4 text-primary" />
+                    {label}
+                  </h3>
+                  <div className="grid grid-cols-2 gap-2 text-xs">
+                    <div className="p-2 rounded-lg bg-background/60 border">
+                      <p className="text-muted-foreground mb-0.5">Native speakers</p>
+                      <p className="font-semibold">{info!.speakers}</p>
+                    </div>
+                    <div className="p-2 rounded-lg bg-background/60 border">
+                      <p className="text-muted-foreground mb-0.5">Official in</p>
+                      <p className="font-semibold">{info!.countries}</p>
+                    </div>
+                    <div className="p-2 rounded-lg bg-background/60 border">
+                      <p className="text-muted-foreground mb-0.5">Language family</p>
+                      <p className="font-semibold">{info!.family}</p>
+                    </div>
+                    <div className="p-2 rounded-lg bg-background/60 border">
+                      <p className="text-muted-foreground mb-0.5">Writing system</p>
+                      <p className="font-semibold">{info!.script}</p>
+                    </div>
+                  </div>
+                  <div className="p-2.5 rounded-lg bg-primary/5 border border-primary/10">
+                    <p className="text-xs text-muted-foreground leading-relaxed">{info!.fact}</p>
+                  </div>
+                  {info!.fsi && (
+                    <p className="text-[11px] text-muted-foreground">
+                      <span className="font-semibold">Learning difficulty:</span> {info!.fsi}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+
+        {/* ── Common Phrases — source & target sections ────────────────────── */}
+        {(COMMON_PHRASES[sourceLangLabel] || COMMON_PHRASES[targetLangLabel]) && (
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.35 }}
+            className="mt-12"
+          >
+            {/* Section heading */}
+            <div className="flex items-center gap-3 mb-6">
+              <div className="p-2.5 bg-muted rounded-lg">
+                <Globe className="w-5 h-5 text-foreground" />
+              </div>
+              <div>
+                <h2 className="text-lg sm:text-xl font-bold">Common Phrases</h2>
+                <p className="text-sm text-muted-foreground mt-0.5">
+                  How to say everyday words and sentences in {sourceLangLabel} &amp; {targetLangLabel}
+                </p>
+              </div>
+            </div>
+
+            {/* Two columns only when BOTH languages have phrases, else single full-width column */}
+            <div className={`grid grid-cols-1 gap-6 lg:gap-8 w-full ${COMMON_PHRASES[sourceLangLabel] && COMMON_PHRASES[targetLangLabel] ? 'lg:grid-cols-2' : ''}`}>
+
+              {/* ── Source language phrases ── */}
+              {COMMON_PHRASES[sourceLangLabel] && (
+                <div className="w-full rounded-xl border overflow-hidden">
+                  {/* Column header */}
+                  <div className="flex items-center gap-2 px-4 py-3 border-b bg-muted/40">
+                    <span className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground bg-muted px-2 py-0.5 rounded">
+                      Source
+                    </span>
+                    <h3 className="text-sm font-bold text-foreground">
+                      {sourceLangLabel} Phrases
+                    </h3>
+                  </div>
+                  {/* Phrase card grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
+                    {COMMON_PHRASES[sourceLangLabel].map((phrase) => (
+                      <div
+                        key={phrase.english}
+                        className="flex flex-col gap-2 px-5 py-4 bg-background hover:bg-muted/30 transition-colors"
+                      >
+                        <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest leading-none">
+                          {phrase.english}
+                        </p>
+                        <p className="text-lg font-bold text-foreground leading-snug break-words">
+                          {phrase.translation}
+                        </p>
+                        {phrase.phonetic && (
+                          <p className="text-sm text-muted-foreground italic leading-snug">
+                            {phrase.phonetic}
+                          </p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* ── Target language phrases ── */}
+              {COMMON_PHRASES[targetLangLabel] && (
+                <div className="w-full rounded-xl border overflow-hidden">
+                  {/* Column header */}
+                  <div className="flex items-center gap-2 px-4 py-3 border-b bg-foreground">
+                    <span className="text-[11px] font-bold uppercase tracking-widest text-background bg-background/20 px-2 py-0.5 rounded">
+                      Target
+                    </span>
+                    <h3 className="text-sm font-bold text-background">
+                      {targetLangLabel} Phrases
+                    </h3>
+                  </div>
+                  {/* Phrase card grid */}
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-px bg-border">
+                    {COMMON_PHRASES[targetLangLabel].map((phrase) => (
+                      <div
+                        key={phrase.english}
+                        className="flex flex-col gap-1 px-3 py-3 bg-background hover:bg-muted/30 transition-colors"
+                      >
+                        <p className="text-[11px] font-medium text-muted-foreground uppercase tracking-wide leading-none">
+                          {phrase.english}
+                        </p>
+                        <p className="text-sm font-bold text-foreground leading-snug break-words">
+                          {phrase.translation}
+                        </p>
+                        {phrase.phonetic && (
+                          <p className="text-[11px] text-muted-foreground italic leading-snug">
+                            {phrase.phonetic}
+                          </p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+            </div>
+          </motion.div>
+        )}
+
         {/* Popular Translations */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
           className="mt-12"
         >
           <div className="flex items-center gap-2 sm:gap-3 mb-4">
@@ -838,32 +1059,47 @@ export default function GeneralTranslatePage() {
               <Zap className="w-5 h-5 text-orange-500" />
             </div>
             <div>
-              <h3 className="text-base sm:text-lg font-semibold">Popular Translations</h3>
+              <h2 className="text-base sm:text-lg font-semibold">
+                {RELATED_FROM[sourceLangLabel]
+                  ? `More ${sourceLangLabel} Translations`
+                  : 'Popular Translations'}
+              </h2>
               <p className="text-sm text-muted-foreground">
-                Frequently used language pairs
+                {RELATED_FROM[sourceLangLabel]
+                  ? `Other languages people translate ${sourceLangLabel} to`
+                  : 'Frequently used language pairs'}
               </p>
             </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3">
-            {[
-              { from: 'English', to: 'Spanish' },
-              { from: 'English', to: 'French' },
-              { from: 'English', to: 'German' },
-              { from: 'English', to: 'Chinese' },
-              { from: 'English', to: 'Japanese' },
-              { from: 'English', to: 'Hindi' },
-              { from: 'Spanish', to: 'English' },
-              { from: 'Hindi', to: 'English' },
-            ].map((item) => (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3">
+            {/* Reverse of the current pair always first */}
+            {sourceLangLabel !== targetLangLabel && (
               <Link
-                key={`${item.from}-${item.to}`}
-                href={`/ai-translate/${slugifyLanguage(item.from)}-to-${slugifyLanguage(item.to)}`}
-                className="p-4 bg-gradient-to-br from-muted/50 to-muted/30 rounded-xl border hover:border-primary/30 hover:shadow-md transition-all text-sm group"
+                href={`/ai-translate/${slugifyLanguage(targetLangLabel)}-to-${slugifyLanguage(sourceLangLabel)}`}
+                className="p-3 sm:p-4 bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl border border-primary/20 hover:border-primary/50 hover:shadow-md transition-all text-sm group"
               >
-                <div className="flex items-center justify-between">
-                  <span className="font-semibold">{item.from}</span>
-                  <ArrowLeftRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
-                  <span className="font-semibold">{item.to}</span>
+                <div className="flex items-center justify-between gap-1">
+                  <span className="font-semibold truncate">{targetLangLabel}</span>
+                  <ArrowLeftRight className="w-3.5 h-3.5 text-primary flex-shrink-0" />
+                  <span className="font-semibold truncate">{sourceLangLabel}</span>
+                </div>
+                <p className="text-[10px] text-primary mt-1">↩ Reverse</p>
+              </Link>
+            )}
+            {/* Contextual related pairs or default popular pairs */}
+            {(RELATED_FROM[sourceLangLabel]
+              ? RELATED_FROM[sourceLangLabel].filter(to => to !== targetLangLabel).slice(0, 15)
+              : ['Spanish', 'French', 'German', 'Chinese', 'Japanese', 'Hindi', 'Arabic', 'Portuguese', 'Russian', 'Korean', 'Italian', 'Dutch', 'Turkish', 'Polish', 'Urdu'].filter(to => to !== sourceLangLabel && to !== targetLangLabel).slice(0, 15)
+            ).map((to) => (
+              <Link
+                key={`${sourceLangLabel}-${to}`}
+                href={`/ai-translate/${slugifyLanguage(sourceLangLabel)}-to-${slugifyLanguage(to)}`}
+                className="p-3 sm:p-4 bg-gradient-to-br from-muted/50 to-muted/30 rounded-xl border hover:border-primary/30 hover:shadow-md transition-all text-sm group"
+              >
+                <div className="flex items-center justify-between gap-1">
+                  <span className="font-semibold truncate">{sourceLangLabel}</span>
+                  <ArrowLeftRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary flex-shrink-0" />
+                  <span className="font-semibold truncate">{to}</span>
                 </div>
               </Link>
             ))}
@@ -882,7 +1118,7 @@ export default function GeneralTranslatePage() {
               <Sparkles className="w-5 h-5 text-blue-500" />
             </div>
             <div>
-              <h3 className="text-base sm:text-lg font-semibold">Powerful Features</h3>
+              <h2 className="text-base sm:text-lg font-semibold">Why Use Our {sourceLangLabel} to {targetLangLabel} Translator?</h2>
               <p className="text-sm text-muted-foreground">
                 Everything you need for seamless translation
               </p>
@@ -934,7 +1170,7 @@ export default function GeneralTranslatePage() {
               <Users className="w-5 h-5 text-green-500" />
             </div>
             <div>
-              <h3 className="text-base sm:text-lg font-semibold">How to Translate</h3>
+              <h2 className="text-base sm:text-lg font-semibold">How to Translate {sourceLangLabel} to {targetLangLabel}</h2>
               <p className="text-sm text-muted-foreground">
                 Get started in seconds
               </p>
@@ -970,9 +1206,9 @@ export default function GeneralTranslatePage() {
               <Shield className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <h3 className="text-base sm:text-lg font-semibold">
-                Frequently Asked Questions — {sourceLanguage?.label || 'Source'} to {targetLanguage?.label || 'Target'}
-              </h3>
+              <h2 className="text-base sm:text-lg font-semibold">
+                FAQ — {sourceLanguage?.label || 'Source'} to {targetLanguage?.label || 'Target'} Translation
+              </h2>
               <p className="text-sm text-muted-foreground">
                 Common questions about {sourceLanguage?.label || 'source'} to {targetLanguage?.label || 'target'} translation
               </p>
@@ -980,39 +1216,67 @@ export default function GeneralTranslatePage() {
           </div>
           <div className="space-y-3">
             <div className="p-3 sm:p-4 bg-muted/30 rounded-xl border">
-              <h4 className="font-medium mb-1">
+              <h3 className="font-medium mb-1 text-sm">
                 Is {sourceLanguage?.label || 'source'} to {targetLanguage?.label || 'target'} translation free?
-              </h4>
+              </h3>
               <p className="text-sm text-muted-foreground">
-                Yes! Our translation service is completely free with no registration required. Translate unlimited text from {sourceLanguage?.label || 'source'} to {targetLanguage?.label || 'target'} without any cost.
+                Yes — completely free with no registration required. You can translate unlimited text from {sourceLanguage?.label || 'source'} to {targetLanguage?.label || 'target'} at no cost, with no daily limits.
               </p>
             </div>
             <div className="p-3 sm:p-4 bg-muted/30 rounded-xl border">
-              <h4 className="font-medium mb-1">How accurate are the translations?</h4>
-              <p className="text-sm text-muted-foreground">Our AI-powered translations provide high accuracy for general text. For specialized content like legal or medical documents, we recommend professional review.</p>
-            </div>
-            <div className="p-3 sm:p-4 bg-muted/30 rounded-xl border">
-              <h4 className="font-medium mb-1">
-                What file formats are supported for {sourceLanguage?.label || 'source'} to {targetLanguage?.label || 'target'} translation?
-              </h4>
+              <h3 className="font-medium mb-1 text-sm">
+                How accurate is AI {sourceLanguage?.label || 'source'} to {targetLanguage?.label || 'target'} translation?
+              </h3>
               <p className="text-sm text-muted-foreground">
-                You can upload DOCX and TXT files for document translation. We're working on adding support for PDF and other formats soon.
+                Our AI delivers high accuracy for everyday {sourceLanguage?.label || 'source'} to {targetLanguage?.label || 'target'} translation — conversations, emails, articles, and web content. For specialised domains (legal, medical, technical), we recommend professional review after AI translation.
               </p>
             </div>
             <div className="p-3 sm:p-4 bg-muted/30 rounded-xl border">
-              <h4 className="font-medium mb-1">
-                Is my {sourceLanguage?.label || 'source'} to {targetLanguage?.label || 'target'} translation data secure and private?
-              </h4>
+              <h3 className="font-medium mb-1 text-sm">
+                Can I translate {sourceLanguage?.label || 'source'} documents to {targetLanguage?.label || 'target'}?
+              </h3>
               <p className="text-sm text-muted-foreground">
-                Absolutely. Your translations are processed securely and not stored on our servers. Translation history is saved locally in your browser only.
+                Yes. Click the Upload button in the translator to upload a DOCX or TXT file. The text is extracted and automatically translated from {sourceLanguage?.label || 'source'} to {targetLanguage?.label || 'target'}.
               </p>
             </div>
             <div className="p-3 sm:p-4 bg-muted/30 rounded-xl border">
-              <h4 className="font-medium mb-1">
-                Can I use voice input for {sourceLanguage?.label || 'source'} translation?
-              </h4>
+              <h3 className="font-medium mb-1 text-sm">
+                What is the character limit for {sourceLanguage?.label || 'source'} to {targetLanguage?.label || 'target'}?
+              </h3>
               <p className="text-sm text-muted-foreground">
-                Yes! Click the microphone button to speak instead of typing. Voice input supports all major languages and works best in Chrome and Edge browsers.
+                You can translate up to 5,000 characters at once. For longer documents, use the file upload feature or split the text into sections and translate each one.
+              </p>
+            </div>
+            <div className="p-3 sm:p-4 bg-muted/30 rounded-xl border">
+              <h3 className="font-medium mb-1 text-sm">
+                Can I speak {sourceLanguage?.label || 'source'} and get {targetLanguage?.label || 'target'} translation?
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Yes — click the microphone button to use voice input. Speak in {sourceLanguage?.label || 'source'} and the tool transcribes and translates your speech to {targetLanguage?.label || 'target'} in real time. Works best in Chrome or Edge.
+              </p>
+            </div>
+            <div className="p-3 sm:p-4 bg-muted/30 rounded-xl border">
+              <h3 className="font-medium mb-1 text-sm">
+                Can I listen to the {targetLanguage?.label || 'target'} translation pronunciation?
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Yes. Click the speaker icon next to the {targetLanguage?.label || 'target'} output to hear the text read aloud. This helps with learning correct {targetLanguage?.label || 'target'} pronunciation.
+              </p>
+            </div>
+            <div className="p-3 sm:p-4 bg-muted/30 rounded-xl border">
+              <h3 className="font-medium mb-1 text-sm">
+                Is my {sourceLanguage?.label || 'source'} to {targetLanguage?.label || 'target'} translation data private?
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Your privacy is protected. Translations are processed securely and not stored on our servers. Your history is saved only in your browser's local storage and never shared.
+              </p>
+            </div>
+            <div className="p-3 sm:p-4 bg-muted/30 rounded-xl border">
+              <h3 className="font-medium mb-1 text-sm">
+                Can I translate {targetLanguage?.label || 'target'} back to {sourceLanguage?.label || 'source'}?
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Yes — click the swap button (⇄) between the language selectors to instantly reverse the direction and translate from {targetLanguage?.label || 'target'} back to {sourceLanguage?.label || 'source'}.
               </p>
             </div>
           </div>

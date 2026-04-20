@@ -8,7 +8,6 @@ import { toast } from '@/hooks/use-toast'
 
 // ─── Character maps ───────────────────────────────────────────────────────────
 
-// Enclosed Alphanumerics block — U+24B6–U+24E9 — universally supported
 const CIRCLED: Record<string, string> = {
   a:'ⓐ',b:'ⓑ',c:'ⓒ',d:'ⓓ',e:'ⓔ',f:'ⓕ',g:'ⓖ',h:'ⓗ',i:'ⓘ',j:'ⓙ',k:'ⓚ',l:'ⓛ',m:'ⓜ',
   n:'ⓝ',o:'ⓞ',p:'ⓟ',q:'ⓠ',r:'ⓡ',s:'ⓢ',t:'ⓣ',u:'ⓤ',v:'ⓥ',w:'ⓦ',x:'ⓧ',y:'ⓨ',z:'ⓩ',
@@ -17,21 +16,10 @@ const CIRCLED: Record<string, string> = {
   '0':'⓪','1':'①','2':'②','3':'③','4':'④','5':'⑤','6':'⑥','7':'⑦','8':'⑧','9':'⑨',
 }
 
-// Circled numbers — U+2460–U+2473 + U+24EA — widely supported
-const CIRCLED_NUMS: Record<string, string> = {
-  '0':'⓪','1':'①','2':'②','3':'③','4':'④','5':'⑤','6':'⑥','7':'⑦','8':'⑧','9':'⑨',
-  '10':'⑩','11':'⑪','12':'⑫','13':'⑬','14':'⑭','15':'⑮','16':'⑯','17':'⑰','18':'⑱','19':'⑲','20':'⑳',
-}
-
-// Dingbat negative circled numbers — U+2776–U+277F — widely supported
-const NEG_CIRCLED_NUMS: Record<string, string> = {
-  '1':'❶','2':'❷','3':'❸','4':'❹','5':'❺','6':'❻','7':'❼','8':'❽','9':'❾','10':'❿',
-}
-
 const applyMap = (text: string, map: Record<string, string>) =>
   text.split('').map(c => map[c] ?? c).join('')
 
-// ─── Style definitions ────────────────────────────────────────────────────────
+// ─── Styles ───────────────────────────────────────────────────────────────────
 
 interface Style {
   id: string
@@ -42,95 +30,25 @@ interface Style {
 }
 
 const STYLES: Style[] = [
-  {
-    id: 'circled',
-    name: 'Circled',
-    description: 'Standard Unicode circled letters — works on every platform',
-    popular: true,
-    transform: t => applyMap(t, CIRCLED),
-  },
-  {
-    id: 'circled-upper',
-    name: 'Circled Uppercase',
-    description: 'All letters forced to uppercase then circled',
-    popular: true,
-    transform: t => applyMap(t.toUpperCase(), CIRCLED),
-  },
-  {
-    id: 'circled-lower',
-    name: 'Circled Lowercase',
-    description: 'All letters forced to lowercase then circled',
-    transform: t => applyMap(t.toLowerCase(), CIRCLED),
-  },
-  {
-    id: 'circled-spaced',
-    name: 'Circled Spaced',
-    description: 'Circled letters with a space between each one',
-    popular: true,
-    transform: t => [...applyMap(t, CIRCLED)].join(' '),
-  },
-  {
-    id: 'circled-upper-spaced',
-    name: 'Circled Caps Wide',
-    description: 'Uppercase circled letters with wide spacing — great for titles and headers',
-    transform: t => [...applyMap(t.toUpperCase(), CIRCLED)].join(' '),
-  },
-  {
-    id: 'circled-lower-spaced',
-    name: 'Circled Lowercase Wide',
-    description: 'Lowercase circled letters spaced out',
-    transform: t => [...applyMap(t.toLowerCase(), CIRCLED)].join(' '),
-  },
-  {
-    id: 'circle-wrap',
-    name: '◉ Circle Wrap ◉',
-    description: 'Circled text framed with filled-circle symbols',
-    popular: true,
-    transform: t => `◉ ${applyMap(t, CIRCLED)} ◉`,
-  },
-  {
-    id: 'ring-wrap',
-    name: '○ Ring Frame ○',
-    description: 'Circled text framed with open ring symbols',
-    transform: t => `○ ${applyMap(t, CIRCLED)} ○`,
-  },
-  {
-    id: 'dot-circle-wrap',
-    name: '⊙ Dot Circle ⊙',
-    description: 'Circled text wrapped in dotted-circle symbols',
-    transform: t => `⊙ ${applyMap(t, CIRCLED)} ⊙`,
-  },
-  {
-    id: 'double-circle-wrap',
-    name: '◎ Double Circle ◎',
-    description: 'Circled text framed with double-circle (bullseye) symbols',
-    transform: t => `◎ ${applyMap(t, CIRCLED)} ◎`,
-  },
-  {
-    id: 'circled-stars',
-    name: '✦ Star Circle ✦',
-    description: 'Circled text with star decorations',
-    transform: t => `✦ ${applyMap(t, CIRCLED)} ✦`,
-  },
-  {
-    id: 'circled-hearts',
-    name: '♡ Heart Circle ♡',
-    description: 'Circled text wrapped in heart symbols',
-    transform: t => `♡ ${applyMap(t, CIRCLED)} ♡`,
-  },
-  {
-    id: 'circled-between-dots',
-    name: 'Dot · Spaced · Dot',
-    description: 'Circled letters separated by middle dots',
-    transform: t => [...applyMap(t, CIRCLED)].join('·'),
-  },
-  {
-    id: 'circled-between-rings',
-    name: '○ Between Rings ○',
-    description: 'Circled letters separated by small ring symbols',
-    transform: t => [...applyMap(t, CIRCLED)].join('○'),
-  },
+  { id: 'circled',             name: 'Circled',              description: 'Standard circled letters — works everywhere',            popular: true,  transform: t => applyMap(t, CIRCLED) },
+  { id: 'circled-upper',       name: 'Circled Uppercase',    description: 'All letters forced to uppercase then circled',           popular: true,  transform: t => applyMap(t.toUpperCase(), CIRCLED) },
+  { id: 'circled-lower',       name: 'Circled Lowercase',    description: 'All letters forced to lowercase then circled',                           transform: t => applyMap(t.toLowerCase(), CIRCLED) },
+  { id: 'circled-spaced',      name: 'Circled Spaced',       description: 'Circled letters with a space between each one',         popular: true,  transform: t => [...applyMap(t, CIRCLED)].join(' ') },
+  { id: 'circled-upper-spaced',name: 'Circled Caps Wide',    description: 'Uppercase circled letters with wide spacing',                           transform: t => [...applyMap(t.toUpperCase(), CIRCLED)].join(' ') },
+  { id: 'circled-lower-spaced',name: 'Circled Lower Wide',   description: 'Lowercase circled letters spaced out',                                  transform: t => [...applyMap(t.toLowerCase(), CIRCLED)].join(' ') },
+  { id: 'circle-wrap',         name: '◉ Circle Wrap ◉',      description: 'Circled text framed with filled-circle symbols',        popular: true,  transform: t => `◉ ${applyMap(t, CIRCLED)} ◉` },
+  { id: 'ring-wrap',           name: '○ Ring Frame ○',        description: 'Circled text framed with open ring symbols',                           transform: t => `○ ${applyMap(t, CIRCLED)} ○` },
+  { id: 'dot-circle-wrap',     name: '⊙ Dot Circle ⊙',       description: 'Circled text wrapped in dotted-circle symbols',                        transform: t => `⊙ ${applyMap(t, CIRCLED)} ⊙` },
+  { id: 'double-circle-wrap',  name: '◎ Double Circle ◎',    description: 'Circled text framed with double-circle symbols',                       transform: t => `◎ ${applyMap(t, CIRCLED)} ◎` },
+  { id: 'circled-stars',       name: '✦ Star Circle ✦',      description: 'Circled text with star decorations',                                   transform: t => `✦ ${applyMap(t, CIRCLED)} ✦` },
+  { id: 'circled-hearts',      name: '♡ Heart Circle ♡',     description: 'Circled text wrapped in heart symbols',                                transform: t => `♡ ${applyMap(t, CIRCLED)} ♡` },
+  { id: 'circled-dots',        name: 'Dot · Separated',      description: 'Circled letters separated by middle dots',                             transform: t => [...applyMap(t, CIRCLED)].join('·') },
+  { id: 'circled-rings',       name: '○ Ring Separated',     description: 'Circled letters separated by small ring symbols',                      transform: t => [...applyMap(t, CIRCLED)].join('○') },
 ]
+
+const OPEN_NUMS  = ['⓪','①','②','③','④','⑤','⑥','⑦','⑧','⑨','⑩','⑪','⑫','⑬','⑭','⑮','⑯','⑰','⑱','⑲','⑳']
+const FILL_NUMS  = ['❶','❷','❸','❹','❺','❻','❼','❽','❾','❿']
+const ALPHABET   = Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i))
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
@@ -139,7 +57,7 @@ export function CircledTextGeneratorTool() {
   const [copied,   setCopied]   = useState<string | null>(null)
   const [favs,     setFavs]     = useState<string[]>([])
   const [showFavs, setShowFavs] = useState(false)
-  const [preview,  setPreview]  = useState('')
+  const [preview,  setPreview]  = useState('Text')
 
   useEffect(() => {
     const DEMOS = ['Circle', 'Hello', 'Style', 'Magic', 'Text']
@@ -175,31 +93,38 @@ export function CircledTextGeneratorTool() {
   const filtered = showFavs ? STYLES.filter(s => favs.includes(s.id)) : STYLES
 
   return (
-    <div className="space-y-5 w-full min-w-0">
+    <div className="w-full space-y-5">
 
-      {/* Input */}
+      {/* ── Input ─────────────────────────────────────────────────────────── */}
       <div className="space-y-1.5">
-        <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Your Text</label>
+        <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
+          Your Text
+        </label>
         <Textarea
           value={input}
           onChange={e => setInput(e.target.value)}
           placeholder="Type any word or phrase…"
-          className="min-h-24 text-base resize-none"
+          className="min-h-24 text-base resize-none w-full"
           autoFocus
         />
         {input && (
-          <div className="flex justify-between">
+          <div className="flex justify-between items-center">
             <span className="text-[11px] text-muted-foreground">{input.length} characters</span>
-            <button onClick={() => setInput('')} className="text-[11px] text-muted-foreground hover:text-destructive transition-colors">Clear</button>
+            <button
+              onClick={() => setInput('')}
+              className="text-[11px] text-muted-foreground hover:text-destructive transition-colors"
+            >
+              Clear
+            </button>
           </div>
         )}
       </div>
 
-      {/* Filter row */}
+      {/* ── Filter ────────────────────────────────────────────────────────── */}
       <div className="flex flex-wrap gap-1.5">
         <button
           onClick={() => setShowFavs(false)}
-          className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-all ${
+          className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-all touch-manipulation ${
             !showFavs ? 'bg-primary text-primary-foreground border-primary' : 'bg-muted/30 text-muted-foreground hover:bg-muted/60'
           }`}
         >
@@ -208,7 +133,7 @@ export function CircledTextGeneratorTool() {
         {favs.length > 0 && (
           <button
             onClick={() => setShowFavs(true)}
-            className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-all ${
+            className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-all touch-manipulation ${
               showFavs ? 'bg-rose-500 text-white border-rose-500' : 'bg-muted/30 text-muted-foreground hover:bg-muted/60'
             }`}
           >
@@ -217,7 +142,7 @@ export function CircledTextGeneratorTool() {
         )}
       </div>
 
-      {/* Style cards */}
+      {/* ── Style cards ───────────────────────────────────────────────────── */}
       <div className="space-y-3">
         {filtered.map(style => {
           const result   = style.transform(display)
@@ -226,39 +151,45 @@ export function CircledTextGeneratorTool() {
           return (
             <div
               key={style.id}
-              className="group p-4 rounded-xl border bg-gradient-to-br from-muted/20 to-muted/10 hover:border-primary/30 hover:from-primary/5 hover:to-primary/10 transition-all"
+              className="p-3 sm:p-4 rounded-xl border bg-gradient-to-br from-muted/20 to-muted/10 hover:border-primary/30 transition-all"
             >
-              <div className="flex items-start justify-between gap-2 mb-2">
-                <div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold text-foreground">{style.name}</span>
+              {/* Card header */}
+              <div className="flex items-start gap-2 mb-2">
+                {/* Left: name + description */}
+                <div className="flex-1 min-w-0">
+                  <div className="flex flex-wrap items-center gap-1.5 mb-0.5">
+                    <span className="text-xs font-bold">{style.name}</span>
                     {style.popular && (
                       <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-primary/10 text-primary font-semibold border border-primary/20">
                         Popular
                       </span>
                     )}
                   </div>
-                  <p className="text-[11px] text-muted-foreground">{style.description}</p>
+                  <p className="text-[11px] text-muted-foreground leading-snug">{style.description}</p>
                 </div>
-                <div className="flex items-center gap-1.5 flex-shrink-0">
+                {/* Right: actions */}
+                <div className="flex items-center gap-1 flex-shrink-0">
                   <button
                     onClick={() => toggleFav(style.id)}
-                    className={`p-1.5 rounded-full transition-all ${isFav ? 'text-rose-500' : 'text-muted-foreground hover:text-rose-400'}`}
+                    className={`p-1.5 rounded-full transition-all touch-manipulation ${isFav ? 'text-rose-500' : 'text-muted-foreground hover:text-rose-400'}`}
                   >
                     <Heart className={`w-3.5 h-3.5 ${isFav ? 'fill-rose-500' : ''}`} />
                   </button>
                   <Button
                     size="sm"
                     variant={isCopied ? 'default' : 'outline'}
-                    className="h-7 text-xs"
+                    className="h-7 text-xs px-2 touch-manipulation"
                     onClick={() => copyText(result, style.id)}
                   >
-                    {isCopied ? <><Check className="w-3 h-3 mr-1" />Copied</> : <><Copy className="w-3 h-3 mr-1" />Copy</>}
+                    {isCopied
+                      ? <><Check className="w-3 h-3 sm:mr-1" /><span className="hidden sm:inline">Copied</span></>
+                      : <><Copy className="w-3 h-3 sm:mr-1" /><span className="hidden sm:inline">Copy</span></>}
                   </Button>
                 </div>
               </div>
+              {/* Output */}
               <div
-                className="text-2xl sm:text-3xl leading-relaxed break-all cursor-pointer select-all tracking-wide"
+                className="text-lg sm:text-2xl leading-relaxed break-all cursor-pointer select-all w-full"
                 onClick={() => copyText(result, style.id)}
                 title="Click to copy"
               >
@@ -269,72 +200,70 @@ export function CircledTextGeneratorTool() {
         })}
       </div>
 
-      {/* Circled numbers reference */}
-      <div className="space-y-3 pt-4 border-t">
-        <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Circled Numbers — Click to Insert</p>
-        <div className="grid grid-cols-2 gap-3">
-          <div className="space-y-1.5">
-            <p className="text-[10px] text-muted-foreground font-semibold uppercase">Open Circle ①–⑳</p>
-            <div className="flex flex-wrap gap-1">
-              {['⓪','①','②','③','④','⑤','⑥','⑦','⑧','⑨','⑩','⑪','⑫','⑬','⑭','⑮','⑯','⑰','⑱','⑲','⑳'].map((c, i) => (
-                <button
-                  key={i}
-                  onClick={() => setInput(p => p + c)}
-                  className="flex items-center justify-center w-8 h-8 rounded-lg border hover:bg-primary/10 hover:border-primary/30 active:scale-95 transition-all text-base"
-                >
-                  {c}
-                </button>
-              ))}
-            </div>
+      {/* ── Circled numbers ───────────────────────────────────────────────── */}
+      <div className="pt-4 border-t space-y-3">
+        <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
+          Circled Numbers — Click to Insert
+        </p>
+        <div className="space-y-2">
+          {/* Open circle ①–⑳ */}
+          <p className="text-[10px] text-muted-foreground font-semibold uppercase">Open Circle ①–⑳</p>
+          <div className="grid grid-cols-7 sm:grid-cols-11 gap-1">
+            {OPEN_NUMS.map((c, i) => (
+              <button
+                key={i}
+                onClick={() => setInput(p => p + c)}
+                className="flex items-center justify-center h-8 text-sm rounded-lg border hover:bg-primary/10 hover:border-primary/30 active:scale-95 transition-all touch-manipulation"
+              >
+                {c}
+              </button>
+            ))}
           </div>
-          <div className="space-y-1.5">
-            <p className="text-[10px] text-muted-foreground font-semibold uppercase">Filled Circle ❶–❿</p>
-            <div className="flex flex-wrap gap-1">
-              {['❶','❷','❸','❹','❺','❻','❼','❽','❾','❿'].map((c, i) => (
-                <button
-                  key={i}
-                  onClick={() => setInput(p => p + c)}
-                  className="flex items-center justify-center w-8 h-8 rounded-lg border hover:bg-primary/10 hover:border-primary/30 active:scale-95 transition-all text-base"
-                >
-                  {c}
-                </button>
-              ))}
-            </div>
+          {/* Filled circle ❶–❿ */}
+          <p className="text-[10px] text-muted-foreground font-semibold uppercase">Filled Circle ❶–❿</p>
+          <div className="grid grid-cols-5 sm:grid-cols-10 gap-1">
+            {FILL_NUMS.map((c, i) => (
+              <button
+                key={i}
+                onClick={() => setInput(p => p + c)}
+                className="flex items-center justify-center h-8 text-sm rounded-lg border hover:bg-primary/10 hover:border-primary/30 active:scale-95 transition-all touch-manipulation"
+              >
+                {c}
+              </button>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* A–Z alphabet chart */}
-      <div className="space-y-3 pt-2 border-t">
-        <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Full Alphabet — Click to Insert</p>
-        <div className="space-y-2">
-          {[
-            { label: 'Uppercase  Ⓐ–Ⓩ', key: 'upper' },
-            { label: 'Lowercase  ⓐ–ⓩ', key: 'lower' },
-          ].map(({ label, key }) => (
-            <div key={key} className="space-y-1">
-              <p className="text-[10px] text-muted-foreground font-semibold uppercase">{label}</p>
-              <div className="flex flex-wrap gap-1">
-                {Array.from({ length: 26 }, (_, i) => {
-                  const upper = String.fromCharCode(65 + i)
-                  const lower = upper.toLowerCase()
-                  const ch    = key === 'upper' ? upper : lower
-                  return (
-                    <button
-                      key={ch}
-                      onClick={() => setInput(p => p + upper)}
-                      title={`Insert ${upper} → ${CIRCLED[ch]}`}
-                      className="flex flex-col items-center px-1.5 py-1 rounded-lg border hover:bg-primary/10 hover:border-primary/30 active:scale-95 transition-all min-w-[2rem]"
-                    >
-                      <span className="text-base sm:text-lg leading-none">{CIRCLED[ch] ?? ch}</span>
-                      <span className="text-[8px] text-muted-foreground mt-0.5">{upper}</span>
-                    </button>
-                  )
-                })}
-              </div>
+      {/* ── A–Z alphabet chart ────────────────────────────────────────────── */}
+      <div className="pt-3 border-t space-y-3">
+        <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
+          Full Alphabet — Click to Insert
+        </p>
+        {[
+          { label: 'Uppercase Ⓐ–Ⓩ', useUpper: true },
+          { label: 'Lowercase ⓐ–ⓩ', useUpper: false },
+        ].map(({ label, useUpper }) => (
+          <div key={label} className="space-y-1">
+            <p className="text-[10px] text-muted-foreground font-semibold uppercase">{label}</p>
+            <div className="grid grid-cols-9 gap-1">
+              {ALPHABET.map(upper => {
+                const ch  = useUpper ? upper : upper.toLowerCase()
+                return (
+                  <button
+                    key={ch}
+                    onClick={() => setInput(p => p + upper)}
+                    title={`${upper} → ${CIRCLED[ch]}`}
+                    className="flex flex-col items-center py-1 rounded-lg border hover:bg-primary/10 hover:border-primary/30 active:scale-95 transition-all touch-manipulation"
+                  >
+                    <span className="text-sm leading-none">{CIRCLED[ch] ?? ch}</span>
+                    <span className="text-[8px] text-muted-foreground mt-0.5">{upper}</span>
+                  </button>
+                )
+              })}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </div>
   )
