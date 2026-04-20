@@ -6,20 +6,23 @@ const SITE_URL = 'https://nagritranslate.com'
  * MCP Server Card — SEP-1649
  * https://github.com/modelcontextprotocol/modelcontextprotocol/pull/2127
  *
- * Describes the Nagri Translate MCP-compatible HTTP transport so AI agents
- * can discover available tools, authentication requirements, and how to connect.
+ * Field names follow the camelCase convention used in the MCP spec draft.
+ * Top-level `name` and `version` are included as aliases for parsers that
+ * look for them directly rather than inside serverInfo.
  */
 const serverCard = {
-  schema_version: '1.0',
+  // Top-level name/version for checkers that look here directly (SEP-1649 §3)
+  name: 'Nagri Translate',
+  version: '1.0.0',
 
-  server_info: {
+  // Canonical serverInfo block (camelCase per spec)
+  serverInfo: {
     name: 'Nagri Translate',
     version: '1.0.0',
     description:
       'Free AI-powered translation service supporting 248+ languages. ' +
       'Provides translation, language listing, and text-to-speech tools.',
     homepage: SITE_URL,
-    contact: SITE_URL,
     license: 'Free to use',
   },
 
@@ -29,22 +32,21 @@ const serverCard = {
     url: `${SITE_URL}/api/mcp`,
   },
 
-  // MCP capability flags
+  // MCP capability flags (camelCase per spec)
   capabilities: {
-    tools: true,
+    tools: {},
     resources: false,
     prompts: false,
     logging: false,
-    experimental: {},
   },
 
-  // Tools exposed over MCP
+  // Tools exposed over MCP (inputSchema — camelCase per spec)
   tools: [
     {
       name: 'translate',
       description:
         'Translate text from one language to another. Supports 248+ languages, up to 5,000 characters.',
-      input_schema: {
+      inputSchema: {
         type: 'object',
         required: ['text', 'sourceLang', 'targetLang'],
         properties: {
@@ -57,7 +59,7 @@ const serverCard = {
     {
       name: 'list_languages',
       description: 'Return the full list of 248+ supported languages, optionally filtered by name.',
-      input_schema: {
+      inputSchema: {
         type: 'object',
         properties: {
           q: { type: 'string', description: 'Filter languages by name.' },
@@ -68,7 +70,7 @@ const serverCard = {
     {
       name: 'text_to_speech',
       description: 'Convert text to speech and return an MP3 audio stream. Maximum 200 characters.',
-      input_schema: {
+      inputSchema: {
         type: 'object',
         required: ['text'],
         properties: {
@@ -81,14 +83,14 @@ const serverCard = {
   // Authentication — all tools are publicly accessible
   authentication: {
     required: false,
-    schemes: [],
+    type: 'none',
   },
 
   // Related discovery documents
   links: {
-    openapi_spec: `${SITE_URL}/api/openapi`,
-    api_catalog: `${SITE_URL}/.well-known/api-catalog`,
-    oauth_protected_resource: `${SITE_URL}/.well-known/oauth-protected-resource`,
+    openApiSpec: `${SITE_URL}/api/openapi`,
+    apiCatalog: `${SITE_URL}/.well-known/api-catalog`,
+    oauthProtectedResource: `${SITE_URL}/.well-known/oauth-protected-resource`,
     health: `${SITE_URL}/api/health`,
   },
 }

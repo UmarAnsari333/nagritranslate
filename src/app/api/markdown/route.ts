@@ -1,16 +1,22 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+export const dynamic = 'force-dynamic'
+
 const SITE_URL = 'https://nagritranslate.com'
 
-// Markdown representations keyed by path prefix
 function getMarkdown(path: string): { body: string; title: string } {
   // ── ai-translate/[slug] pages ──────────────────────────────────────────
   const translateMatch = path.match(/^\/ai-translate\/(.+)$/)
   if (translateMatch) {
     const slug = translateMatch[1]
-    const [source, , target] = slug.replace(/-to-/, ' to ').split(' ')
+    // "english-to-spanish" → ["english", "to", "spanish"]
+    const parts = slug.replace(/-to-/, ' to ').split(' ')
+    const source = parts[0] ?? ''
+    const target = parts[2] ?? ''
     const sourceLabel = source.charAt(0).toUpperCase() + source.slice(1)
-    const targetLabel = target?.charAt(0).toUpperCase() + target?.slice(1) ?? 'Target'
+    const targetLabel = target
+      ? target.charAt(0).toUpperCase() + target.slice(1)
+      : 'Target'
     const title = `${sourceLabel} to ${targetLabel} Translator — Nagri Translate`
     const body = `# ${title}
 
@@ -55,7 +61,10 @@ All translations are processed securely. No account required.
   const toolMatch = path.match(/^\/tools\/(.+)$/)
   if (toolMatch) {
     const toolSlug = toolMatch[1]
-    const toolName = toolSlug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+    const toolName = toolSlug
+      .split('-')
+      .map((w: string) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(' ')
     const title = `${toolName} — Nagri Translate`
     const body = `# ${title}
 
@@ -110,7 +119,7 @@ Free AI-powered translator supporting 248+ languages. Instant, accurate, no sign
 **Response:**
 \`\`\`json
 {
-  "translation": "Hola, ¿cómo estás?"
+  "translatedText": "Hola, ¿cómo estás?"
 }
 \`\`\`
 
@@ -119,25 +128,48 @@ Free AI-powered translator supporting 248+ languages. Instant, accurate, no sign
 - [Sitemap](${SITE_URL}/sitemap.xml)
 - [All Languages](${SITE_URL}/ai-translate)
 - [Text Tools](${SITE_URL}/tools)
+- [API Catalog](${SITE_URL}/.well-known/api-catalog)
+- [OpenAPI Spec](${SITE_URL}/api/openapi)
 `
   return { title, body }
 }
 
+const CORS_HEADERS = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'GET, OPTIONS',
+  'Access-Control-Allow-Headers': 'Accept',
+}
+
+export async function OPTIONS() {
+  return new NextResponse(null, { status: 204, headers: CORS_HEADERS })
+}
+
 export async function GET(request: NextRequest) {
-  const path = request.nextUrl.searchParams.get('path') ?? '/'
-  const { body, title } = getMarkdown(path)
+  try {
+    const path = request.nextUrl.searchParams.get('path') ?? '/'
+    const { body, title } = getMarkdown(path)
+    const tokenEstimate = Math.ceil(body.split(/\s+/).length * 1.3)
 
-  // Count tokens (words × 1.3 is a rough approximation)
-  const tokenEstimate = Math.ceil(body.split(/\s+/).length * 1.3)
-
-  return new NextResponse(body, {
-    status: 200,
-    headers: {
-      'Content-Type': 'text/markdown; charset=utf-8',
-      'X-Markdown-Tokens': String(tokenEstimate),
-      'X-Content-Title': title,
-      'Vary': 'Accept',
-      'Cache-Control': 'public, max-age=3600',
-    },
-  })
+    return new NextResponse(body, {
+      status: 200,
+      headers: {
+        'Content-Type': 'text/markdown; charset=utf-8',
+        'X-Markdown-Tokens': String(tokenEstimate),
+        'X-Content-Title': encodeURIComponent(title),
+        'Vary': 'Accept',
+        'Cache-Control': 'public, max-age=3600',
+        ...CORS_HEADERS,
+      },
+    })
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : 'Internal error'
+    return new NextResponse(`# Error\n\n${msg}\n`, {
+      status: 500,
+      headers: {
+        'Content-Type': 'text/markdown; charset=utf-8',
+        'Vary': 'Accept',
+        ...CORS_HEADERS,
+      },
+    })
+  }
 }
