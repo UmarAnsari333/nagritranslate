@@ -154,6 +154,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.88,
     },
     {
+      url: `${baseUrl}/translators`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'weekly',
+      priority: 0.92,
+    },
+    {
       url: `${baseUrl}/tools`,
       lastModified: BUILD_DATE,
       changeFrequency: 'weekly',

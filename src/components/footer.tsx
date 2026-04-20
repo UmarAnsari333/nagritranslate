@@ -31,6 +31,7 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4 text-foreground">Quick Links</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
+              <li><Link href="/translators" className="hover:text-primary transition-colors font-medium">All Translators</Link></li>
               <li><Link href="/ai-translate/english-to-spanish" className="hover:text-primary transition-colors">English to Spanish</Link></li>
               <li><Link href="/ai-translate/english-to-french" className="hover:text-primary transition-colors">English to French</Link></li>
               <li><Link href="/ai-translate/english-to-hindi" className="hover:text-primary transition-colors">English to Hindi</Link></li>
