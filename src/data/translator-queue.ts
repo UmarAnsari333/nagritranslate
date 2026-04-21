@@ -23,7 +23,4 @@ export type QueuedPair = {
 export const translatorQueue: QueuedPair[] = [
   // ── Add new pairs here (top = next to publish) ──────────────────────────
 
-  { from: 'Bosnian',  to: 'English' },
-  { from: 'Armenian', to: 'English' },
-  { from: 'English',  to: 'Hmong'   },
 ]

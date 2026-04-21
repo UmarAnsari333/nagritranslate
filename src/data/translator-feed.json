@@ -1,4 +1,7 @@
 [
-  { "from": "English", "to": "Samoan", "publishedAt": "2026-04-20T11:00:00.000Z" },
-  { "from": "Igbo",    "to": "English", "publishedAt": "2026-04-20T10:30:00.000Z" }
+  { "from": "English",  "to": "Hmong",   "publishedAt": "2026-04-21T00:30:00.000Z" },
+  { "from": "Armenian", "to": "English", "publishedAt": "2026-04-21T00:00:00.000Z" },
+  { "from": "Bosnian",  "to": "English", "publishedAt": "2026-04-20T23:30:00.000Z" },
+  { "from": "English",  "to": "Samoan",  "publishedAt": "2026-04-20T11:00:00.000Z" },
+  { "from": "Igbo",     "to": "English", "publishedAt": "2026-04-20T10:30:00.000Z" }
 ]
