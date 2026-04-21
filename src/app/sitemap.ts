@@ -4,6 +4,7 @@ import { phrasesIndex } from '@/lib/phrases-data'
 import { learnIndex } from '@/lib/learn-data'
 import { vocabularyIndex } from '@/lib/vocabulary-data'
 import { languagePillarIndex } from '@/lib/language-pillar-data'
+import feed from '@/data/translator-feed.json'
 
 // Site build date - update this when you deploy
 const BUILD_DATE = new Date('2026-04-02')
@@ -796,6 +797,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Combine all URLs and remove duplicates
   const allUrls = new Map<string, MetadataRoute.Sitemap[number]>()
 
+  // Feed pairs with real publish dates — these override hashed dates for the same URLs
+  const feedUrls: MetadataRoute.Sitemap = feed.map((entry) => ({
+    url: `${baseUrl}/ai-translate/${slugifyLanguage(entry.from)}-to-${slugifyLanguage(entry.to)}`,
+    lastModified: new Date(entry.publishedAt),
+    changeFrequency: 'weekly' as const,
+    priority: 0.85,
+  }))
+
   const allEntries = [
     ...staticPages,
     ...phrasesPages,
@@ -806,6 +815,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...languageToEnglishUrls,
     ...englishToLanguageUrls,
     ...crossLanguageUrls,
+    ...feedUrls,  // added last so they win deduplication with real dates
   ]
 
   // Deduplicate by URL, keeping highest priority
