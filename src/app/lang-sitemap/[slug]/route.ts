@@ -31,16 +31,13 @@ export async function GET(
   const lang = langEntry.label
   const others = languages.filter((l) => l.value !== 'auto' && l.label !== lang)
 
-  const urls: string[] = [
-    ...others.map(
-      (other) =>
-        `${BASE_URL}/ai-translate/${slugifyLanguage(lang)}-to-${slugifyLanguage(other.label)}`
-    ),
-    ...others.map(
-      (other) =>
-        `${BASE_URL}/ai-translate/${slugifyLanguage(other.label)}-to-${slugifyLanguage(lang)}`
-    ),
-  ]
+  // Only generate outgoing pairs: [lang]-to-[other]
+  // The reverse ([other]-to-[lang]) is covered by each other language's own sitemap.
+  // This ensures every pair appears in exactly one sitemap — no duplicates.
+  const urls: string[] = others.map(
+    (other) =>
+      `${BASE_URL}/ai-translate/${slugifyLanguage(lang)}-to-${slugifyLanguage(other.label)}`
+  )
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
