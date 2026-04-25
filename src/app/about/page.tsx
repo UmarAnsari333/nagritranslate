@@ -87,7 +87,7 @@ export default function AboutPage() {
                 Starting with just 100 languages, we've grown to support over
                 248 languages today. Our platform processes millions of
                 translations monthly, connecting students, travelers,
-                businesses, and families across the globe.
+                businesses, and families across the globe
               </p>
             </div>
           </motion.div>
