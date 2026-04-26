@@ -12,16 +12,13 @@ const BASE_URL = 'https://nagritranslate.com'
 // It will auto-appear here on next deploy — no GSC resubmission needed.
 
 export async function GET() {
-  const now = new Date().toISOString()
-
-  const sitemaps: { loc: string; lastmod: string }[] = [
+  const sitemaps: { loc: string }[] = [
     // Main sitemap (static pages, tools, educational content)
-    { loc: `${BASE_URL}/sitemap.xml`, lastmod: now },
+    { loc: `${BASE_URL}/sitemap.xml` },
 
     // One sitemap per language in PER_LANGUAGE_SITEMAPS
     ...PER_LANGUAGE_SITEMAPS.map((lang) => ({
       loc: `${BASE_URL}/lang-sitemap/${slugifyLanguage(lang)}.xml`,
-      lastmod: now,
     })),
   ]
 
@@ -31,7 +28,6 @@ ${sitemaps
   .map(
     (s) => `  <sitemap>
     <loc>${s.loc}</loc>
-    <lastmod>${s.lastmod}</lastmod>
   </sitemap>`
   )
   .join('\n')}
