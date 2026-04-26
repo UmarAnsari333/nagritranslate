@@ -8,4 +8,5 @@ export const PER_LANGUAGE_SITEMAPS = [
   "Tagalog",
   "Filipino",
   "Bisaya",
+  "English",
 ];
