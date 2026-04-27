@@ -8,14 +8,7 @@ import { BreadcrumbSchema } from '@/components/breadcrumb-schema'
 import { WebPageSchema } from '@/components/webpage-schema'
 import { AudioButton } from '@/components/dictionary/audio-button'
 import { DictionarySearch } from '@/components/dictionary/dictionary-search'
-import { DICTIONARY_WORDS } from '@/data/dictionary-words'
-
-export const revalidate = 604800
-
-// Pre-build all curated words at deploy time; unknown words are rendered on-demand
-export function generateStaticParams() {
-  return DICTIONARY_WORDS.map((word) => ({ word }))
-}
+export const revalidate = 86400
 
 interface Phonetic {
   text?: string
@@ -50,16 +43,17 @@ interface PageProps {
   params: Promise<{ word: string }>
 }
 
-async function fetchDefinition(word: string): Promise<DictionaryEntry[] | null> {
+async function fetchDefinition(word: string): Promise<DictionaryEntry[] | null | 'error'> {
   try {
     const res = await fetch(
       `https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`,
-      { next: { revalidate: 604800 } },
+      { next: { revalidate: 86400 } },
     )
-    if (!res.ok) return null
+    if (res.status === 404) return null        // word genuinely not in dictionary
+    if (!res.ok) return 'error'                // API failure — don't cache as 404
     return res.json()
   } catch {
-    return null
+    return 'error'
   }
 }
 
@@ -68,7 +62,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const decoded = decodeURIComponent(word)
   const entries = await fetchDefinition(decoded)
 
-  if (!entries?.length) return { title: `${decoded} — Dictionary` }
+  if (!entries || entries === 'error' || !entries.length) return { title: `${decoded} — Dictionary` }
 
   const firstMeaning = entries[0].meanings[0]
   const firstDef = firstMeaning?.definitions[0]?.definition ?? ''
@@ -116,6 +110,7 @@ export default async function DictionaryWordPage({ params }: PageProps) {
   const decoded = decodeURIComponent(word).toLowerCase()
   const entries = await fetchDefinition(decoded)
 
+  if (entries === 'error') throw new Error('Dictionary API unavailable')
   if (!entries?.length) notFound()
 
   const entry = entries[0]
