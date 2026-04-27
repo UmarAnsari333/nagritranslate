@@ -16,6 +16,9 @@ export async function GET() {
     // Main sitemap (static pages, tools, educational content)
     { loc: `${BASE_URL}/sitemap.xml` },
 
+    // Dictionary sitemap (~1,200 high-volume / low-difficulty English words)
+    { loc: `${BASE_URL}/dictionary-sitemap.xml` },
+
     // One sitemap per language in PER_LANGUAGE_SITEMAPS
     ...PER_LANGUAGE_SITEMAPS.map((lang) => ({
       loc: `${BASE_URL}/lang-sitemap/${slugifyLanguage(lang)}.xml`,

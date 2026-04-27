@@ -230,6 +230,12 @@ export default function GeneralTranslatePage() {
     }
   }, [])
 
+  // Pre-fill input from ?q= query param (e.g. coming from dictionary "Translate word" button)
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search).get('q')
+    if (q) setInputText(q)
+  }, [])
+
   // Toggle voice input
   const toggleVoiceInput = () => {
     if (!recognitionRef.current) {
