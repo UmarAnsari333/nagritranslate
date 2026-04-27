@@ -23,6 +23,9 @@ const nextConfig: NextConfig = {
               '<https://nagritranslate.com/.well-known/api-catalog>; rel="api-catalog"',
               '<https://nagritranslate.com/.well-known/mcp/server-card.json>; rel="mcp-server-card"',
               '<https://nagritranslate.com/.well-known/agent-skills/index.json>; rel="agent-skills"',
+              '<https://nagritranslate.com/.well-known/acp.json>; rel="acp-discovery"',
+              '<https://nagritranslate.com/openapi.json>; rel="openapi"',
+              '<https://nagritranslate.com/api/translate-premium>; rel="payment-endpoint"; type="x402"',
             ].join(', '),
           },
           {
