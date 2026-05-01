@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { Home, ChevronRight, ArrowRight, ExternalLink, Globe } from 'lucide-react'
+import { Home, ChevronRight, ArrowRight, ExternalLink } from 'lucide-react'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { BreadcrumbSchema } from '@/components/breadcrumb-schema'
 import { WebPageSchema } from '@/components/webpage-schema'
 import { AudioButton } from '@/components/dictionary/audio-button'
 import { DictionarySearch } from '@/components/dictionary/dictionary-search'
+import { TranslateWordSection } from '@/components/translate-word-section'
 export const revalidate = 86400
 
 interface Phonetic {
@@ -41,6 +42,20 @@ interface DictionaryEntry {
 
 interface PageProps {
   params: Promise<{ word: string }>
+}
+
+async function fetchDatamuseWords(param: string, value: string, max = 12): Promise<string[]> {
+  try {
+    const res = await fetch(
+      `https://api.datamuse.com/words?${param}=${encodeURIComponent(value)}&max=${max}`,
+      { next: { revalidate: 86400 } }
+    )
+    if (!res.ok) return []
+    const data: { word: string }[] = await res.json()
+    return data.map((d) => d.word)
+  } catch {
+    return []
+  }
 }
 
 async function fetchDefinition(word: string): Promise<DictionaryEntry[] | null | 'error'> {
@@ -113,7 +128,15 @@ export default async function DictionaryWordPage({ params }: PageProps) {
   if (entries === 'error') throw new Error('Dictionary API unavailable')
   if (!entries?.length) notFound()
 
-  const entry = entries[0]
+  const [entry] = entries
+  const [rhymes, nearRhymes, triggers, follows, precedes] = await Promise.all([
+    fetchDatamuseWords('rel_rhy', decoded),
+    fetchDatamuseWords('rel_nry', decoded),
+    fetchDatamuseWords('rel_trg', decoded),
+    fetchDatamuseWords('rel_bga', decoded, 8),
+    fetchDatamuseWords('rel_bgb', decoded, 8),
+  ])
+
   const audioClips = labelAudio(entry.phonetics)
   const uniquePhonemic = [...new Set(entry.phonetics.filter((p) => p.text).map((p) => p.text!))]
 
@@ -311,22 +334,87 @@ export default async function DictionaryWordPage({ params }: PageProps) {
           </div>
         )}
 
-        {/* Translate CTA */}
-        <div className="p-5 border rounded-2xl mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <Globe className="w-5 h-5 shrink-0" />
-            <div>
-              <p className="text-sm font-medium">Translate &ldquo;{decoded}&rdquo; into another language</p>
-              <p className="text-xs text-muted-foreground">248+ languages · free · no sign-up</p>
-            </div>
+        {/* Datamuse — Rhymes */}
+        {(rhymes.length > 0 || nearRhymes.length > 0) && (
+          <div className="p-5 bg-muted/30 rounded-2xl border mb-8 space-y-4">
+            <h2 className="text-sm font-semibold">Rhymes</h2>
+            {rhymes.length > 0 && (
+              <div>
+                <span className="text-xs text-muted-foreground uppercase tracking-wide block mb-1.5">Perfect rhymes</span>
+                <div className="flex flex-wrap gap-1.5">
+                  {rhymes.map((w) => (
+                    <Link key={w} href={`/dictionary/${w}`}
+                      className="text-xs px-2.5 py-0.5 border rounded-full bg-background hover:bg-accent hover:text-accent-foreground transition-colors">
+                      {w}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+            {nearRhymes.length > 0 && (
+              <div>
+                <span className="text-xs text-muted-foreground uppercase tracking-wide block mb-1.5">Near rhymes</span>
+                <div className="flex flex-wrap gap-1.5">
+                  {nearRhymes.map((w) => (
+                    <Link key={w} href={`/dictionary/${w}`}
+                      className="text-xs px-2.5 py-0.5 border rounded-full bg-background hover:bg-accent hover:text-accent-foreground transition-colors">
+                      {w}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
-          <Link
-            href={`/ai-translate/english-to-spanish?q=${encodeURIComponent(decoded)}`}
-            className="flex items-center gap-1.5 px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors shrink-0"
-          >
-            Translate word <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
-        </div>
+        )}
+
+        {/* Datamuse — Associations & collocations */}
+        {(triggers.length > 0 || follows.length > 0 || precedes.length > 0) && (
+          <div className="p-5 bg-muted/30 rounded-2xl border mb-8 space-y-4">
+            <h2 className="text-sm font-semibold">Word Associations</h2>
+            {triggers.length > 0 && (
+              <div>
+                <span className="text-xs text-muted-foreground uppercase tracking-wide block mb-1.5">Often associated with</span>
+                <div className="flex flex-wrap gap-1.5">
+                  {triggers.map((w) => (
+                    <Link key={w} href={`/dictionary/${w}`}
+                      className="text-xs px-2.5 py-0.5 border rounded-full bg-background hover:bg-accent hover:text-accent-foreground transition-colors">
+                      {w}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+            {follows.length > 0 && (
+              <div>
+                <span className="text-xs text-muted-foreground uppercase tracking-wide block mb-1.5">Words that often follow &ldquo;{decoded}&rdquo;</span>
+                <div className="flex flex-wrap gap-1.5">
+                  {follows.map((w) => (
+                    <Link key={w} href={`/dictionary/${w}`}
+                      className="text-xs px-2.5 py-0.5 border rounded-full bg-background hover:bg-accent hover:text-accent-foreground transition-colors">
+                      {w}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+            {precedes.length > 0 && (
+              <div>
+                <span className="text-xs text-muted-foreground uppercase tracking-wide block mb-1.5">Words that often precede &ldquo;{decoded}&rdquo;</span>
+                <div className="flex flex-wrap gap-1.5">
+                  {precedes.map((w) => (
+                    <Link key={w} href={`/dictionary/${w}`}
+                      className="text-xs px-2.5 py-0.5 border rounded-full bg-background hover:bg-accent hover:text-accent-foreground transition-colors">
+                      {w}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Translate CTA */}
+        <TranslateWordSection word={decoded} />
 
         {/* Search another word */}
         <div className="mb-8">

@@ -9,9 +9,9 @@ interface Suggestion {
   score: number
 }
 
-export function DictionarySearch({ defaultValue = '', autoFocus = false }: { defaultValue?: string; autoFocus?: boolean }) {
+export function RhymesSearch() {
   const router = useRouter()
-  const [word, setWord] = useState(defaultValue)
+  const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
   const [suggestions, setSuggestions] = useState<Suggestion[]>([])
   const [showSuggestions, setShowSuggestions] = useState(false)
@@ -20,69 +20,50 @@ export function DictionarySearch({ defaultValue = '', autoFocus = false }: { def
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
-    const trimmed = word.trim()
-    if (trimmed.length < 2) {
-      setSuggestions([])
-      setShowSuggestions(false)
-      return
-    }
+    const trimmed = input.trim()
+    if (trimmed.length < 2) { setSuggestions([]); setShowSuggestions(false); return }
     if (debounceRef.current) clearTimeout(debounceRef.current)
     debounceRef.current = setTimeout(async () => {
       try {
-        const res = await fetch(
-          `https://api.datamuse.com/sug?s=${encodeURIComponent(trimmed)}&max=8`
-        )
+        const res = await fetch(`https://api.datamuse.com/sug?s=${encodeURIComponent(trimmed)}&max=8`)
         if (res.ok) {
           const data: Suggestion[] = await res.json()
           setSuggestions(data)
           setShowSuggestions(data.length > 0)
         }
-      } catch {
-        setSuggestions([])
-      }
+      } catch { setSuggestions([]) }
     }, 250)
     return () => { if (debounceRef.current) clearTimeout(debounceRef.current) }
-  }, [word])
+  }, [input])
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
-      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node))
         setShowSuggestions(false)
-      }
     }
     document.addEventListener('mousedown', handleClick)
     return () => document.removeEventListener('mousedown', handleClick)
   }, [])
 
-  const navigate = (target: string) => {
-    const trimmed = target.trim().toLowerCase()
+  const navigate = (word: string) => {
+    const trimmed = word.trim().toLowerCase()
     if (!trimmed) return
     setLoading(true)
     setShowSuggestions(false)
-    router.push(`/dictionary/${encodeURIComponent(trimmed)}`)
+    router.push(`/rhymes/${encodeURIComponent(trimmed)}`)
   }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (activeIndex >= 0 && suggestions[activeIndex]) {
-      navigate(suggestions[activeIndex].word)
-    } else {
-      navigate(word)
-    }
+    if (activeIndex >= 0 && suggestions[activeIndex]) navigate(suggestions[activeIndex].word)
+    else navigate(input)
   }
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (!showSuggestions || suggestions.length === 0) return
-    if (e.key === 'ArrowDown') {
-      e.preventDefault()
-      setActiveIndex(prev => Math.min(prev + 1, suggestions.length - 1))
-    } else if (e.key === 'ArrowUp') {
-      e.preventDefault()
-      setActiveIndex(prev => Math.max(prev - 1, -1))
-    } else if (e.key === 'Escape') {
-      setShowSuggestions(false)
-      setActiveIndex(-1)
-    }
+    if (!showSuggestions || !suggestions.length) return
+    if (e.key === 'ArrowDown') { e.preventDefault(); setActiveIndex(p => Math.min(p + 1, suggestions.length - 1)) }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); setActiveIndex(p => Math.max(p - 1, -1)) }
+    else if (e.key === 'Escape') { setShowSuggestions(false); setActiveIndex(-1) }
   }
 
   return (
@@ -91,24 +72,23 @@ export function DictionarySearch({ defaultValue = '', autoFocus = false }: { def
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none z-10" />
         <input
           type="text"
-          value={word}
-          onChange={(e) => { setWord(e.target.value); setActiveIndex(-1) }}
+          value={input}
+          onChange={(e) => { setInput(e.target.value); setActiveIndex(-1) }}
           onFocus={() => suggestions.length > 0 && setShowSuggestions(true)}
           onKeyDown={handleKeyDown}
-          placeholder="Search any English word…"
+          placeholder="Search any word — e.g. love, moon, fire…"
           className="w-full pl-9 pr-4 py-3 rounded-lg border bg-background focus:outline-none focus:ring-2 focus:ring-ring text-sm transition"
           autoComplete="off"
-          autoFocus={autoFocus}
         />
         {showSuggestions && suggestions.length > 0 && (
           <ul className="absolute z-50 top-full left-0 right-0 mt-1 bg-background border rounded-lg shadow-lg overflow-hidden">
             {suggestions.map((s, i) => (
               <li
                 key={s.word}
+                onMouseDown={() => navigate(s.word)}
                 className={`px-4 py-2.5 text-sm cursor-pointer transition-colors ${
                   i === activeIndex ? 'bg-accent text-accent-foreground' : 'hover:bg-muted'
                 }`}
-                onMouseDown={() => navigate(s.word)}
               >
                 {s.word}
               </li>
@@ -118,10 +98,10 @@ export function DictionarySearch({ defaultValue = '', autoFocus = false }: { def
       </div>
       <button
         type="submit"
-        disabled={loading || !word.trim()}
-        className="px-5 py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg text-sm font-medium transition-colors disabled:opacity-50 flex items-center gap-2"
+        disabled={loading || !input.trim()}
+        className="px-5 py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg text-sm font-medium transition-colors disabled:opacity-50 flex items-center gap-2 shrink-0"
       >
-        {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : 'Look up'}
+        {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : 'Find Rhymes'}
       </button>
     </form>
   )

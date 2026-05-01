@@ -147,10 +147,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.92,
     },
     {
+      url: `${BASE_URL}/rhymes`,
+      lastModified: BUILD_DATE,
+      changeFrequency: "weekly",
+      priority: 0.92,
+    },
+    {
+      url: `${BASE_URL}/synonyms`,
+      lastModified: BUILD_DATE,
+      changeFrequency: "weekly",
+      priority: 0.92,
+    },
+    {
+      url: `${BASE_URL}/antonyms`,
+      lastModified: BUILD_DATE,
+      changeFrequency: "weekly",
+      priority: 0.92,
+    },
+    {
       url: `${BASE_URL}/tools`,
       lastModified: BUILD_DATE,
       changeFrequency: "weekly",
       priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/tools/word-pattern`,
+      lastModified: BUILD_DATE,
+      changeFrequency: "weekly",
+      priority: 0.88,
     },
     {
       url: `${BASE_URL}/tools/word-counter`,

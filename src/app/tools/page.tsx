@@ -122,6 +122,14 @@ const categories = [
         borderColor: 'border-cyan-500/20',
       },
       {
+        name: 'Word Pattern Finder',
+        description: 'Find words matching wildcard patterns (* and ?) — perfect for crosswords, Wordle & Scrabble',
+        path: '/tools/word-pattern',
+        icon: '🔎',
+        color: 'from-violet-500/5 to-indigo-500/10',
+        borderColor: 'border-violet-500/20',
+      },
+      {
         name: 'Random Word Generator',
         description: 'Generate random words for creative writing, brainstorming, and more',
         path: '/tools/random-word-generator',

@@ -19,6 +19,15 @@ export async function GET() {
     // Dictionary sitemap (~1,200 high-volume / low-difficulty English words)
     { loc: `${BASE_URL}/dictionary-sitemap.xml` },
 
+    // Rhymes sitemap (1,900+ family-safe words with /rhymes/[word] pages)
+    { loc: `${BASE_URL}/rhymes-sitemap.xml` },
+
+    // Synonyms sitemap (1,900+ words with /synonyms/[word] pages)
+    { loc: `${BASE_URL}/synonyms-sitemap.xml` },
+
+    // Antonyms sitemap (1,900+ words with /antonyms/[word] pages)
+    { loc: `${BASE_URL}/antonyms-sitemap.xml` },
+
     // One sitemap per language in PER_LANGUAGE_SITEMAPS
     ...PER_LANGUAGE_SITEMAPS.map((lang) => ({
       loc: `${BASE_URL}/lang-sitemap/${slugifyLanguage(lang)}.xml`,
