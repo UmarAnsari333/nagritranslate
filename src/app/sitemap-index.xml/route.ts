@@ -28,6 +28,9 @@ export async function GET() {
     // Antonyms sitemap (1,900+ words with /antonyms/[word] pages)
     { loc: `${BASE_URL}/antonyms-sitemap.xml` },
 
+    // Collocations sitemap (3,000+ words with /collocations/[word] pages)
+    { loc: `${BASE_URL}/collocations-sitemap.xml` },
+
     // One sitemap per language in PER_LANGUAGE_SITEMAPS
     ...PER_LANGUAGE_SITEMAPS.map((lang) => ({
       loc: `${BASE_URL}/lang-sitemap/${slugifyLanguage(lang)}.xml`,
