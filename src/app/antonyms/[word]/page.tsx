@@ -42,10 +42,6 @@ function posLabel(tags?: string[]): string {
   return pos ? map[pos] : ''
 }
 
-export async function generateStaticParams() {
-  return ANTONYM_WORDS.map((word) => ({ word }))
-}
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { word } = await params
   const decoded = decodeURIComponent(word).toLowerCase()

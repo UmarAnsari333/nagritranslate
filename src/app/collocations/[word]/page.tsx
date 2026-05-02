@@ -34,10 +34,6 @@ async function fetchWords(param: string, value: string, max = 30): Promise<Datam
   }
 }
 
-export async function generateStaticParams() {
-  return ANTONYM_WORDS.map((word) => ({ word }))
-}
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { word } = await params
   const decoded = decodeURIComponent(word).toLowerCase()

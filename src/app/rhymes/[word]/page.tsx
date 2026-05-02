@@ -71,9 +71,7 @@ function groupBySyllable(words: DatamuseWord[]): Map<number, string[]> {
   return map
 }
 
-export async function generateStaticParams() {
-  return RHYME_WORDS.map((word) => ({ word }))
-}
+
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { word } = await params
