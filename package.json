@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev -p 3000 2>&1 | tee dev.log",
     "build": "next build && cp -r .next/static .next/standalone/.next/ && cp -r public .next/standalone/",
-    "heroku-postbuild": "rm -rf node_modules .next/cache",
+    "heroku-postbuild": "rm -rf .next/cache node_modules/.cache node_modules/@img/sharp-linuxmusl-x64 node_modules/@img/sharp-libvips-linuxmusl-x64 node_modules/@img/sharp-linuxmusl-arm64 node_modules/@img/sharp-libvips-linuxmusl-arm64 node_modules/@img/sharp-linux-arm64 node_modules/@img/sharp-libvips-linux-arm64 node_modules/@img/sharp-linux-s390x node_modules/@img/sharp-libvips-linux-s390x",
     "start": "NODE_ENV=production node .next/standalone/server.js 2>&1 | tee server.log",
     "lint": "eslint ."
   },
