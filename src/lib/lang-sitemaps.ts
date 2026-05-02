@@ -9,4 +9,7 @@ export const PER_LANGUAGE_SITEMAPS = [
   "Filipino",
   "Bisaya",
   "English",
+  "Haitian Creole",
+  "Mauritian Creole",
+  "Seychellois Creole",
 ];
