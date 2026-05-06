@@ -89,14 +89,16 @@ export default async function SynonymWordPage({ params }: PageProps) {
   ])
 
   // Deduplicate similar against synonyms
-  const synSet = new Set(synonyms.map((w) => w.word))
+  const synSet = new Set(synonyms.map((w, i) => w.word))
   const uniqueSimilar = similar.filter((w) => !synSet.has(w.word) && w.word !== decoded)
 
   const wordIndex = ANTONYM_WORDS.indexOf(decoded)
-  const nearby = [
-    ...ANTONYM_WORDS.slice(Math.max(0, wordIndex - 4), wordIndex),
-    ...ANTONYM_WORDS.slice(wordIndex + 1, wordIndex + 5),
-  ].filter(Boolean)
+  const nearby = wordIndex >= 0
+    ? [
+        ...ANTONYM_WORDS.slice(Math.max(0, wordIndex - 4), wordIndex),
+        ...ANTONYM_WORDS.slice(wordIndex + 1, wordIndex + 5),
+      ]
+    : ANTONYM_WORDS.slice(0, 8)
 
   return (
     <div className="min-h-screen bg-background">
@@ -150,7 +152,7 @@ export default async function SynonymWordPage({ params }: PageProps) {
             <h2 className="text-lg font-bold mb-4">Synonyms</h2>
             <div className="p-4 bg-muted/30 rounded-2xl border">
               <div className="flex flex-wrap gap-2">
-                {synonyms.map((w) => {
+                {synonyms.map((w, i) => {
                   const pos = posLabel(w.tags)
                   const def = firstDef(w.tags, w.defs)
                   return (
@@ -178,7 +180,7 @@ export default async function SynonymWordPage({ params }: PageProps) {
             </h2>
             <div className="p-4 bg-muted/20 rounded-2xl border">
               <div className="flex flex-wrap gap-2">
-                {uniqueSimilar.map((w) => {
+                {uniqueSimilar.map((w, i) => {
                   const pos = posLabel(w.tags)
                   return (
                     <Link
@@ -211,7 +213,7 @@ export default async function SynonymWordPage({ params }: PageProps) {
             </h2>
             <div className="p-4 bg-red-50 dark:bg-red-950/30 rounded-2xl border border-red-100 dark:border-red-900">
               <div className="flex flex-wrap gap-2">
-                {antonyms.map((w) => (
+                {antonyms.map((w, i) => (
                   <Link
                     key={w.word}
                     href={`/antonyms/${w.word}`}
@@ -273,9 +275,9 @@ export default async function SynonymWordPage({ params }: PageProps) {
           <section className="mb-8">
             <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-3">Explore more words</h2>
             <div className="flex flex-wrap gap-2">
-              {nearby.map((w) => (
+              {nearby.map((w, i) => (
                 <Link
-                  key={w}
+                  key={`${i}-${w}`}
                   href={`/synonyms/${w}`}
                   className="inline-flex items-center gap-1 text-sm px-3 py-1.5 rounded-full border bg-muted hover:bg-accent hover:text-accent-foreground transition-colors"
                 >

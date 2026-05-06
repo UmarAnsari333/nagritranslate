@@ -12,4 +12,6 @@ export const PER_LANGUAGE_SITEMAPS = [
   "Haitian Creole",
   "Mauritian Creole",
   "Seychellois Creole",
+  "Kinyarwanda",
+  "Persian",
 ];

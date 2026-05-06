@@ -107,10 +107,8 @@ const MISUNDERSTOOD = [
   'bemused', 'nonplussed', 'disinterested', 'uninterested', 'envy',
   'jealousy', 'comprise', 'compose', 'continual', 'continuous',
   'imply', 'infer', 'fewer', 'less', 'principal', 'principle',
-  'complement', 'compliment', 'elusive', 'illusive', 'flaunt',
   'flout', 'historic', 'historical', 'hoard', 'horde',
   'loath', 'loathe', 'luxuriant', 'luxurious', 'perquisite', 'prerequisite',
-  'venal', 'venial', 'tortuous', 'torturous', 'mitigate', 'militate',
   'travesty', 'tragedy', 'decimate', 'devastate', 'enormity',
   'fulsome', 'ample', 'noisome', 'penultimate',
   'cliche', 'stereotype', 'trope', 'archetype', 'paradox',
@@ -121,10 +119,8 @@ const MISUNDERSTOOD = [
 
 // ── Business / Professional Vocabulary ───────────────────────────────────────
 const BUSINESS = [
-  'acumen', 'agile', 'benchmark', 'scalable', 'synergy', 'leverage',
   'disruption', 'innovation', 'entrepreneurship', 'pivoting',
   'iteration', 'stakeholder', 'deliverable', 'bandwidth', 'alignment',
-  'transparency', 'accountability', 'metrics', 'analytics', 'optimization',
   'monetize', 'acquisition', 'retention', 'conversion', 'engagement',
   'onboarding', 'arbitrage', 'liquidate', 'amortize', 'depreciate',
   'appreciate', 'dividend', 'equity', 'liability', 'revenue', 'profit',
@@ -136,7 +132,6 @@ const BUSINESS = [
   'outsource', 'offshore', 'prototype', 'feasibility', 'viability',
   'sustainability', 'scalability', 'redundancy', 'contingency',
   'mitigation', 'remediation', 'escalation', 'proactive', 'reactive',
-  'strategic', 'tactical', 'operational', 'empowerment', 'delegation',
   'micromanagement', 'bureaucracy', 'hierarchy',
 ]
 
@@ -144,7 +139,6 @@ const BUSINESS = [
 const LITERARY = [
   'didactic', 'poignant', 'evocative', 'eloquence', 'vernacular',
   'colloquial', 'euphemism', 'malapropism', 'spoonerism',
-  'neologism', 'portmanteau', 'eponymous', 'apocryphal', 'canonical',
   'quintessential', 'epitome', 'paragon', 'exemplar',
   'protagonist', 'antagonist', 'antihero', 'foil', 'leitmotif',
   'denouement', 'soliloquy', 'monologue', 'dialogue', 'narrative',
@@ -168,7 +162,6 @@ const SCIENCE = [
   'predator', 'prey', 'carnivore', 'herbivore', 'omnivore',
   'habitat', 'niche', 'species', 'genus', 'fossil',
   'sediment', 'erosion', 'tectonic', 'volcanic', 'seismic', 'tsunami',
-  'observation', 'experiment', 'variable', 'control', 'correlation', 'causation',
   'gravity', 'momentum', 'velocity', 'acceleration', 'inertia', 'friction',
   'pressure', 'density', 'viscosity', 'buoyancy', 'diffusion', 'convection',
   'radiation', 'conduction', 'wavelength', 'frequency', 'amplitude',
@@ -178,17 +171,14 @@ const SCIENCE = [
   'flora', 'fauna', 'microorganism', 'bacteria', 'virus', 'pathogen',
   'immune', 'antibody', 'antigen', 'vaccine', 'pandemic', 'endemic',
   'epidemic', 'contagious', 'latent', 'acute', 'chronic',
-  'benign', 'malignant', 'remission', 'prognosis', 'diagnosis', 'symptom',
 ]
 
 // ── Philosophy & Ethics ───────────────────────────────────────────────────────
 const PHILOSOPHY = [
-  'nihilism', 'existentialism', 'stoicism', 'utilitarianism',
   'consequentialism', 'deontology', 'virtue', 'ethics', 'morality',
   'relativism', 'absolutism', 'determinism', 'compatibilism',
   'dualism', 'monism', 'materialism', 'idealism', 'empiricism',
   'rationalism', 'skepticism', 'pragmatism', 'humanism', 'absurdism',
-  'solipsism', 'ontology', 'epistemology', 'metaphysics', 'dialectic',
   'dogma', 'doctrine', 'sophism', 'aporia', 'logos', 'ethos', 'pathos',
   'sublime', 'transcendent', 'immanent', 'zeitgeist',
   'angst', 'hubris', 'nemesis',
@@ -197,23 +187,17 @@ const PHILOSOPHY = [
 // ── Interesting Real Words ────────────────────────────────────────────────────
 // Genuine words with real dictionary definitions and high curiosity search volume
 const INTERESTING = [
-  'petrichor', 'hiraeth', 'saudade', 'tsundoku', 'hygge', 'ikigai',
   'meraki', 'eudaimonia', 'kairos', 'ubuntu', 'fernweh',
   'ellipsis', 'phosphenes', 'daguerreotype', 'palimpsest',
-  'concatenate', 'defenestrate', 'onomatopoeia', 'loquacious',
-  'ephemeral', 'mellifluous', 'sesquipedalian', 'ineffable',
   'numinous', 'apricity', 'sempiternal',
   'susurrus', 'gossamer', 'halcyon', 'elysian', 'ethereal',
   'labyrinthine', 'labyrinth', 'silhouette', 'rendezvous',
-  'sycophant', 'phantasm', 'kaleidoscope', 'serendipity',
-  'eloquent', 'melancholy', 'ephemeral', 'luminous', 'resplendent',
   'iridescent', 'incandescent', 'translucent', 'luminescent',
   'bioluminescent', 'phosphorescent', 'scintillating', 'coruscating',
 ]
 
 // ── Formal / Eloquent Words ───────────────────────────────────────────────────
 const FORMAL = [
-  'acquiesce', 'allude', 'ameliorate', 'antecedent', 'apprise',
   'arbiter', 'assail', 'attest', 'beguile', 'behoove', 'beleaguer',
   'bemoan', 'bestow', 'bode', 'bolster', 'broach',
   'castigate', 'caveat', 'censure', 'circumspect', 'clarify',
@@ -224,14 +208,12 @@ const FORMAL = [
   'equivocate', 'espouse', 'esteem', 'exhort', 'expedite',
   'extol', 'fervent', 'forestall', 'galvanize', 'garner', 'glean',
   'grapple', 'herald', 'impede', 'inaugurate', 'incite', 'indulge',
-  'ingratiate', 'lament', 'mediate', 'nullify',
   'obfuscate', 'obviate', 'orchestrate', 'pardon', 'patronize', 'preclude',
   'presuppose', 'prevail', 'proclaim', 'profess', 'promulgate',
   'rebuke', 'recount', 'redress', 'refrain', 'relinquish', 'remedy',
   'remonstrate', 'render', 'renounce', 'resolve',
   'restore', 'retaliate', 'reveal', 'safeguard', 'signify', 'solicit',
   'stipulate', 'surmount', 'uphold', 'vindicate', 'warrant',
-  'withstand', 'arbitrate', 'contend', 'diverge', 'endorse', 'eradicate',
   'fabricate', 'fortify', 'hamper', 'impair', 'incentivize', 'inculcate',
   'instigate', 'juxtapose', 'obliterate',
   'perpetuate', 'propagate', 'reverberate',
@@ -240,57 +222,22 @@ const FORMAL = [
 
 // ── Commonly Searched Adjectives ──────────────────────────────────────────────
 const ADJECTIVES = [
-  'abysmal', 'adamant', 'affable', 'aggressive', 'agile', 'amiable',
-  'amicable', 'ample', 'antagonistic', 'apprehensive', 'archaic',
-  'ardent', 'arrogant', 'astute', 'audacious',
-  'bleak', 'boisterous', 'callous', 'charismatic', 'circumspect',
-  'colossal', 'compelling', 'complacent', 'concise', 'convoluted',
-  'crafty', 'credulous', 'cryptic', 'cunning', 'cynical', 'daunting',
-  'debonair', 'decisive', 'defiant', 'delicate', 'desolate', 'devious',
-  'diligent', 'docile', 'dominant', 'dubious', 'dynamic', 'earnest',
-  'eccentric', 'elusive', 'eminent', 'empathetic', 'enigmatic', 'erratic',
-  'evasive', 'exemplary', 'exhaustive', 'exorbitant',
-  'extraordinary', 'exuberant', 'fastidious', 'fervent', 'ferocious',
-  'formidable', 'frugal', 'gregarious', 'hilarious', 'humble',
   'immaculate', 'impeccable', 'indulgent', 'ingenious', 'inquisitive',
   'insightful', 'intricate', 'intuitive', 'jovial', 'judicious', 'keen',
   'lucid', 'magnanimous', 'malevolent', 'mediocre', 'meek',
   'mischievous', 'naive', 'oblivious', 'obstinate',
-  'ominous', 'passionate', 'peculiar', 'persistent', 'perspicacious',
-  'pious', 'plausible', 'poignant', 'pompous', 'precocious', 'prominent',
-  'prudent', 'quirky', 'radiant', 'ruthless', 'scholarly', 'serene',
   'shrewd', 'sincere', 'spontaneous', 'stubborn',
-  'subtle', 'timid', 'triumphant', 'turbulent', 'vivacious',
-  'whimsical', 'witty', 'adept', 'aggrieved', 'aloof',
   'amorphous', 'antiquated', 'apathetic',
-  'blatant', 'captivating', 'chaotic', 'coherent', 'contrarian',
-  'deliberate', 'distraught', 'durable', 'empathic',
 ]
 
 // ── Nouns with High Search Volume ─────────────────────────────────────────────
 const NOUNS = [
-  'abyss', 'accolade', 'adversity', 'affliction', 'aftermath', 'allegiance',
-  'alliance', 'ambiguity', 'anarchy', 'anomaly', 'antagonist', 'aphorism',
-  'aspiration', 'atrocity', 'autonomy', 'beacon',
   'benefactor', 'causality', 'chasm', 'cohesion',
-  'collaboration', 'colloquy', 'commotion', 'compassion', 'conception',
-  'condescension', 'conundrum', 'conviction', 'correlation', 'covenant',
-  'debacle', 'deception', 'deficiency', 'dilemma', 'discrepancy',
-  'disillusionment', 'dogma', 'duality', 'elegy', 'enigma', 'equilibrium',
-  'evolution', 'facade', 'ferocity', 'finesse',
   'fracture', 'futility', 'genesis', 'grandeur', 'grievance', 'hallmark',
-  'harbinger', 'hierarchy', 'homage', 'hypocrisy', 'illusion',
   'impasse', 'inception', 'indignation', 'ingenuity',
-  'injustice', 'irony', 'legacy', 'lethargy',
   'lucidity', 'malice', 'manifestation', 'mediocrity',
-  'menace', 'metamorphosis', 'misconception', 'momentum',
-  'nuance', 'obstruction', 'omen', 'oppression', 'optimism',
-  'ordeal', 'perseverance', 'perspective',
   'precedent', 'predicament', 'profundity',
-  'resilience', 'sanctuary', 'sovereignty', 'spectrum', 'stigma',
   'subtlety', 'tenacity', 'threshold', 'turmoil', 'tyranny', 'utopia',
-  'valor', 'versatility', 'vindication', 'virtue', 'vision', 'vulnerability',
-  'zealotry', 'zenith', 'adversary', 'ambivalence',
 ]
 
 // ── All words combined and deduplicated ───────────────────────────────────────

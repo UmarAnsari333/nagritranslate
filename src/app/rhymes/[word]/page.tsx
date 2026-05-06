@@ -119,10 +119,12 @@ export default async function RhymeWordPage({ params }: PageProps) {
 
   // Nearby words in the list for "explore more" section
   const wordIndex = RHYME_WORDS.indexOf(decoded)
-  const nearby = [
-    ...RHYME_WORDS.slice(Math.max(0, wordIndex - 4), wordIndex),
-    ...RHYME_WORDS.slice(wordIndex + 1, wordIndex + 5),
-  ].filter(Boolean)
+  const nearby = wordIndex >= 0
+    ? [
+        ...RHYME_WORDS.slice(Math.max(0, wordIndex - 4), wordIndex),
+        ...RHYME_WORDS.slice(wordIndex + 1, wordIndex + 5),
+      ]
+    : RHYME_WORDS.slice(0, 8)
 
   return (
     <div className="min-h-screen bg-background">
@@ -183,9 +185,9 @@ export default async function RhymeWordPage({ params }: PageProps) {
                     </p>
                   )}
                   <div className="flex flex-wrap gap-2">
-                    {words.map((w) => (
+                    {words.map((w, i) => (
                       <Link
-                        key={w}
+                        key={`${i}-${w}`}
                         href={`/rhymes/${w}`}
                         className="text-sm px-3 py-1.5 rounded-full border bg-background hover:bg-accent hover:text-accent-foreground transition-colors font-medium"
                       >
@@ -205,9 +207,9 @@ export default async function RhymeWordPage({ params }: PageProps) {
             <h2 className="text-lg font-bold mb-3">Near Rhymes <span className="text-sm text-muted-foreground font-normal">(slant rhymes)</span></h2>
             <div className="p-4 bg-muted/20 rounded-2xl border">
               <div className="flex flex-wrap gap-2">
-                {nearWords.map((w) => (
+                {nearWords.map((w, i) => (
                   <Link
-                    key={w}
+                    key={`${i}-${w}`}
                     href={`/rhymes/${w}`}
                     className="text-sm px-3 py-1.5 rounded-full border bg-background hover:bg-accent hover:text-accent-foreground transition-colors text-muted-foreground hover:text-foreground"
                   >
@@ -235,8 +237,8 @@ export default async function RhymeWordPage({ params }: PageProps) {
                 <div>
                   <p className="text-xs text-muted-foreground uppercase tracking-wide mb-2">Often associated with</p>
                   <div className="flex flex-wrap gap-2">
-                    {related.triggers.map((w) => (
-                      <Link key={w} href={`/rhymes/${w}`}
+                    {related.triggers.map((w, i) => (
+                      <Link key={`${i}-${w}`} href={`/rhymes/${w}`}
                         className="text-xs px-2.5 py-1 rounded-full border bg-background hover:bg-accent hover:text-accent-foreground transition-colors">
                         {w}
                       </Link>
@@ -248,8 +250,8 @@ export default async function RhymeWordPage({ params }: PageProps) {
                 <div>
                   <p className="text-xs text-muted-foreground uppercase tracking-wide mb-2">Words often after &ldquo;{decoded}&rdquo;</p>
                   <div className="flex flex-wrap gap-2">
-                    {related.follows.map((w) => (
-                      <Link key={w} href={`/rhymes/${w}`}
+                    {related.follows.map((w, i) => (
+                      <Link key={`${i}-${w}`} href={`/rhymes/${w}`}
                         className="text-xs px-2.5 py-1 rounded-full border bg-background hover:bg-accent hover:text-accent-foreground transition-colors">
                         {w}
                       </Link>
@@ -261,8 +263,8 @@ export default async function RhymeWordPage({ params }: PageProps) {
                 <div>
                   <p className="text-xs text-muted-foreground uppercase tracking-wide mb-2">Words often before &ldquo;{decoded}&rdquo;</p>
                   <div className="flex flex-wrap gap-2">
-                    {related.precedes.map((w) => (
-                      <Link key={w} href={`/rhymes/${w}`}
+                    {related.precedes.map((w, i) => (
+                      <Link key={`${i}-${w}`} href={`/rhymes/${w}`}
                         className="text-xs px-2.5 py-1 rounded-full border bg-background hover:bg-accent hover:text-accent-foreground transition-colors">
                         {w}
                       </Link>
@@ -296,9 +298,9 @@ export default async function RhymeWordPage({ params }: PageProps) {
           <section className="mb-8">
             <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-3">Explore more words</h2>
             <div className="flex flex-wrap gap-2">
-              {nearby.map((w) => (
+              {nearby.map((w, i) => (
                 <Link
-                  key={w}
+                  key={`${i}-${w}`}
                   href={`/rhymes/${w}`}
                   className="inline-flex items-center gap-1 text-sm px-3 py-1.5 rounded-full border bg-muted hover:bg-accent hover:text-accent-foreground transition-colors"
                 >

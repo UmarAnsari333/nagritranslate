@@ -342,8 +342,8 @@ export default async function DictionaryWordPage({ params }: PageProps) {
               <div>
                 <span className="text-xs text-muted-foreground uppercase tracking-wide block mb-1.5">Perfect rhymes</span>
                 <div className="flex flex-wrap gap-1.5">
-                  {rhymes.map((w) => (
-                    <Link key={w} href={`/dictionary/${w}`}
+                  {rhymes.map((w, i) => (
+                    <Link key={`${i}-${w}`} href={`/dictionary/${w}`}
                       className="text-xs px-2.5 py-0.5 border rounded-full bg-background hover:bg-accent hover:text-accent-foreground transition-colors">
                       {w}
                     </Link>
@@ -355,8 +355,8 @@ export default async function DictionaryWordPage({ params }: PageProps) {
               <div>
                 <span className="text-xs text-muted-foreground uppercase tracking-wide block mb-1.5">Near rhymes</span>
                 <div className="flex flex-wrap gap-1.5">
-                  {nearRhymes.map((w) => (
-                    <Link key={w} href={`/dictionary/${w}`}
+                  {nearRhymes.map((w, i) => (
+                    <Link key={`${i}-${w}`} href={`/dictionary/${w}`}
                       className="text-xs px-2.5 py-0.5 border rounded-full bg-background hover:bg-accent hover:text-accent-foreground transition-colors">
                       {w}
                     </Link>
@@ -375,8 +375,8 @@ export default async function DictionaryWordPage({ params }: PageProps) {
               <div>
                 <span className="text-xs text-muted-foreground uppercase tracking-wide block mb-1.5">Often associated with</span>
                 <div className="flex flex-wrap gap-1.5">
-                  {triggers.map((w) => (
-                    <Link key={w} href={`/dictionary/${w}`}
+                  {triggers.map((w, i) => (
+                    <Link key={`${i}-${w}`} href={`/dictionary/${w}`}
                       className="text-xs px-2.5 py-0.5 border rounded-full bg-background hover:bg-accent hover:text-accent-foreground transition-colors">
                       {w}
                     </Link>
@@ -388,8 +388,8 @@ export default async function DictionaryWordPage({ params }: PageProps) {
               <div>
                 <span className="text-xs text-muted-foreground uppercase tracking-wide block mb-1.5">Words that often follow &ldquo;{decoded}&rdquo;</span>
                 <div className="flex flex-wrap gap-1.5">
-                  {follows.map((w) => (
-                    <Link key={w} href={`/dictionary/${w}`}
+                  {follows.map((w, i) => (
+                    <Link key={`${i}-${w}`} href={`/dictionary/${w}`}
                       className="text-xs px-2.5 py-0.5 border rounded-full bg-background hover:bg-accent hover:text-accent-foreground transition-colors">
                       {w}
                     </Link>
@@ -401,8 +401,8 @@ export default async function DictionaryWordPage({ params }: PageProps) {
               <div>
                 <span className="text-xs text-muted-foreground uppercase tracking-wide block mb-1.5">Words that often precede &ldquo;{decoded}&rdquo;</span>
                 <div className="flex flex-wrap gap-1.5">
-                  {precedes.map((w) => (
-                    <Link key={w} href={`/dictionary/${w}`}
+                  {precedes.map((w, i) => (
+                    <Link key={`${i}-${w}`} href={`/dictionary/${w}`}
                       className="text-xs px-2.5 py-0.5 border rounded-full bg-background hover:bg-accent hover:text-accent-foreground transition-colors">
                       {w}
                     </Link>

@@ -93,9 +93,9 @@ export default function DictionaryPage() {
         <section className="mb-12">
           <h2 className="text-lg font-semibold mb-4">Popular Words</h2>
           <div className="flex flex-wrap gap-2">
-            {POPULAR_WORDS.map((w) => (
+            {POPULAR_WORDS.map((w, i) => (
               <Link
-                key={w}
+                key={`${i}-${w}`}
                 href={`/dictionary/${w}`}
                 className="px-3 py-1.5 bg-muted/50 border rounded-lg text-sm hover:bg-accent hover:text-accent-foreground transition-all"
               >
@@ -115,9 +115,9 @@ export default function DictionaryPage() {
                   {cat.label}
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {cat.words.map((w) => (
+                  {cat.words.map((w, i) => (
                     <Link
-                      key={w}
+                      key={`${i}-${w}`}
                       href={`/dictionary/${w}`}
                       className="flex items-center gap-1 text-sm hover:underline"
                     >

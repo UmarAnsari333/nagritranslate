@@ -1,0 +1,360 @@
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { Sparkles, ArrowRight, ChevronRight, Home, BookOpen, Feather, GraduationCap, Palette } from 'lucide-react'
+import { Navbar } from '@/components/navbar'
+import { Footer } from '@/components/footer'
+import { TOPIC_WORDS } from '@/data/topic-words'
+import { BreadcrumbSchema } from '@/components/breadcrumb-schema'
+import { WebPageSchema } from '@/components/webpage-schema'
+import { TopicsSearch } from '@/components/topics/topics-search'
+
+export const metadata: Metadata = {
+  title: 'Words Related to Any Topic — Vocabulary Word Lists',
+  description:
+    'Find all words related to any topic — ocean, love, war, forest, space, and hundreds more. Words grouped by nouns, adjectives, and verbs. Perfect for writers, poets, and students.',
+  keywords: [
+    'words related to',
+    'words about',
+    'topic word list',
+    'vocabulary words',
+    'words related to ocean',
+    'words related to love',
+    'words related to war',
+    'words related to nature',
+    'creative writing words',
+    'thematic vocabulary',
+    'word list generator',
+    'words for writers',
+  ],
+  alternates: { canonical: 'https://nagritranslate.com/related-words' },
+  openGraph: {
+    title: 'Words Related to Any Topic — Vocabulary Word Lists',
+    description: 'Find words related to any topic. Free thematic vocabulary explorer.',
+    type: 'website',
+  },
+}
+
+const FAQ_ITEMS = [
+  {
+    question: 'What are words related to "ocean"?',
+    answer:
+      'Words related to ocean include: wave, tide, coral, sailor, storm, depth, horizon, salt, current, reef, shore, abyss, marine, aquatic, voyage, anchor, shipwreck, mermaid, and nautical. These span nouns, adjectives, and verbs connected to the ocean theme.',
+  },
+  {
+    question: 'What are words related to "love"?',
+    answer:
+      'Words related to love include: heart, passion, romance, devotion, affection, desire, longing, tenderness, attachment, adoration, infatuation, intimacy, commitment, soulmate, beloved, cherish, embrace, and bond. Love vocabulary spans emotions, actions, and abstract concepts.',
+  },
+  {
+    question: 'What are words related to "war"?',
+    answer:
+      'Words related to war include: battle, soldier, weapon, siege, strategy, victory, defeat, truce, casualty, enemy, ally, campaign, invasion, resistance, valor, sacrifice, conflict, armistice, and propaganda. War vocabulary covers military, emotional, and political dimensions.',
+  },
+  {
+    question: 'What are words related to "forest"?',
+    answer:
+      'Words related to forest include: tree, canopy, undergrowth, moss, shadow, trail, wildlife, bark, root, branch, leaf, mushroom, mist, deer, owl, hunt, silence, ancient, dense, and wilderness. Forest words evoke both the physical and atmospheric qualities of woodland.',
+  },
+  {
+    question: 'How is this useful for creative writing?',
+    answer:
+      'When writing a scene, poem, or story about a topic, you need vocabulary that fits the world. Searching "words related to storm" gives you: thunder, lightning, gale, torrent, shelter, chaos, howl, surge — all the words that build atmosphere. This tool gives you an instant word palette for any theme.',
+  },
+  {
+    question: 'What are words related to "space"?',
+    answer:
+      'Words related to space include: star, galaxy, orbit, gravity, nebula, cosmos, astronaut, void, infinite, lunar, solar, comet, asteroid, telescope, radiation, blackhole, supernova, dark matter, and interstellar. Space vocabulary spans science, mythology, and philosophy.',
+  },
+  {
+    question: 'Can I use this for poetry?',
+    answer:
+      'Yes — poets use thematic word lists to stay within a mood or imagery system. Searching a core image like "fire" or "winter" gives you dozens of related words to draw from, helping you find unexpected combinations. The words are grouped by part of speech so you can pick nouns for imagery, adjectives for description, and verbs for action.',
+  },
+  {
+    question: 'What are words related to "childhood"?',
+    answer:
+      'Words related to childhood include: innocence, play, memory, wonder, laughter, school, mother, cradle, toy, game, summer, dream, fear, discovery, growth, home, safety, imagination, and nostalgia. Childhood vocabulary spans concrete objects and abstract emotions.',
+  },
+]
+
+const CATEGORIES = [
+  {
+    label: 'Nature',
+    color: 'bg-green-50 dark:bg-green-950/30 border-green-100 dark:border-green-900',
+    badge: 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200',
+    topics: ['ocean', 'forest', 'mountain', 'storm', 'fire', 'river', 'desert', 'volcano', 'glacier', 'jungle'],
+  },
+  {
+    label: 'Emotions',
+    color: 'bg-rose-50 dark:bg-rose-950/30 border-rose-100 dark:border-rose-900',
+    badge: 'bg-rose-100 dark:bg-rose-900 text-rose-800 dark:text-rose-200',
+    topics: ['love', 'fear', 'joy', 'grief', 'anger', 'hope', 'loneliness', 'courage', 'despair', 'nostalgia'],
+  },
+  {
+    label: 'Space & Time',
+    color: 'bg-violet-50 dark:bg-violet-950/30 border-violet-100 dark:border-violet-900',
+    badge: 'bg-violet-100 dark:bg-violet-900 text-violet-800 dark:text-violet-200',
+    topics: ['space', 'star', 'moon', 'time', 'eternity', 'dawn', 'winter', 'night', 'past', 'future'],
+  },
+  {
+    label: 'People & Society',
+    color: 'bg-blue-50 dark:bg-blue-950/30 border-blue-100 dark:border-blue-900',
+    badge: 'bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200',
+    topics: ['war', 'family', 'friendship', 'freedom', 'justice', 'power', 'childhood', 'death', 'religion', 'revolution'],
+  },
+  {
+    label: 'Mystery & Magic',
+    color: 'bg-amber-50 dark:bg-amber-950/30 border-amber-100 dark:border-amber-900',
+    badge: 'bg-amber-100 dark:bg-amber-900 text-amber-800 dark:text-amber-200',
+    topics: ['magic', 'mystery', 'darkness', 'shadow', 'curse', 'fate', 'legend', 'prophecy', 'illusion', 'ghost'],
+  },
+  {
+    label: 'Animals & Mythology',
+    color: 'bg-teal-50 dark:bg-teal-950/30 border-teal-100 dark:border-teal-900',
+    badge: 'bg-teal-100 dark:bg-teal-900 text-teal-800 dark:text-teal-200',
+    topics: ['wolf', 'dragon', 'eagle', 'lion', 'raven', 'phoenix', 'bear', 'snake', 'horse', 'owl'],
+  },
+]
+
+const POPULAR_SEARCHES = [
+  'ocean', 'love', 'war', 'forest', 'space', 'winter',
+  'fire', 'magic', 'death', 'home', 'night', 'gold',
+]
+
+const RELATED_TOOLS = [
+  { label: 'Synonyms', desc: 'Similar words', href: '/synonyms' },
+  { label: 'Adjectives For', desc: 'Words to describe nouns', href: '/adjectives-for' },
+  { label: 'Collocations', desc: 'Words that go together', href: '/collocations' },
+  { label: 'Types Of', desc: 'Kinds & varieties', href: '/types-of' },
+  { label: 'Dictionary', desc: 'Definitions & examples', href: '/dictionary' },
+]
+
+const USE_CASES = [
+  { icon: Feather, label: 'Writers & Poets', desc: 'Build a word palette for any scene or theme.' },
+  { icon: GraduationCap, label: 'Students', desc: 'Learn vocabulary grouped by topic.' },
+  { icon: BookOpen, label: 'Content Creators', desc: 'Find on-brand vocabulary for any niche.' },
+  { icon: Palette, label: 'Worldbuilders', desc: 'Build consistent language for fictional worlds.' },
+]
+
+const grouped = TOPIC_WORDS.reduce<Record<string, string[]>>((acc, word) => {
+  const letter = word[0].toUpperCase()
+  if (!acc[letter]) acc[letter] = []
+  acc[letter].push(word)
+  return acc
+}, {})
+const letters = Object.keys(grouped).sort()
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQ_ITEMS.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+}
+
+export default function RelatedWordsPage() {
+  return (
+    <div className="min-h-screen bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <BreadcrumbSchema items={[
+        { name: 'Home', path: '/' },
+        { name: 'Related Words', path: '/related-words' },
+      ]} />
+      <WebPageSchema
+        path="/related-words"
+        name="Words Related to Any Topic — Vocabulary Word Lists"
+        description="Find words related to any topic. Free thematic vocabulary explorer."
+        type="CollectionPage"
+      />
+      <Navbar />
+
+      {/* Hero */}
+      <section className="max-w-5xl mx-auto px-4 pt-8 pb-6 md:pt-14">
+        <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
+          <Link href="/" className="flex items-center gap-1 hover:text-foreground transition-colors">
+            <Home className="w-4 h-4" />Home
+          </Link>
+          <ChevronRight className="w-4 h-4" />
+          <span className="text-foreground font-medium">Related Words</span>
+        </nav>
+
+        <div className="text-center mb-8">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="p-3 bg-primary/10 rounded-xl">
+              <Sparkles className="w-8 h-8 text-primary" />
+            </div>
+          </div>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3">Words Related to Any Topic</h1>
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-6">
+            Type any topic and instantly get a full word palette — nouns, adjectives, and verbs
+            all connected to that theme. Perfect for writers, poets, students, and worldbuilders.
+          </p>
+          <TopicsSearch />
+        </div>
+
+        {/* Popular searches */}
+        <div className="mb-2">
+          <p className="text-xs text-muted-foreground uppercase tracking-wide text-center mb-3">Popular topics</p>
+          <div className="flex flex-wrap justify-center gap-2">
+            {POPULAR_SEARCHES.map((topic) => (
+              <Link
+                key={topic}
+                href={`/related-words/${topic}`}
+                className="px-4 py-2 rounded-full border bg-muted hover:bg-accent hover:text-accent-foreground transition-colors text-sm font-medium"
+              >
+                words for {topic}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Use cases */}
+      <section className="max-w-5xl mx-auto px-4 pb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          {USE_CASES.map(({ icon: Icon, label, desc }) => (
+            <div key={label} className="p-4 border rounded-2xl bg-muted/20 flex flex-col gap-2">
+              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                <Icon className="w-4 h-4 text-primary" />
+              </div>
+              <p className="text-sm font-semibold">{label}</p>
+              <p className="text-xs text-muted-foreground">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Browse by category */}
+      <section className="max-w-5xl mx-auto px-4 pb-10">
+        <h2 className="text-xl font-bold mb-1">Browse by theme</h2>
+        <p className="text-sm text-muted-foreground mb-5">
+          Pick a theme and explore all the words that belong to that world.
+        </p>
+        <div className="space-y-4">
+          {CATEGORIES.map((cat) => (
+            <div key={cat.label} className={`p-4 rounded-2xl border ${cat.color}`}>
+              <div className="flex items-center gap-2 mb-3">
+                <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${cat.badge}`}>
+                  {cat.label}
+                </span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {cat.topics.map((topic) => (
+                  <Link
+                    key={topic}
+                    href={`/related-words/${topic}`}
+                    className="group inline-flex items-center gap-1 text-sm px-3 py-1.5 rounded-full border bg-background hover:bg-accent hover:text-accent-foreground transition-colors"
+                  >
+                    words for {topic}
+                    <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* A–Z jump nav */}
+      <section className="max-w-5xl mx-auto px-4 pb-4">
+        <div className="p-4 bg-muted/30 rounded-2xl border">
+          <p className="text-xs text-muted-foreground uppercase tracking-wide mb-3">Browse by letter</p>
+          <div className="flex flex-wrap gap-1.5">
+            {letters.map((letter) => (
+              <a
+                key={letter}
+                href={`#letter-${letter}`}
+                className="w-8 h-8 flex items-center justify-center rounded-lg border text-sm font-semibold hover:bg-accent hover:text-accent-foreground transition-colors"
+              >
+                {letter}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Topic grid per letter */}
+      <section className="max-w-5xl mx-auto px-4 pb-12 space-y-8">
+        {letters.map((letter) => (
+          <div key={letter} id={`letter-${letter}`} className="scroll-mt-20">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="text-2xl font-bold w-10 h-10 flex items-center justify-center bg-primary/10 rounded-xl text-primary">
+                {letter}
+              </span>
+              <span className="text-xs text-muted-foreground">{grouped[letter].length} topics</span>
+              <div className="flex-1 h-px bg-border" />
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {grouped[letter].map((topic) => (
+                <Link
+                  key={topic}
+                  href={`/related-words/${topic}`}
+                  className="group inline-flex items-center gap-1 px-3 py-1.5 rounded-full border bg-background hover:bg-accent hover:text-accent-foreground hover:border-accent transition-all text-sm"
+                >
+                  {topic}
+                  <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        ))}
+      </section>
+
+      {/* Related tools */}
+      <section className="max-w-5xl mx-auto px-4 pb-10">
+        <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-3">Related tools</h2>
+        <div className="flex flex-wrap gap-3">
+          {RELATED_TOOLS.map((tool) => (
+            <Link
+              key={tool.href}
+              href={tool.href}
+              className="flex flex-col px-4 py-3 border rounded-2xl bg-muted/10 hover:bg-accent hover:text-accent-foreground transition-colors min-w-[120px]"
+            >
+              <span className="text-sm font-medium">{tool.label}</span>
+              <span className="text-xs text-muted-foreground">{tool.desc}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="max-w-3xl mx-auto px-4 pb-12">
+        <h2 className="text-xl font-bold mb-6">Frequently asked questions</h2>
+        <div className="space-y-4">
+          {FAQ_ITEMS.map((item) => (
+            <details
+              key={item.question}
+              className="group border rounded-2xl bg-muted/10 overflow-hidden"
+            >
+              <summary className="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer font-medium text-sm list-none select-none hover:bg-muted/30 transition-colors">
+                {item.question}
+                <ArrowRight className="w-4 h-4 shrink-0 text-muted-foreground rotate-90 group-open:rotate-270 transition-transform" />
+              </summary>
+              <p className="px-5 pb-4 text-sm text-muted-foreground leading-relaxed">
+                {item.answer}
+              </p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      {/* Bottom search CTA */}
+      <section className="max-w-5xl mx-auto px-4 pb-12">
+        <div className="p-6 md:p-8 bg-linear-to-br from-primary/5 to-primary/10 rounded-2xl border text-center">
+          <h2 className="text-xl font-bold mb-2">Search any topic</h2>
+          <p className="text-muted-foreground text-sm mb-5">
+            Any English word or concept works — type it to get your full word palette.
+          </p>
+          <TopicsSearch />
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  )
+}

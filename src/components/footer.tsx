@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Globe } from 'lucide-react'
 
 export function Footer() {
   return (
@@ -41,13 +40,25 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Features */}
+          {/* Word Tools */}
           <div>
-            <h4 className="font-semibold mb-4 text-foreground">Features</h4>
+            <h4 className="font-semibold mb-4 text-foreground">Word Tools</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li className="flex items-center gap-2"><Globe className="w-3 h-3 text-primary" /> Text Translation</li>
-              <li className="flex items-center gap-2"><Globe className="w-3 h-3 text-primary" /> 248+ Languages</li>
-              <li className="flex items-center gap-2"><Globe className="w-3 h-3 text-primary" /> AI Powered</li>
+              <li><Link href="/synonyms" className="hover:text-primary transition-colors">Synonyms</Link></li>
+              <li><Link href="/antonyms" className="hover:text-primary transition-colors">Antonyms</Link></li>
+              <li><Link href="/rhymes" className="hover:text-primary transition-colors">Rhymes</Link></li>
+              <li><Link href="/adjectives-for" className="hover:text-primary transition-colors">Adjectives For</Link></li>
+              <li><Link href="/nouns-for" className="hover:text-primary transition-colors">Nouns For</Link></li>
+              <li><Link href="/homophones" className="hover:text-primary transition-colors">Homophones</Link></li>
+              <li><Link href="/types-of" className="hover:text-primary transition-colors">Types Of</Link></li>
+              <li><Link href="/parts-of" className="hover:text-primary transition-colors">Parts Of</Link></li>
+              <li><Link href="/related-words" className="hover:text-primary transition-colors">Related Words</Link></li>
+              <li><Link href="/collocations" className="hover:text-primary transition-colors">Collocations</Link></li>
+              <li><Link href="/dictionary" className="hover:text-primary transition-colors">Dictionary</Link></li>
+              <li><Link href="/scrabble-word-finder" className="hover:text-primary transition-colors">Scrabble Finder</Link></li>
+              <li><Link href="/sounds-like" className="hover:text-primary transition-colors">Sounds Like</Link></li>
+              <li><Link href="/word-frequency" className="hover:text-primary transition-colors">Word Frequency</Link></li>
+              <li><Link href="/fill-in-the-blank" className="hover:text-primary transition-colors">Fill in the Blank</Link></li>
             </ul>
           </div>
 

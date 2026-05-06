@@ -86,9 +86,9 @@ export default function CollocationsPage() {
         <div className="mb-4">
           <p className="text-xs text-muted-foreground uppercase tracking-wide text-center mb-3">Popular searches</p>
           <div className="flex flex-wrap justify-center gap-2">
-            {FEATURED.map((word) => (
+            {FEATURED.map((word, i) => (
               <Link
-                key={word}
+                key={`${i}-${word}`}
                 href={`/collocations/${word}`}
                 className="px-4 py-2 rounded-full border bg-muted hover:bg-accent hover:text-accent-foreground transition-colors text-sm font-medium"
               >
@@ -129,9 +129,9 @@ export default function CollocationsPage() {
               <div className="flex-1 h-px bg-border" />
             </div>
             <div className="flex flex-wrap gap-2">
-              {grouped[letter].map((word) => (
+              {grouped[letter].map((word, i) => (
                 <Link
-                  key={word}
+                  key={`${i}-${word}`}
                   href={`/collocations/${word}`}
                   className="group inline-flex items-center gap-1 px-3 py-1.5 rounded-full border bg-background hover:bg-accent hover:text-accent-foreground hover:border-accent transition-all text-sm"
                 >

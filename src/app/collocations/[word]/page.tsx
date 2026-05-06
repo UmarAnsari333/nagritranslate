@@ -77,14 +77,16 @@ export default async function CollocationWordPage({ params }: PageProps) {
   ])
 
   // Remove associated words already shown in precede/follow
-  const shownSet = new Set([...precede, ...follow].map((w) => w.word))
+  const shownSet = new Set([...precede, ...follow].map((w, i) => w.word))
   const uniqueAssociated = associated.filter((w) => !shownSet.has(w.word) && w.word !== decoded)
 
   const wordIndex = ANTONYM_WORDS.indexOf(decoded)
-  const nearby = [
-    ...ANTONYM_WORDS.slice(Math.max(0, wordIndex - 4), wordIndex),
-    ...ANTONYM_WORDS.slice(wordIndex + 1, wordIndex + 5),
-  ].filter(Boolean)
+  const nearby = wordIndex >= 0
+    ? [
+        ...ANTONYM_WORDS.slice(Math.max(0, wordIndex - 4), wordIndex),
+        ...ANTONYM_WORDS.slice(wordIndex + 1, wordIndex + 5),
+      ]
+    : ANTONYM_WORDS.slice(0, 8)
 
   const hasContent = precede.length > 0 || follow.length > 0
 
@@ -141,7 +143,7 @@ export default async function CollocationWordPage({ params }: PageProps) {
             <p className="text-sm text-muted-foreground mb-3">Words that naturally come <strong>before</strong> &ldquo;{decoded}&rdquo;</p>
             <div className="p-4 bg-blue-50 dark:bg-blue-950/30 rounded-2xl border border-blue-100 dark:border-blue-900">
               <div className="flex flex-wrap gap-2">
-                {precede.map((w) => (
+                {precede.map((w, i) => (
                   <Link
                     key={w.word}
                     href={`/collocations/${w.word}`}
@@ -165,7 +167,7 @@ export default async function CollocationWordPage({ params }: PageProps) {
             <p className="text-sm text-muted-foreground mb-3">Words that naturally come <strong>after</strong> &ldquo;{decoded}&rdquo;</p>
             <div className="p-4 bg-green-50 dark:bg-green-950/30 rounded-2xl border border-green-100 dark:border-green-900">
               <div className="flex flex-wrap gap-2">
-                {follow.map((w) => (
+                {follow.map((w, i) => (
                   <Link
                     key={w.word}
                     href={`/collocations/${w.word}`}
@@ -194,7 +196,7 @@ export default async function CollocationWordPage({ params }: PageProps) {
             <p className="text-sm text-muted-foreground mb-3">Words strongly connected to &ldquo;{decoded}&rdquo;</p>
             <div className="p-4 bg-muted/20 rounded-2xl border">
               <div className="flex flex-wrap gap-2">
-                {uniqueAssociated.map((w) => (
+                {uniqueAssociated.map((w, i) => (
                   <Link
                     key={w.word}
                     href={`/collocations/${w.word}`}
@@ -256,9 +258,9 @@ export default async function CollocationWordPage({ params }: PageProps) {
           <section className="mb-8">
             <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-3">Explore more words</h2>
             <div className="flex flex-wrap gap-2">
-              {nearby.map((w) => (
+              {nearby.map((w, i) => (
                 <Link
-                  key={w}
+                  key={`${i}-${w}`}
                   href={`/collocations/${w}`}
                   className="inline-flex items-center gap-1 text-sm px-3 py-1.5 rounded-full border bg-muted hover:bg-accent hover:text-accent-foreground transition-colors"
                 >
