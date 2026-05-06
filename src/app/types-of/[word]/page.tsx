@@ -80,6 +80,11 @@ export default async function TypesOfWordPage({ params }: PageProps) {
     fetchWords('rel_gen', decoded, 20),  // more general (is a type of)
   ])
 
+  // rel_spc doesn't support multi-word phrases — fall back to ml (means like)
+  const related = hyponyms.length === 0
+    ? await fetchWords('ml', decoded, 40)
+    : []
+
   const wordIndex = HYPONYM_WORDS.indexOf(decoded)
   const nearby = wordIndex >= 0
     ? [
@@ -128,6 +133,8 @@ export default async function TypesOfWordPage({ params }: PageProps) {
           <p className="text-muted-foreground">
             {hyponyms.length > 0
               ? `${hyponyms.length} specific kind${hyponyms.length !== 1 ? 's' : ''} of ${decoded}`
+              : related.length > 0
+              ? `${related.length} related type${related.length !== 1 ? 's' : ''} of ${decoded}`
               : `No specific types found for "${decoded}".`}
           </p>
         </div>
@@ -170,6 +177,30 @@ export default async function TypesOfWordPage({ params }: PageProps) {
                     <Link
                       key={w.word}
                       href={`/types-of/${w.word}`}
+                      className="group inline-flex items-baseline gap-1 text-sm px-3 py-1.5 rounded-full border bg-background hover:bg-accent hover:text-accent-foreground transition-colors font-medium"
+                    >
+                      {w.word}
+                      {pos && <span className="text-[10px] text-muted-foreground group-hover:text-inherit">{pos}</span>}
+                    </Link>
+                  )
+                })}
+              </div>
+            </div>
+          </section>
+        ) : related.length > 0 ? (
+          <section className="mb-8">
+            <h2 className="text-lg font-bold mb-4">
+              Related types of &ldquo;{decoded}&rdquo;{' '}
+              <span className="text-sm text-muted-foreground font-normal">(semantically related)</span>
+            </h2>
+            <div className="p-4 bg-emerald-50 dark:bg-emerald-950/30 rounded-2xl border border-emerald-100 dark:border-emerald-900">
+              <div className="flex flex-wrap gap-2">
+                {related.map((w) => {
+                  const pos = posLabel(w.tags)
+                  return (
+                    <Link
+                      key={w.word}
+                      href={`/types-of/${encodeURIComponent(w.word)}`}
                       className="group inline-flex items-baseline gap-1 text-sm px-3 py-1.5 rounded-full border bg-background hover:bg-accent hover:text-accent-foreground transition-colors font-medium"
                     >
                       {w.word}
