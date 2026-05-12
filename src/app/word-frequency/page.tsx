@@ -117,16 +117,6 @@ const FAQ_ITEMS = [
   },
 ]
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: FAQ_ITEMS.map((item) => ({
-    '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: { '@type': 'Answer', text: item.answer },
-  })),
-}
-
 const grouped = FREQUENCY_WORDS.reduce<Record<string, string[]>>((acc, word) => {
   const letter = word[0].toUpperCase()
   if (!acc[letter]) acc[letter] = []
@@ -144,10 +134,6 @@ const FEATURED = [
 export default function WordFrequencyPage() {
   return (
     <div className="min-h-screen bg-background">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
       <BreadcrumbSchema
         items={[
           { name: 'Home', path: '/' },

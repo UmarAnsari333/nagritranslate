@@ -232,19 +232,6 @@ export const faqSchemaItems = [
   },
 ]
 
-export const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  '@id': `${siteConfig.url}/#faqpage`,
-  mainEntity: faqSchemaItems.map((item) => ({
-    '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: item.answer,
-    },
-  })),
-}
 
 // =====================================================
 // HOW-TO SCHEMA - For Translation Process
@@ -617,7 +604,6 @@ export function getAllSchemas() {
   return [
     organizationSchema,
     webApplicationSchema,
-    faqSchema,
     howToSchema,
     speakableSchema,
     softwareAppSchema,
@@ -632,13 +618,13 @@ export function getPageSchemas(pageType: 'home' | 'translation' | 'about' | 'con
   
   switch (pageType) {
     case 'home':
-      schemas.push(faqSchema, howToSchema, speakableSchema)
+      schemas.push(howToSchema, speakableSchema)
       break
     case 'translation':
       if (sourceLang && targetLang) {
         schemas.push(createServiceSchema(sourceLang, targetLang))
       }
-      schemas.push(faqSchema)
+
       break
     case 'about':
       schemas.push(aboutPageSchema)
@@ -647,7 +633,7 @@ export function getPageSchemas(pageType: 'home' | 'translation' | 'about' | 'con
       schemas.push(contactPageSchema)
       break
     case 'languages':
-      schemas.push(faqSchema)
+
       break
   }
   

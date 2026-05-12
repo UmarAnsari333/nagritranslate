@@ -5,11 +5,10 @@ import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/theme-provider";
 import { WebMCPProvider } from "@/components/webmcp-provider";
 import { siteConfig } from "@/lib/seo";
-import { 
-  organizationSchema, 
-  webApplicationSchema, 
-  faqSchema, 
-  howToSchema, 
+import {
+  organizationSchema,
+  webApplicationSchema,
+  howToSchema,
   speakableSchema,
   softwareAppSchema,
   comparisonSchema,
@@ -138,10 +137,6 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
         <script
           type="application/ld+json"

@@ -144,23 +144,9 @@ const grouped = PARTS_WORDS.reduce<Record<string, string[]>>((acc, word) => {
 }, {})
 const letters = Object.keys(grouped).sort()
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: FAQ_ITEMS.map((item) => ({
-    '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: { '@type': 'Answer', text: item.answer },
-  })),
-}
-
 export default function PartsOfPage() {
   return (
     <div className="min-h-screen bg-background">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
       <BreadcrumbSchema items={[
         { name: 'Home', path: '/' },
         { name: 'Parts Of', path: '/parts-of' },

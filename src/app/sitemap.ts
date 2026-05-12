@@ -3,6 +3,7 @@ import { phrasesIndex } from "@/lib/phrases-data";
 import { learnIndex } from "@/lib/learn-data";
 import { vocabularyIndex } from "@/lib/vocabulary-data";
 import { languagePillarIndex } from "@/lib/language-pillar-data";
+import { BIGRAM_WORDS_UNIQUE } from "@/lib/bigram-words";
 
 const BUILD_DATE = new Date("2026-04-02");
 const BASE_URL = "https://nagritranslate.com";
@@ -548,6 +549,45 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.88,
     },
+
+    // ── Word tools — newer pages
+    {
+      url: `${BASE_URL}/vocabulary-grader`,
+      lastModified: BUILD_DATE,
+      changeFrequency: "weekly" as const,
+      priority: 0.92,
+    },
+    {
+      url: `${BASE_URL}/find-the-word`,
+      lastModified: BUILD_DATE,
+      changeFrequency: "weekly" as const,
+      priority: 0.92,
+    },
+    {
+      url: `${BASE_URL}/bigram-explorer`,
+      lastModified: BUILD_DATE,
+      changeFrequency: "weekly" as const,
+      priority: 0.92,
+    },
+    {
+      url: `${BASE_URL}/word-unscrambler`,
+      lastModified: BUILD_DATE,
+      changeFrequency: "weekly" as const,
+      priority: 0.93,
+    },
+    {
+      url: `${BASE_URL}/word-cloud`,
+      lastModified: BUILD_DATE,
+      changeFrequency: "weekly" as const,
+      priority: 0.92,
+    },
+    // Bigram word pages
+    ...BIGRAM_WORDS_UNIQUE.map((word) => ({
+      url: `${BASE_URL}/bigram-explorer/${encodeURIComponent(word)}`,
+      lastModified: BUILD_DATE,
+      changeFrequency: "weekly" as const,
+      priority: 0.82,
+    })),
 
     // ── Educational content
     ...phrasesIndex.map((lang) => ({

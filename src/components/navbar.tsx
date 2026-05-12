@@ -27,6 +27,10 @@ import {
   PenLine,
   Ear,
   BarChart2,
+  FileText,
+  Wand2,
+  Shuffle,
+  Cloud,
 } from 'lucide-react'
 import { ThemeToggle } from '@/components/theme-toggle'
 
@@ -55,6 +59,11 @@ const WORD_TOOLS = [
   { href: '/sounds-like',          label: 'Sounds Like',    icon: Ear,      desc: 'Find words by sound'     },
   { href: '/word-frequency',       label: 'Word Frequency',    icon: BarChart2, desc: 'Common vs rare words'    },
   { href: '/fill-in-the-blank',   label: 'Fill in the Blank', icon: Puzzle,    desc: 'Find words that fit'     },
+  { href: '/vocabulary-grader',   label: 'Vocabulary Grader', icon: FileText,  desc: 'Grade text by word rarity'},
+  { href: '/find-the-word',       label: 'Find the Word',     icon: Wand2,     desc: 'Describe it, we\'ll name it' },
+  { href: '/bigram-explorer',     label: 'Bigram Explorer',   icon: BarChart2, desc: 'Words before & after any word' },
+  { href: '/word-unscrambler',   label: 'Word Unscrambler',  icon: Shuffle,   desc: 'Find words from scrambled letters' },
+  { href: '/word-cloud',         label: 'Word Cloud',        icon: Cloud,     desc: 'Visualize text as a word cloud' },
 ]
 
 export function Navbar({ showHistoryButton = false, historyCount = 0, onHistoryClick, showFavoritesButton = false, favoritesCount = 0, onFavoritesClick }: NavbarProps) {

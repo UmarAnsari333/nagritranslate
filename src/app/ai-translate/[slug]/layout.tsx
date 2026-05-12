@@ -154,78 +154,6 @@ export default async function Layout({
     ],
   }
 
-  // FAQPage — eligible for rich results (accordion in Google Search = higher CTR)
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: `Is ${source} to ${target} translation free?`,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: `Yes! Our ${source} to ${target} translator is completely free with no registration required. You can translate unlimited text from ${source} to ${target} at no cost.`,
-        },
-      },
-      {
-        '@type': 'Question',
-        name: `How accurate is the AI ${source} to ${target} translation?`,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: `Our AI delivers high accuracy for everyday ${source} to ${target} translation including conversations, emails, articles, and web content. For specialised domains like legal contracts or medical reports, we recommend professional review after translation.`,
-        },
-      },
-      {
-        '@type': 'Question',
-        name: `Can I translate ${source} documents to ${target}?`,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: `Yes. Click the Upload button in the translator to upload a DOCX or TXT file. The text is extracted and automatically translated from ${source} to ${target}. PDF support is coming soon.`,
-        },
-      },
-      {
-        '@type': 'Question',
-        name: `What is the text limit for ${source} to ${target} translation?`,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: `You can translate up to 5,000 characters at once from ${source} to ${target}. For longer content, split the text into sections or use the document upload feature.`,
-        },
-      },
-      {
-        '@type': 'Question',
-        name: `Can I speak ${source} and get the ${target} translation?`,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: `Yes! Click the microphone button to use voice input. Speak in ${source} and the tool will transcribe your speech and translate it to ${target} in real time. Voice input works best in Chrome or Edge browsers.`,
-        },
-      },
-      {
-        '@type': 'Question',
-        name: `Can I hear the ${target} translation spoken aloud?`,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: `Yes. Click the speaker icon next to the ${target} output to listen to a text-to-speech reading of the translation. This helps with learning correct ${target} pronunciation.`,
-        },
-      },
-      {
-        '@type': 'Question',
-        name: `Is my ${source} to ${target} translation data private?`,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: `Your privacy is protected. Translations are processed securely and not stored on our servers. Translation history is saved only in your browser's local storage and never shared.`,
-        },
-      },
-      {
-        '@type': 'Question',
-        name: `Can I swap and translate ${target} back to ${source}?`,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: `Yes, click the swap button (⇄) between the language selectors to instantly reverse the direction — translating from ${target} back to ${source}. You can also manually change to any of the 248+ supported languages.`,
-        },
-      },
-    ],
-  }
-
   // WebApplication — helps Google understand the tool's purpose
   const webAppSchema = {
     '@context': 'https://schema.org',
@@ -266,10 +194,6 @@ export default async function Layout({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <script
         type="application/ld+json"

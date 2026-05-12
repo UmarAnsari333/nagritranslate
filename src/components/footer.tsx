@@ -47,18 +47,9 @@ export function Footer() {
               <li><Link href="/synonyms" className="hover:text-primary transition-colors">Synonyms</Link></li>
               <li><Link href="/antonyms" className="hover:text-primary transition-colors">Antonyms</Link></li>
               <li><Link href="/rhymes" className="hover:text-primary transition-colors">Rhymes</Link></li>
-              <li><Link href="/adjectives-for" className="hover:text-primary transition-colors">Adjectives For</Link></li>
-              <li><Link href="/nouns-for" className="hover:text-primary transition-colors">Nouns For</Link></li>
-              <li><Link href="/homophones" className="hover:text-primary transition-colors">Homophones</Link></li>
-              <li><Link href="/types-of" className="hover:text-primary transition-colors">Types Of</Link></li>
-              <li><Link href="/parts-of" className="hover:text-primary transition-colors">Parts Of</Link></li>
-              <li><Link href="/related-words" className="hover:text-primary transition-colors">Related Words</Link></li>
-              <li><Link href="/collocations" className="hover:text-primary transition-colors">Collocations</Link></li>
               <li><Link href="/dictionary" className="hover:text-primary transition-colors">Dictionary</Link></li>
-              <li><Link href="/scrabble-word-finder" className="hover:text-primary transition-colors">Scrabble Finder</Link></li>
-              <li><Link href="/sounds-like" className="hover:text-primary transition-colors">Sounds Like</Link></li>
               <li><Link href="/word-frequency" className="hover:text-primary transition-colors">Word Frequency</Link></li>
-              <li><Link href="/fill-in-the-blank" className="hover:text-primary transition-colors">Fill in the Blank</Link></li>
+              <li><Link href="/vocabulary-grader" className="hover:text-primary transition-colors">Vocabulary Grader</Link></li>
             </ul>
           </div>
 

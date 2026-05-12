@@ -114,25 +114,8 @@ export default function LanguagePillarPage({ params }: PageProps) {
     ...languagePillarIndex.filter((l) => l.slug !== data.slug && l.family === data.family && l.branch !== data.branch),
   ].slice(0, 4)
 
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqs.map((faq) => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.answer,
-      },
-    })),
-  }
-
   return (
     <div className="min-h-screen bg-background">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
       <BreadcrumbSchema items={[
         { name: 'Home', path: '/' },
         { name: 'Language Guides', path: '/language' },
